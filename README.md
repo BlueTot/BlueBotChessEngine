@@ -1,2 +1,10 @@
 # BlueBotChessEngine
-A chess bot that beat Komodo 12 (1600 elo) and plays with at least 1090 elo vs humans on chess.com when playing 15|10 Rapid
+A python chess bot that started out of a tutorial
+Playing on chess.com as BlueBotChessTest2
+Latest version: v0.20
+
+Main features:
+- Depth 4 alpha-beta negamax search
+- Full quiescence search
+- Simple material evaluation function
+- Simple move ordering based on evaluation function
