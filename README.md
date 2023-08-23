@@ -3,7 +3,7 @@ A python chess bot that started out of a tutorial
 
 Currently playing on chess.com as:
 - BlueBotChessTest2 : 1211 rating on 15 | 10 rapid
-- BlueBotChessTest3 : 1313 rating on 10 min rapid
+- BlueBotChessTest3 : 1440 rating on 10 min rapid
 
 Latest version: v0.22
 
