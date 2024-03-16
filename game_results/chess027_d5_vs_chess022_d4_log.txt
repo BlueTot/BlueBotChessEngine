@@ -1,0 +1,5980 @@
+C:\Users\nhlo\PycharmProjects\chess_game\venv\Scripts\python.exe C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py
+pygame 2.3.0 (SDL 2.24.2, Python 3.10.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+d4
+rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1
+d5
+rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2
+c4
+rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2
+c6
+rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3
+Nc3
+rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3
+e6
+rnbqkbnr/pp3ppp/2p1p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4
+e4
+rnbqkbnr/pp3ppp/2p1p3/3p4/2PPP3/2N5/PP3PPP/R1BQKBNR b KQkq - 0 4
+dxe4
+rnbqkbnr/pp3ppp/2p1p3/8/2PPp3/2N5/PP3PPP/R1BQKBNR w KQkq - 0 5
+Nxe4
+rnbqkbnr/pp3ppp/2p1p3/8/2PPN3/8/PP3PPP/R1BQKBNR b KQkq - 0 5
+Bb4+
+rnbqk1nr/pp3ppp/2p1p3/8/1bPPN3/8/PP3PPP/R1BQKBNR w KQkq - 1 6
+Bd2
+rnbqk1nr/pp3ppp/2p1p3/8/1bPPN3/8/PP1B1PPP/R2QKBNR b KQkq - 2 6
+Qxd4
+rnb1k1nr/pp3ppp/2p1p3/8/1bPqN3/8/PP1B1PPP/R2QKBNR w KQkq - 0 7
+Bxb4
+rnb1k1nr/pp3ppp/2p1p3/8/1BPqN3/8/PP3PPP/R2QKBNR b KQkq - 0 7
+Qxe4+
+rnb1k1nr/pp3ppp/2p1p3/8/1BP1q3/8/PP3PPP/R2QKBNR w KQkq - 0 8
+Be2
+rnb1k1nr/pp3ppp/2p1p3/8/1BP1q3/8/PP2BPPP/R2QK1NR b KQkq - 1 8
+Ne7
+rnb1k2r/pp2nppp/2p1p3/8/1BP1q3/8/PP2BPPP/R2QK1NR w KQkq - 2 9
+Qd2
+rnb1k2r/pp2nppp/2p1p3/8/1BP1q3/8/PP1QBPPP/R3K1NR b KQkq - 3 9
+Ng6
+rnb1k2r/pp3ppp/2p1p1n1/8/1BP1q3/8/PP1QBPPP/R3K1NR w KQkq - 4 10
+depth 1 complete with best move found being g1f3
+depth 2 complete with best move found being g1f3
+depth 3 complete with best move found being g1f3
+Nf3 -5.0
+O-O-O -5.0
+Bd6 -5.0
+Bc3 -5.0
+Nh3 -5.0
+Kf1 -5.0
+c5 -5.0
+Bc5 -5.0
+Qd6 -5.0
+Qd5 -5.0
+Qf4 -5.0
+Qd4 -5.0
+Qe3 -5.0
+Qd3 -5.0
+Qc3 -5.0
+Qc2 -5.0
+Rd1 -5.0
+Be7 -5.0
+Qd7+ -5.0
+Qg5 -5.0
+Kd1 -5.0
+Rc1 -5.0
+Rb1 -5.0
+h3 -5.0
+a3 -5.0
+Qd8+ -5.0
+Qd1 -5.0
+h4 -5.0
+a4 -5.0
+Bf8 -5.0
+Ba5 -5.0
+Ba3 -5.0
+Qh6 -5.0
+Qc1 -5.0
+g4 -5.0
+f4 -5.0
+g3 -5.0
+b3 -5.0
+f3 -5.0
+depth 4 complete with best move found being g1f3
+Nf3 -5.0
+O-O-O -5.0
+Bd6 -5.0
+Bc3 -5.0
+Nh3 -5.0
+Kf1 -5.0
+c5 -5.0
+Bc5 -5.0
+Qd6 -5.0
+Qd5 -5.0
+Qf4 -5.0
+Qd4 -5.0
+Qe3 -5.0
+Qd3 -5.0
+Qc3 -5.0
+Qc2 -5.0
+Rd1 -5.0
+Be7 -5.0
+Qd7+ -5.0
+Qg5 -5.0
+Kd1 -5.0
+Rc1 -5.0
+Rb1 -5.0
+h3 -5.0
+a3 -5.0
+Qd8+ -5.0
+Qd1 -5.0
+h4 -5.0
+a4 -5.0
+Bf8 -5.0
+Ba5 -5.0
+Ba3 -5.0
+Qh6 -5.0
+Qc1 -5.0
+g4 -5.0
+f4 -5.0
+g3 -5.0
+b3 -5.0
+f3 -5.0
+depth 5 complete with best move found being g1f3
+{'positions': 62450, 'time': 36.11, 'positions per second': 1729.44}
+chess v0.27 average time: 36.11
+Nf3
+rnb1k2r/pp3ppp/2p1p1n1/8/1BP1q3/5N2/PP1QBPPP/R3K2R b KQkq - 5 10
+Qxe2+ -52.5
+Qxf3 -52.5
+Qxc4 -52.5
+Nd7 4.5
+Ne5 4.5
+e5 4.5
+Nf4 5.0
+Bd7 5.0
+Na6 5.0
+c5 5.0
+Ne7 5.0
+Rg8 5.0
+Rf8 5.0
+Qf5 5.0
+Qe5 5.0
+Qd5 5.0
+Qf4 5.0
+Qd4 5.0
+Qe3 5.0
+Qd3 5.0
+h6 5.0
+a6 5.0
+Qg4 5.0
+Qc2 5.0
+h5 5.0
+a5 5.0
+Qh4 5.0
+f5 5.0
+b5 5.0
+Qb1+ 5.0
+b6 5.0
+f6 5.0
+Nf8 5.0
+Nh4 5.0
+{'positions': 13653, 'time': 7.62, 'positions per second': 1791.73}
+chess v0.22 average time: 7.62
+Nf4
+rnb1k2r/pp3ppp/2p1p3/8/1BP1qn2/5N2/PP1QBPPP/R3K2R w KQkq - 6 11
+depth 1 complete with best move found being e1f1
+depth 2 complete with best move found being g2g3
+depth 3 complete with best move found being g2g3
+g3 -5.0
+Qxf4 -5.0
+O-O -5.0
+O-O-O -5.0
+Bd6 -5.0
+Bc3 -5.0
+Ne5 -5.0
+Nd4 -5.0
+Kf1 -5.0
+c5 -5.0
+Bc5 -5.0
+Qd6 -5.0
+Qd5 -5.0
+Qd4 -5.0
+Qe3 -5.0
+Qd3 -5.0
+Qc3 -5.0
+Qc2 -5.0
+Rd1 -5.0
+Be7 -5.0
+Qd7+ -5.0
+Rg1 -5.0
+Rf1 -5.0
+Kd1 -5.0
+Rc1 -5.0
+Rb1 -5.0
+h3 -5.0
+a3 -5.0
+Ng5 -5.0
+Qd8+ -5.0
+Qd1 -5.0
+h4 -5.0
+a4 -5.0
+Bf8 -5.0
+Ba5 -5.0
+Ba3 -5.0
+Qc1 -5.0
+g4 -5.0
+b3 -5.0
+Nh4 -5.0
+Ng1 -5.0
+depth 4 complete with best move found being g2g3
+g3 -4.5
+Qxf4 -4.5
+O-O -4.5
+O-O-O -4.5
+Bd6 -4.5
+Bc3 -4.5
+Ne5 -4.5
+Nd4 -4.5
+Kf1 -4.5
+c5 -4.5
+Bc5 -4.5
+Qd6 -4.5
+Qd5 -4.5
+Qd4 -4.5
+Qe3 -4.5
+Qd3 -4.5
+Qc3 -4.5
+Qc2 -4.5
+Rd1 -4.5
+Be7 -4.5
+Qd7+ -4.5
+Rg1 -4.5
+Rf1 -4.5
+Kd1 -4.5
+Rc1 -4.5
+Rb1 -4.5
+h3 -4.5
+a3 -4.5
+Ng5 -4.5
+Qd8+ -4.5
+Qd1 -4.5
+h4 -4.5
+a4 -4.5
+Bf8 -4.5
+Ba5 -4.5
+Ba3 -4.5
+Qc1 -4.5
+g4 -4.5
+b3 -4.5
+Nh4 -4.5
+Ng1 -4.5
+depth 5 complete with best move found being g2g3
+{'positions': 44389, 'time': 30.15, 'positions per second': 1472.27}
+chess v0.27 average time: 33.129999999999995
+g3
+rnb1k2r/pp3ppp/2p1p3/8/1BP1qn2/5NP1/PP1QBP1P/R3K2R b KQkq - 0 11
+Qxe2+ 4.5
+Qxf3 4.5
+Nxe2 4.5
+Qxc4 4.5
+Nd7 4.5
+e5 4.5
+Bd7 4.5
+Na6 4.5
+c5 4.5
+Nd5 4.5
+Rg8 4.5
+Rf8 4.5
+Nd3+ 4.5
+Qg6 4.5
+Qf5 4.5
+Qe5 4.5
+Qd5 4.5
+Qd4 4.5
+Qe3 4.5
+Qd3 4.5
+h6 4.5
+a6 4.5
+Qc2 4.5
+h5 4.5
+a5 4.5
+g5 4.5
+f5 4.5
+b5 4.5
+Ng6 4.5
+Qb1+ 4.5
+g6 4.5
+b6 4.5
+f6 4.5
+Ng2+ 4.5
+Nh5 4.5
+Nh3 4.5
+{'positions': 5731, 'time': 6.8, 'positions per second': 842.79}
+chess v0.22 average time: 7.21
+Qxe2+
+rnb1k2r/pp3ppp/2p1p3/8/1BP2n2/5NP1/PP1QqP1P/R3K2R w KQkq - 0 12
+depth 1 complete with best move found being d2e2
+depth 2 complete with best move found being d2e2
+depth 3 complete with best move found being d2e2
+Qxe2 -9.0
+depth 4 complete with best move found being d2e2
+Qxe2 -8.0
+depth 5 complete with best move found being d2e2
+{'positions': 2935, 'time': 1.94, 'positions per second': 1512.89}
+chess v0.27 average time: 22.73333333333333
+Qxe2
+rnb1k2r/pp3ppp/2p1p3/8/1BP2n2/5NP1/PP2QP1P/R3K2R b KQkq - 0 12
+Nxe2 8.0
+Nd7 8.0
+e5 8.0
+Bd7 8.0
+Na6 8.0
+c5 8.0
+Nd5 8.0
+Rg8 8.0
+Rf8 8.0
+Kd8 8.0
+Kd7 8.0
+Nd3+ 8.0
+h6 8.0
+a6 8.0
+h5 8.0
+a5 8.0
+g5 8.0
+f5 8.0
+b5 8.0
+Ng6 8.0
+g6 8.0
+b6 8.0
+f6 8.0
+Ng2+ 8.0
+Nh5 8.0
+Nh3 8.0
+{'positions': 2058, 'time': 1.94, 'positions per second': 1060.82}
+chess v0.22 average time: 5.453333333333333
+Nxe2
+rnb1k2r/pp3ppp/2p1p3/8/1BP5/5NP1/PP2nP1P/R3K2R w KQkq - 0 13
+depth 1 complete with best move found being e1e2
+depth 2 complete with best move found being e1e2
+depth 3 complete with best move found being e1e2
+Kxe2 -9.0
+Bd6 -9.0
+Bc3 -9.0
+Ne5 -9.0
+Nd4 -9.0
+Kf1 -9.0
+c5 -9.0
+Bc5 -9.0
+Rd1 -9.0
+g4 -9.0
+Be7 -9.0
+Bd2 -9.0
+Rg1 -9.0
+Rf1 -9.0
+Kd2 -9.0
+Kd1 -9.0
+Rc1 -9.0
+Rb1 -9.0
+h3 -9.0
+a3 -9.0
+Ng5 -9.0
+Nd2 -9.0
+h4 -9.0
+a4 -9.0
+Bf8 -9.0
+Ba5 -9.0
+Ba3 -9.0
+b3 -9.0
+Nh4 -9.0
+Ng1 -9.0
+depth 4 complete with best move found being e1e2
+Kxe2 -8.0
+Bd6 -8.0
+Bc3 -8.0
+Ne5 -8.0
+Nd4 -8.0
+Kf1 -8.0
+c5 -8.0
+Bc5 -8.0
+Rd1 -8.0
+g4 -8.0
+Be7 -8.0
+Bd2 -8.0
+Rg1 -8.0
+Rf1 -8.0
+Kd2 -8.0
+Kd1 -8.0
+Rc1 -8.0
+Rb1 -8.0
+h3 -8.0
+a3 -8.0
+Ng5 -8.0
+Nd2 -8.0
+h4 -8.0
+a4 -8.0
+Bf8 -8.0
+Ba5 -8.0
+Ba3 -8.0
+b3 -8.0
+Nh4 -8.0
+Ng1 -8.0
+depth 5 complete with best move found being e1e2
+{'positions': 11622, 'time': 10.13, 'positions per second': 1147.29}
+chess v0.27 average time: 19.582499999999996
+Kxe2
+rnb1k2r/pp3ppp/2p1p3/8/1BP5/5NP1/PP2KP1P/R6R b kq - 0 13
+Nd7 8.0
+e5 8.0
+Bd7 8.0
+Na6 8.0
+c5 8.0
+Rg8 8.0
+Rf8 8.0
+Kd8 8.0
+Kd7 8.0
+h6 8.0
+a6 8.0
+h5 8.0
+a5 8.0
+g5 8.0
+f5 8.0
+b5 8.0
+g6 8.0
+b6 8.0
+f6 8.0
+{'positions': 3117, 'time': 1.9, 'positions per second': 1640.53}
+chess v0.22 average time: 4.5649999999999995
+Nd7
+r1b1k2r/pp1n1ppp/2p1p3/8/1BP5/5NP1/PP2KP1P/R6R w kq - 1 14
+depth 1 complete with best move found being b4d6
+depth 2 complete with best move found being b4d6
+depth 3 complete with best move found being b4d6
+Bd6 -9.5
+Bc3 -9.5
+Ne5 -9.5
+Nd4 -9.5
+Kf1 -9.5
+c5 -9.5
+Bc5 -9.5
+Rhe1 -9.5
+Rhd1 -9.5
+Rae1 -9.5
+Rad1 -9.5
+g4 -9.5
+Be7 -9.5
+Bd2 -9.5
+Kd2 -9.5
+Ke1 -9.5
+Kd1 -9.5
+Rhg1 -9.5
+Rhf1 -9.5
+Rhc1 -9.5
+Rhb1 -9.5
+Rag1 -9.5
+Raf1 -9.5
+Rac1 -9.5
+Rab1 -9.5
+h3 -9.5
+a3 -9.5
+Ng5 -9.5
+Nd2 -9.5
+h4 -9.5
+a4 -9.5
+Bf8 -9.5
+Ba5 -9.5
+Ba3 -9.5
+Be1 -9.5
+b3 -9.5
+Ke3 -9.5
+Kd3 -9.5
+Nh4 -9.5
+Ne1 -9.5
+Ng1 -9.5
+depth 4 complete with best move found being b4d6
+Bd6 -8.5
+Bc3 -8.5
+Ne5 -8.5
+Nd4 -8.5
+Kf1 -8.5
+c5 -8.5
+Bc5 -8.5
+Rhe1 -8.5
+Rhd1 -8.5
+Rae1 -8.5
+Rad1 -8.5
+g4 -8.5
+Be7 -8.5
+Bd2 -8.5
+Kd2 -8.5
+Ke1 -8.5
+Kd1 -8.5
+Rhg1 -8.5
+Rhf1 -8.5
+Rhc1 -8.5
+Rhb1 -8.5
+Rag1 -8.5
+Raf1 -8.5
+Rac1 -8.5
+Rab1 -8.5
+h3 -8.5
+a3 -8.5
+Ng5 -8.5
+Nd2 -8.5
+h4 -8.5
+a4 -8.5
+Bf8 -8.5
+Ba5 -8.5
+Ba3 -8.5
+Be1 -8.5
+b3 -8.5
+Ke3 -8.5
+Kd3 -8.5
+Nh4 -8.5
+Ne1 -8.5
+Ng1 -8.5
+depth 5 complete with best move found being b4d6
+{'positions': 44721, 'time': 20.95, 'positions per second': 2134.65}
+chess v0.27 average time: 19.855999999999998
+Bd6
+r1b1k2r/pp1n1ppp/2pBp3/8/2P5/5NP1/PP2KP1P/R6R b kq - 2 14
+e5 -1.5
+Ne5 -1.5
+Nc5 -1.5
+c5 6.5
+Nf6 7.5
+Rg8 7.5
+Rf8 7.5
+Kd8 7.5
+Rb8 7.5
+h6 7.5
+a6 7.5
+Nb6 7.5
+h5 7.5
+a5 7.5
+g5 7.5
+f5 7.5
+b5 7.5
+g6 7.5
+b6 8.5
+f6 8.5
+Nf8 8.5
+Nb8 8.5
+{'positions': 14303, 'time': 6.81, 'positions per second': 2100.29}
+chess v0.22 average time: 5.013999999999999
+b6
+r1b1k2r/p2n1ppp/1ppBp3/8/2P5/5NP1/PP2KP1P/R6R w kq - 0 15
+depth 1 complete with best move found being f3d4
+depth 2 complete with best move found being d6e5
+depth 3 complete with best move found being e2f1
+Kf1 -10.5
+Ne5 -10.5
+Nd4 -10.5
+c5 -10.5
+Rhe1 -10.5
+Rhd1 -10.5
+Rae1 -10.5
+Rad1 -10.5
+g4 -10.5
+Be5 -10.5
+Bf4 -10.5
+Kd2 -10.5
+Ke1 -10.5
+Kd1 -10.5
+Rhg1 -10.5
+Rhf1 -10.5
+Rhc1 -10.5
+Rhb1 -10.5
+Rag1 -10.5
+Raf1 -10.5
+Rac1 -10.5
+Rab1 -10.5
+h3 -10.5
+a3 -10.5
+Bc5 -10.5
+Ng5 -10.5
+Nd2 -10.5
+h4 -10.5
+a4 -10.5
+Be7 -10.5
+Bc7 -10.5
+Bb4 -10.5
+b4 -10.5
+b3 -10.5
+Bf8 -10.5
+Bb8 -10.5
+Ba3 -10.5
+Ke3 -10.5
+Kd3 -10.5
+Nh4 -10.5
+Ne1 -10.5
+Ng1 -10.5
+depth 4 complete with best move found being e2f1
+Kf1 -10.0
+Ne5 -10.0
+Nd4 -10.0
+c5 -10.0
+Rhe1 -10.0
+Rhd1 -10.0
+Rae1 -10.0
+Rad1 -10.0
+g4 -10.0
+Be5 -10.0
+Bf4 -10.0
+Kd2 -10.0
+Ke1 -10.0
+Kd1 -10.0
+Rhg1 -10.0
+Rhf1 -10.0
+Rhc1 -10.0
+Rhb1 -10.0
+Rag1 -10.0
+Raf1 -10.0
+Rac1 -10.0
+Rab1 -10.0
+h3 -10.0
+a3 -10.0
+Bc5 -10.0
+Ng5 -10.0
+Nd2 -10.0
+h4 -10.0
+a4 -10.0
+Be7 -10.0
+Bc7 -10.0
+Bb4 -10.0
+b4 -10.0
+b3 -10.0
+Bf8 -10.0
+Bb8 -10.0
+Ba3 -10.0
+Ke3 -10.0
+Kd3 -10.0
+Nh4 -10.0
+Ne1 -10.0
+Ng1 -10.0
+depth 5 complete with best move found being e2f1
+{'positions': 84343, 'time': 24.46, 'positions per second': 3448.2}
+chess v0.27 average time: 20.62333333333333
+Kf1
+r1b1k2r/p2n1ppp/1ppBp3/8/2P5/5NP1/PP3P1P/R4K1R b kq - 1 15
+Bb7 10.0
+e5 10.0
+Ne5 10.0
+Nc5 10.0
+c5 10.0
+Nf6 10.0
+b5 10.0
+Rg8 10.0
+Rf8 10.0
+Kd8 10.0
+Ba6 10.0
+Rb8 10.0
+h6 10.0
+a6 10.0
+h5 10.0
+a5 10.0
+g5 10.0
+f5 10.0
+g6 10.0
+f6 10.0
+Nf8 10.0
+Nb8 10.0
+{'positions': 4127, 'time': 1.85, 'positions per second': 2230.81}
+chess v0.22 average time: 4.486666666666666
+Bb7
+r3k2r/pb1n1ppp/1ppBp3/8/2P5/5NP1/PP3P1P/R4K1R w kq - 2 16
+depth 1 complete with best move found being f1g1
+depth 2 complete with best move found being f1g1
+depth 3 complete with best move found being f1g2
+Kg2 -11.5
+Kg1 -11.5
+Ne5 -11.5
+Nd4 -11.5
+c5 -11.5
+Re1 -11.5
+Rd1 -11.5
+g4 -11.5
+Be5 -11.5
+Bf4 -11.5
+Rg1 -11.5
+Rc1 -11.5
+Rb1 -11.5
+h3 -11.5
+a3 -11.5
+Bc5 -11.5
+Ng5 -11.5
+Nd2 -11.5
+h4 -11.5
+a4 -11.5
+Be7 -11.5
+Bc7 -11.5
+Bb4 -11.5
+Ke2 -11.5
+Ke1 -11.5
+b4 -11.5
+b3 -11.5
+Bf8 -11.5
+Bb8 -11.5
+Ba3 -11.5
+Nh4 -11.5
+Ne1 -11.5
+Ng1 -11.5
+depth 4 complete with best move found being f1g2
+Kg2 -11.0
+Kg1 -11.0
+Ne5 -11.0
+Nd4 -11.0
+c5 -11.0
+Re1 -11.0
+Rd1 -11.0
+g4 -11.0
+Be5 -11.0
+Bf4 -11.0
+Rg1 -11.0
+Rc1 -11.0
+Rb1 -11.0
+h3 -11.0
+a3 -11.0
+Bc5 -11.0
+Ng5 -11.0
+Nd2 -11.0
+h4 -11.0
+a4 -11.0
+Be7 -11.0
+Bc7 -11.0
+Bb4 -11.0
+Ke2 -11.0
+Ke1 -11.0
+b4 -11.0
+b3 -11.0
+Bf8 -11.0
+Bb8 -11.0
+Ba3 -11.0
+Nh4 -11.0
+Ne1 -11.0
+Ng1 -11.0
+depth 5 complete with best move found being f1g2
+{'positions': 76263, 'time': 24.69, 'positions per second': 3088.82}
+chess v0.27 average time: 21.20428571428571
+Kg2
+r3k2r/pb1n1ppp/1ppBp3/8/2P5/5NP1/PP3PKP/R6R b kq - 3 16
+e5 0.5
+Ne5 0.5
+O-O-O 11.0
+Nc5 11.0
+c5 11.0
+Rd8 11.0
+Nf6 11.0
+b5 11.0
+Rg8 11.0
+Rf8 11.0
+Kd8 11.0
+Rc8 11.0
+Rb8 11.0
+h6 11.0
+a6 11.0
+h5 11.0
+a5 11.0
+g5 11.0
+f5 11.0
+g6 11.0
+f6 11.0
+Nf8 11.0
+Nb8 11.0
+Bc8 11.0
+Ba6 11.0
+{'positions': 6694, 'time': 3.13, 'positions per second': 2138.66}
+chess v0.22 average time: 4.292857142857143
+O-O-O
+2kr3r/pb1n1ppp/1ppBp3/8/2P5/5NP1/PP3PKP/R6R w - - 4 17
+depth 1 complete with best move found being f3d4
+depth 2 complete with best move found being g2g1
+depth 3 complete with best move found being h1e1
+Rhe1 -11.5
+Ne5 -11.5
+Nd4 -11.5
+Kg1 -11.5
+c5 -11.5
+Rhd1 -11.5
+Rae1 -11.5
+Rad1 -11.5
+g4 -11.5
+Be5 -11.5
+Bf4 -11.5
+Rhg1 -11.5
+Rhf1 -11.5
+Rhc1 -11.5
+Rhb1 -11.5
+Rag1 -11.5
+Raf1 -11.5
+Rac1 -11.5
+Rab1 -11.5
+h3 -11.5
+a3 -11.5
+Bc5 -11.5
+Ng5 -6.0
+Nd2 -6.0
+h4 -6.0
+a4 -6.0
+Be7 -6.0
+Bc7 -6.0
+Bb4 -6.0
+Kf1 -6.0
+b4 -6.0
+b3 -6.0
+Bf8 -6.0
+Bb8 -6.0
+Ba3 -6.0
+Kh3 -6.0
+Nh4 -6.0
+Ne1 -6.0
+Ng1 -6.0
+depth 4 complete with best move found being f3g5
+Ng5 -6.0
+Ne5 -6.0
+Nd4 -6.0
+Kg1 -6.0
+c5 -6.0
+Rhe1 -6.0
+Rhd1 -6.0
+Rae1 -6.0
+Rad1 -6.0
+g4 -6.0
+Be5 -6.0
+Bf4 -6.0
+Rhg1 -6.0
+Rhf1 -6.0
+Rhc1 -6.0
+Rhb1 -6.0
+Rag1 -6.0
+Raf1 -6.0
+Rac1 -6.0
+Rab1 -6.0
+h3 -6.0
+a3 -6.0
+Bc5 -6.0
+Nd2 -6.0
+h4 -6.0
+a4 -6.0
+Be7 -6.0
+Bc7 -6.0
+Bb4 -6.0
+Kf1 -6.0
+b4 -6.0
+b3 -6.0
+Bf8 -6.0
+Bb8 -6.0
+Ba3 -6.0
+Kh3 -6.0
+Nh4 -6.0
+Ne1 -6.0
+Ng1 -6.0
+depth 5 complete with best move found being f3g5
+{'positions': 53448, 'time': 22.19, 'positions per second': 2408.65}
+chess v0.27 average time: 21.327499999999997
+Ng5
+2kr3r/pb1n1ppp/1ppBp3/6N1/2P5/6P1/PP3PKP/R6R b - - 5 17
+e5 3.0
+Ne5 3.0
+Nc5 3.0
+c5+ 6.0
+Rhe8 6.0
+Nf6 6.0
+b5 6.0
+Rhg8 6.0
+Rhf8 6.0
+Rde8 6.0
+h6 6.0
+a6 6.0
+Rdg8 6.0
+Rdf8 6.0
+h5 6.0
+a5 6.0
+f5 6.0
+g6 6.0
+f6 6.0
+Nf8 6.0
+Nb8 6.0
+Ba6 6.0
+Ba8 6.0
+{'positions': 8089, 'time': 4.29, 'positions per second': 1885.55}
+chess v0.22 average time: 4.2924999999999995
+c5+
+2kr3r/pb1n1ppp/1p1Bp3/2p3N1/2P5/6P1/PP3PKP/R6R w - - 0 18
+depth 1 complete with best move found being g5f3
+depth 2 complete with best move found being f2f3
+depth 3 complete with best move found being f2f3
+f3 -4.0
+Ne4 -4.0
+Kg1 -4.0
+Nf3 -4.0
+Kf1 -4.0
+Kh3 -4.0
+depth 4 complete with best move found being f2f3
+f3 -3.5
+Ne4 -3.5
+Kg1 -3.5
+Nf3 -3.5
+Kf1 -3.5
+Kh3 -3.5
+depth 5 complete with best move found being f2f3
+{'positions': 18903, 'time': 7.27, 'positions per second': 2600.14}
+chess v0.27 average time: 19.765555555555554
+f3
+2kr3r/pb1n1ppp/1p1Bp3/2p3N1/2P5/5PP1/PP4KP/R6R b - - 0 18
+Bxf3+ -17.0
+e5 -15.0
+Ne5 -12.5
+Rhe8 -12.5
+Nf6 -9.0
+b5 -6.0
+Rhg8 3.5
+Rhf8 3.5
+Rde8 3.5
+h6 3.5
+a6 3.5
+Rdg8 3.5
+Rdf8 3.5
+h5 3.5
+a5 3.5
+f5 3.5
+g6 3.5
+f6 3.5
+Bc6 3.5
+Bd5 3.5
+Be4 3.5
+Nf8 3.5
+Nb8 3.5
+Ba6 3.5
+Ba8 3.5
+{'positions': 12605, 'time': 5.69, 'positions per second': 2215.29}
+chess v0.22 average time: 4.447777777777777
+Rhg8
+2kr2r1/pb1n1ppp/1p1Bp3/2p3N1/2P5/5PP1/PP4KP/R6R w - - 1 19
+depth 1 complete with best move found being g5f7
+depth 2 complete with best move found being g5f7
+depth 3 complete with best move found being g5f7
+Nxf7 -3.5
+Nxe6 -3.5
+Bxc5 -3.5
+Nxh7 -3.5
+Ne4 -3.5
+Kg1 -3.5
+Rhe1 -3.5
+Rhd1 -3.5
+Rae1 -3.5
+Rad1 -3.5
+g4 -3.5
+Be5 -3.5
+Bf4 -3.5
+Rhg1 -3.5
+Rhf1 -3.5
+Rhc1 -3.5
+Rhb1 -3.5
+Rag1 -3.5
+Raf1 -3.5
+Rac1 -3.5
+Rab1 -3.5
+h3 -3.5
+a3 -3.5
+h4 -3.5
+a4 -3.5
+Be7 -3.5
+Bc7 -3.5
+Kf1 -3.5
+b4 -3.5
+b3 -3.5
+Bf8 -3.5
+Bb8 -3.5
+Kf2 -3.5
+Kh3 -3.5
+Nh3 -3.5
+depth 4 complete with best move found being g5f7
+Nxf7 1.5
+Nxe6 1.5
+Bxc5 1.5
+Nxh7 1.5
+Ne4 1.5
+Kg1 1.5
+Rhe1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Be5 1.5
+Bf4 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+h4 1.5
+a4 1.5
+Be7 1.5
+Bc7 1.5
+Kf1 1.5
+b4 1.5
+b3 1.5
+Bf8 1.5
+Bb8 1.5
+Kf2 1.5
+Kh3 1.5
+Nh3 1.5
+depth 5 complete with best move found being g5f7
+{'positions': 33671, 'time': 11.64, 'positions per second': 2892.7}
+chess v0.27 average time: 18.952999999999996
+Nxf7
+2kr2r1/pb1n1Npp/1p1Bp3/2p5/2P5/5PP1/PP4KP/R6R b - - 0 19
+Bxf3+ -23.0
+e5 -15.5
+Ne5 -15.5
+Rge8 -15.5
+Nf6 -15.5
+b5 -15.5
+Rh8 -15.5
+Rgf8 -15.5
+Rde8 -1.5
+h6 -1.5
+a6 -1.5
+Rdf8 -1.5
+h5 -1.5
+a5 -1.5
+g5 -1.5
+g6 -1.5
+Bc6 -1.5
+Bd5 -1.5
+Be4 -1.5
+Nf8 -1.5
+Nb8 -1.5
+Ba6 -1.5
+Ba8 -1.5
+{'positions': 7381, 'time': 3.16, 'positions per second': 2335.76}
+chess v0.22 average time: 4.319
+Rde8
+2k1r1r1/pb1n1Npp/1p1Bp3/2p5/2P5/5PP1/PP4KP/R6R w - - 1 20
+depth 1 complete with best move found being f7e5
+depth 2 complete with best move found being f7e5
+depth 3 complete with best move found being d6f4
+Bf4 1.5
+Bxc5 1.5
+Ne5 1.5
+Kg1 1.5
+Ng5 1.5
+Rhe1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Be5 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+h4 1.5
+a4 1.5
+Be7 1.5
+Bc7 1.5
+Kf1 1.5
+b4 1.5
+b3 1.5
+Bf8 1.5
+Bb8 1.5
+Kf2 1.5
+Nd8 1.5
+Nh6 1.5
+Kh3 1.5
+Nh8 1.5
+depth 4 complete with best move found being d6f4
+Bf4 1.5
+Bxc5 1.5
+Ne5 1.5
+Kg1 1.5
+Ng5 1.5
+Rhe1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Be5 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+h4 1.5
+a4 1.5
+Be7 1.5
+Bc7 1.5
+Kf1 1.5
+b4 1.5
+b3 1.5
+Bf8 1.5
+Bb8 1.5
+Kf2 1.5
+Nd8 1.5
+Nh6 1.5
+Kh3 1.5
+Nh8 1.5
+depth 5 complete with best move found being d6f4
+{'positions': 27524, 'time': 10.18, 'positions per second': 2703.73}
+chess v0.27 average time: 18.155454545454543
+Bf4
+2k1r1r1/pb1n1Npp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R6R b - - 2 20
+Bxf3+ -20.0
+e5 -8.5
+Ne5 -8.5
+Nf6 -8.5
+b5 -8.5
+Rh8 -8.5
+Rgf8 -8.5
+Rd8 -8.5
+h6 -8.5
+a6 -8.5
+Ref8 -1.5
+Re7 -1.5
+h5 -1.5
+a5 -1.5
+g5 -1.5
+g6 -1.5
+Bc6 -1.5
+Bd5 -1.5
+Be4 -1.5
+Nf8 -1.5
+Nb8 -1.5
+Ba6 -1.5
+Ba8 -1.5
+{'positions': 8001, 'time': 3.28, 'positions per second': 2439.33}
+chess v0.22 average time: 4.224545454545455
+Ref8
+2k2rr1/pb1n1Npp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R6R w - - 3 21
+depth 1 complete with best move found being f7d6
+depth 2 complete with best move found being f7d6
+depth 3 complete with best move found being f7d6
+Nd6+ 1.5
+Ne5 1.5
+Kg1 1.5
+Ng5 1.5
+Rhe1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Bd6 1.5
+Be5 1.5
+Be3 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+Bg5 1.5
+h4 1.5
+a4 1.5
+Bc7 1.5
+Bd2 1.5
+Kf1 1.5
+b4 1.5
+b3 1.5
+Bb8 1.5
+Bh6 1.5
+Bc1 1.5
+Kf2 1.5
+Nd8 1.5
+Nh6 1.5
+Kh3 1.5
+Nh8 1.5
+depth 4 complete with best move found being f7d6
+Nd6+ 2.5
+Ne5 2.5
+Kg1 2.5
+Ng5 2.5
+Rhe1 2.5
+Rhd1 2.5
+Rae1 2.5
+Rad1 2.5
+g4 2.5
+Bd6 2.5
+Be5 2.5
+Be3 2.5
+Rhg1 2.5
+Rhf1 2.5
+Rhc1 2.5
+Rhb1 2.5
+Rag1 2.5
+Raf1 2.5
+Rac1 2.5
+Rab1 2.5
+h3 2.5
+a3 2.5
+Bg5 2.5
+h4 2.5
+a4 2.5
+Bc7 2.5
+Bd2 2.5
+Kf1 2.5
+b4 2.5
+b3 2.5
+Bb8 2.5
+Bh6 2.5
+Bc1 2.5
+Kf2 2.5
+Nd8 2.5
+Nh6 2.5
+Kh3 2.5
+Nh8 2.5
+depth 5 complete with best move found being f7d6
+{'positions': 20794, 'time': 7.4, 'positions per second': 2810.0}
+chess v0.27 average time: 17.259166666666665
+Nd6+
+2k2rr1/pb1n2pp/1p1Np3/2p5/2P2B2/5PP1/PP4KP/R6R b - - 4 21
+Kb8 -2.5
+Kd8 -2.5
+Kc7 -2.5
+{'positions': 3139, 'time': 0.64, 'positions per second': 4904.69}
+chess v0.22 average time: 3.9258333333333333
+Kb8
+1k3rr1/pb1n2pp/1p1Np3/2p5/2P2B2/5PP1/PP4KP/R6R w - - 5 22
+depth 1 complete with best move found being d6b7
+depth 2 complete with best move found being d6b7
+depth 3 complete with best move found being d6b7
+Nxb7+ 1.5
+Kg1 1.5
+Ne4+ 1.5
+Rhe1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Nf5+ 1.5
+Be5 1.5
+Be3 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+Bg5 1.5
+h4 1.5
+a4 1.5
+Nb5+ 1.5
+Bd2 1.5
+Kf1 1.5
+b4 1.5
+Nf7+ 1.5
+b3 1.5
+Bh6 1.5
+Bc1 1.5
+Kf2 1.5
+Kh3 1.5
+Ne8+ 1.5
+Nc8+ 1.5
+depth 4 complete with best move found being d6b7
+Nxb7+ 2.5
+Kg1 2.5
+Ne4+ 2.5
+Rhe1 2.5
+Rhd1 2.5
+Rae1 2.5
+Rad1 2.5
+g4 2.5
+Nf5+ 2.5
+Be5 2.5
+Be3 2.5
+Rhg1 2.5
+Rhf1 2.5
+Rhc1 2.5
+Rhb1 2.5
+Rag1 2.5
+Raf1 2.5
+Rac1 2.5
+Rab1 2.5
+h3 2.5
+a3 2.5
+Bg5 2.5
+h4 2.5
+a4 2.5
+Nb5+ 2.5
+Bd2 2.5
+Kf1 2.5
+b4 2.5
+Nf7+ 2.5
+b3 2.5
+Bh6 2.5
+Bc1 2.5
+Kf2 2.5
+Kh3 2.5
+Ne8+ 2.5
+Nc8+ 2.5
+depth 5 complete with best move found being d6b7
+{'positions': 78097, 'time': 23.82, 'positions per second': 3278.63}
+chess v0.27 average time: 17.763846153846153
+Nxb7+
+1k3rr1/pN1n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R6R b - - 0 22
+Rxf4 -21.0
+Kxb7 -2.5
+e5 -2.5
+Ne5 -2.5
+Ka8 -2.5
+Kc8 -2.5
+{'positions': 3306, 'time': 1.47, 'positions per second': 2248.98}
+chess v0.22 average time: 3.736923076923077
+Kxb7
+5rr1/pk1n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R6R w - - 0 23
+depth 1 complete with best move found being g2g1
+depth 2 complete with best move found being h1e1
+depth 3 complete with best move found being h1e1
+Rhe1 1.5
+Kg1 1.5
+Rhd1 1.5
+Rae1 1.5
+Rad1 1.5
+g4 1.5
+Bd6 1.5
+Be5 1.5
+Be3 1.5
+Rhg1 1.5
+Rhf1 1.5
+Rhc1 1.5
+Rhb1 1.5
+Rag1 1.5
+Raf1 1.5
+Rac1 1.5
+Rab1 1.5
+h3 1.5
+a3 1.5
+Bg5 1.5
+h4 1.5
+a4 1.5
+Bc7 1.5
+Bd2 1.5
+Kf1 1.5
+b4 1.5
+b3 1.5
+Bb8 1.5
+Bh6 1.5
+Bc1 1.5
+Kf2 1.5
+Kh3 1.5
+depth 4 complete with best move found being h1e1
+Rhe1 2.5
+Kg1 2.5
+Rhd1 2.5
+Rae1 2.5
+Rad1 2.5
+g4 2.5
+Bd6 2.5
+Be5 2.5
+Be3 2.5
+Rhg1 2.5
+Rhf1 2.5
+Rhc1 2.5
+Rhb1 2.5
+Rag1 2.5
+Raf1 2.5
+Rac1 2.5
+Rab1 2.5
+h3 2.5
+a3 2.5
+Bg5 2.5
+h4 2.5
+a4 2.5
+Bc7 2.5
+Bd2 2.5
+Kf1 2.5
+b4 2.5
+b3 2.5
+Bb8 2.5
+Bh6 2.5
+Bc1 2.5
+Kf2 2.5
+Kh3 2.5
+depth 5 complete with best move found being h1e1
+{'positions': 39260, 'time': 19.91, 'positions per second': 1971.87}
+chess v0.27 average time: 17.917142857142856
+Rhe1
+5rr1/pk1n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R3R3 b - - 1 23
+Rxf4 -21.0
+e5 -9.0
+Ne5 -9.0
+Re8 -2.5
+Rd8 -2.5
+Nf6 -2.5
+b5 -2.5
+Rh8 -2.5
+Rc8 -2.5
+Rb8 -2.5
+Ra8 -2.5
+Rf7 -2.5
+Rf6 -2.5
+Rf5 -2.5
+Ka8 -2.5
+h6 -2.5
+a6 -2.5
+h5 -2.5
+a5 -2.5
+Kc8 -2.5
+g5 -2.5
+g6 -2.5
+Ka6 -2.5
+Kc6 -2.5
+Nb8 -2.5
+{'positions': 8478, 'time': 3.24, 'positions per second': 2616.67}
+chess v0.22 average time: 3.7014285714285715
+Re8
+4r1r1/pk1n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/R3R3 w - - 2 24
+depth 1 complete with best move found being g2g1
+depth 2 complete with best move found being a1d1
+depth 3 complete with best move found being a1d1
+Rad1 2.0
+Rxe6 2.0
+Kg1 2.0
+g4 2.0
+Bd6 2.0
+Be5 2.0
+Be3 2.0
+Kh1 2.0
+Red1 2.0
+Rac1 2.0
+Rab1 2.0
+h3 2.0
+a3 2.0
+Bg5 2.0
+Re5 2.0
+Re4 2.0
+Re3 2.0
+Re2 2.0
+Rh1 2.0
+Rg1 2.0
+Rf1 2.0
+Rec1 2.0
+Reb1 2.0
+h4 2.0
+a4 2.0
+Bc7 2.0
+Bd2 2.0
+Kf1 2.0
+b4 2.0
+b3 2.0
+Bb8 2.0
+Bh6 2.0
+Bc1 2.0
+Kf2 2.0
+Kh3 2.0
+depth 4 complete with best move found being a1d1
+Rad1 2.0
+Rxe6 2.0
+Kg1 2.0
+g4 2.0
+Bd6 2.0
+Be5 2.0
+Be3 2.0
+Kh1 2.0
+Red1 2.0
+Rac1 2.0
+Rab1 2.0
+h3 2.0
+a3 2.0
+Bg5 2.0
+Re5 2.0
+Re4 2.0
+Re3 2.0
+Re2 2.0
+Rh1 2.0
+Rg1 2.0
+Rf1 2.0
+Rec1 2.0
+Reb1 2.0
+h4 2.0
+a4 2.0
+Bc7 2.0
+Bd2 2.0
+Kf1 2.0
+b4 2.0
+b3 2.0
+Bb8 2.0
+Bh6 2.0
+Bc1 2.0
+Kf2 2.0
+Kh3 2.0
+depth 5 complete with best move found being a1d1
+{'positions': 37929, 'time': 13.16, 'positions per second': 2882.14}
+chess v0.27 average time: 17.6
+Rad1
+4r1r1/pk1n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/3RR3 b - - 3 24
+e5 -21.0
+Ne5 -21.0
+Nf6 -8.5
+b5 -8.5
+Rh8 -8.5
+Rgf8 -8.5
+Rd8 -8.5
+Ka8 -8.5
+h6 -8.5
+a6 -8.5
+Ref8 -8.5
+Rc8 -8.5
+Rb8 -8.5
+Ra8 -8.5
+Re7 -3.0
+h5 -3.0
+a5 -3.0
+Kc8 -2.0
+g5 -2.0
+g6 -2.0
+Ka6 -2.0
+Nf8 -2.0
+Kc6 -2.0
+Nb8 -2.0
+{'positions': 10530, 'time': 3.78, 'positions per second': 2785.71}
+chess v0.22 average time: 3.7066666666666666
+Kc8
+2k1r1r1/p2n2pp/1p2p3/2p5/2P2B2/5PP1/PP4KP/3RR3 w - - 4 25
+depth 1 complete with best move found being g2g1
+depth 2 complete with best move found being g2g1
+depth 3 complete with best move found being g2g1
+Kg1 1.5
+Rxd7 1.5
+Rxe6 1.5
+g4 1.5
+Bd6 2.5
+Be5 2.5
+Be3 2.5
+Kh1 2.5
+h3 2.5
+a3 2.5
+Bg5 2.5
+Re5 2.5
+Re4 2.5
+Re3 2.5
+Re2 2.5
+Rh1 2.5
+Rg1 2.5
+Rf1 2.5
+Rd6 2.5
+Rd5 2.5
+Rd4 2.5
+Rd3 2.5
+Rd2 2.5
+Rc1 2.5
+Rb1 2.5
+Ra1 2.5
+h4 2.5
+a4 2.5
+Bc7 2.5
+Bd2 2.5
+Kf1 2.5
+b4 2.5
+b3 2.5
+Bb8 2.5
+Bh6 2.5
+Bc1 2.5
+Kf2 2.5
+Kh3 2.5
+depth 4 complete with best move found being f4d6
+Bd6 3.5
+Rxd7 3.5
+Rxe6 3.5
+Kg1 3.5
+g4 3.5
+Be5 3.5
+Be3 3.5
+Kh1 3.5
+h3 3.5
+a3 3.5
+Bg5 3.5
+Re5 3.5
+Re4 3.5
+Re3 3.5
+Re2 3.5
+Rh1 3.5
+Rg1 3.5
+Rf1 3.5
+Rd6 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rc1 3.5
+Rb1 3.5
+Ra1 3.5
+h4 3.5
+a4 3.5
+Bc7 3.5
+Bd2 3.5
+Kf1 3.5
+b4 3.5
+b3 3.5
+Bb8 3.5
+Bh6 3.5
+Bc1 3.5
+Kf2 3.5
+Kh3 3.5
+depth 5 complete with best move found being f4d6
+{'positions': 46920, 'time': 15.32, 'positions per second': 3062.66}
+chess v0.27 average time: 17.4575
+Bd6
+2k1r1r1/p2n2pp/1p1Bp3/2p5/2P5/5PP1/PP4KP/3RR3 b - - 5 25
+e5 -9.0
+Ne5 -9.0
+Kb7 -3.5
+Nf6 -3.5
+b5 -3.5
+Rh8 -3.5
+Rgf8 -3.5
+Rd8 -3.5
+h6 -3.5
+a6 -3.5
+Ref8 -3.5
+Re7 -3.5
+h5 -3.5
+a5 -3.5
+Kd8 -3.5
+g5 -3.5
+g6 -3.5
+Nf8 -3.5
+Nb8 -3.5
+{'positions': 9209, 'time': 5.59, 'positions per second': 1647.41}
+chess v0.22 average time: 3.824375
+Kb7
+4r1r1/pk1n2pp/1p1Bp3/2p5/2P5/5PP1/PP4KP/3RR3 w - - 6 26
+depth 1 complete with best move found being g2g1
+depth 2 complete with best move found being f3f4
+depth 3 complete with best move found being f3f4
+f4 3.5
+Bxc5 3.5
+Rxe6 3.5
+Kg1 3.5
+g4 3.5
+Be5 3.5
+Kh1 3.5
+h3 3.5
+a3 3.5
+Re5 3.5
+Re4 3.5
+Re3 3.5
+Re2 3.5
+Rh1 3.5
+Rg1 3.5
+Rf1 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rc1 3.5
+Rb1 3.5
+Ra1 3.5
+h4 3.5
+a4 3.5
+Be7 3.5
+Bc7 3.5
+Kf1 3.5
+b4 3.5
+b3 3.5
+Bf8 3.5
+Bb8 3.5
+Kf2 3.5
+Kh3 3.5
+depth 4 complete with best move found being f3f4
+f4 3.5
+Bxc5 3.5
+Rxe6 3.5
+Kg1 3.5
+g4 3.5
+Be5 3.5
+Kh1 3.5
+h3 3.5
+a3 3.5
+Re5 3.5
+Re4 3.5
+Re3 3.5
+Re2 3.5
+Rh1 3.5
+Rg1 3.5
+Rf1 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rc1 3.5
+Rb1 3.5
+Ra1 3.5
+h4 3.5
+a4 3.5
+Be7 3.5
+Bc7 3.5
+Kf1 3.5
+b4 3.5
+b3 3.5
+Bf8 3.5
+Bb8 3.5
+Kf2 3.5
+Kh3 3.5
+depth 5 complete with best move found being f3f4
+{'positions': 99030, 'time': 28.98, 'positions per second': 3417.18}
+chess v0.27 average time: 18.13529411764706
+f4
+4r1r1/pk1n2pp/1p1Bp3/2p5/2P2P2/6P1/PP4KP/3RR3 b - - 0 26
+e5 -16.5
+Ne5 -16.5
+Nf6 -3.5
+b5 -3.5
+Rh8 -3.5
+Rgf8 -3.5
+Rd8 -3.5
+Ka8 -3.5
+h6 -3.5
+a6 -3.5
+Ref8 -3.5
+Rc8 -3.5
+Rb8 -3.5
+Ra8 -3.5
+Re7 -3.5
+h5 -3.5
+a5 -3.5
+Kc8 -3.5
+g5 -3.5
+g6 -3.5
+Ka6 -3.5
+Nf8 -3.5
+Kc6 -3.5
+Nb8 -3.5
+{'positions': 12959, 'time': 4.82, 'positions per second': 2688.59}
+chess v0.22 average time: 3.8829411764705877
+Nf6
+4r1r1/pk4pp/1p1Bpn2/2p5/2P2P2/6P1/PP4KP/3RR3 w - - 1 27
+depth 1 complete with best move found being g2g1
+depth 2 complete with best move found being g2g1
+depth 3 complete with best move found being g2g1
+Kg1 3.5
+Bxc5 3.5
+Rxe6 3.5
+f5 3.5
+g4 3.5
+Be5 3.5
+Kh1 3.5
+h3 3.5
+a3 3.5
+Re5 3.5
+Re4 3.5
+Re3 3.5
+Re2 3.5
+Rh1 3.5
+Rg1 3.5
+Rf1 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rc1 3.5
+Rb1 3.5
+Ra1 3.5
+h4 3.5
+a4 3.5
+Be7 3.5
+Bc7 3.5
+Kf1 3.5
+b4 3.5
+b3 3.5
+Bf8 3.5
+Bb8 3.5
+Kf2 3.5
+Kh3 3.5
+Kf3 3.5
+depth 4 complete with best move found being g2g1
+Kg1 4.0
+Bxc5 4.0
+Rxe6 4.0
+f5 4.0
+g4 4.0
+Be5 4.0
+Kh1 4.0
+h3 4.0
+a3 4.0
+Re5 4.0
+Re4 4.0
+Re3 4.0
+Re2 4.0
+Rh1 4.0
+Rg1 4.0
+Rf1 4.0
+Rd5 4.0
+Rd4 4.0
+Rd3 4.0
+Rd2 4.0
+Rc1 4.0
+Rb1 4.0
+Ra1 4.0
+h4 4.0
+a4 4.0
+Be7 4.0
+Bc7 4.0
+Kf1 4.0
+b4 4.0
+b3 4.0
+Bf8 4.0
+Bb8 4.0
+Kf2 4.0
+Kh3 4.0
+Kf3 4.0
+depth 5 complete with best move found being g2g1
+{'positions': 106045, 'time': 40.66, 'positions per second': 2608.09}
+chess v0.27 average time: 19.38666666666667
+Kg1
+4r1r1/pk4pp/1p1Bpn2/2p5/2P2P2/6P1/PP5P/3RR1K1 b - - 2 27
+e5 -17.0
+Nd5 -17.0
+Ne4 -17.0
+b5 -12.5
+Rh8 -4.0
+Rgf8 -4.0
+Rd8 -4.0
+Ka8 -4.0
+h6 -4.0
+a6 -4.0
+Ref8 -4.0
+Rc8 -4.0
+Rb8 -4.0
+Ra8 -4.0
+Re7 -4.0
+Nd7 -4.0
+Ng4 -4.0
+h5 -4.0
+a5 -4.0
+Kc8 -4.0
+g5 -4.0
+g6 -4.0
+Ka6 -4.0
+Kc6 -4.0
+Nh5 -4.0
+{'positions': 17114, 'time': 6.74, 'positions per second': 2539.17}
+chess v0.22 average time: 4.041666666666666
+Rh8
+4r2r/pk4pp/1p1Bpn2/2p5/2P2P2/6P1/PP5P/3RR1K1 w - - 3 28
+depth 1 complete with best move found being d6e5
+depth 2 complete with best move found being d6e5
+depth 3 complete with best move found being h2h3
+h3 4.0
+Bxc5 4.0
+Rxe6 4.0
+f5 4.0
+g4 4.0
+Be5 4.0
+a3 4.0
+Re5 4.0
+Re4 4.0
+Re3 4.0
+Re2 4.0
+Rf1 4.0
+Rd5 4.0
+Rd4 4.0
+Rd3 4.0
+Rd2 4.0
+Rc1 4.0
+Rb1 4.0
+Ra1 4.0
+h4 4.0
+a4 4.0
+Be7 4.0
+Bc7 4.0
+Kg2 4.0
+Kh1 4.0
+b4 4.0
+b3 4.0
+Bf8 4.0
+Bb8 4.0
+Kf1 4.0
+Kf2 4.0
+depth 4 complete with best move found being h2h3
+h3 4.0
+Bxc5 4.0
+Rxe6 4.0
+f5 4.0
+g4 4.0
+Be5 4.0
+a3 4.0
+Re5 4.0
+Re4 4.0
+Re3 4.0
+Re2 5.0
+Rf1 5.0
+Rd5 5.0
+Rd4 5.0
+Rd3 5.0
+Rd2 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Be7 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bf8 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 5 complete with best move found being e1e2
+{'positions': 101746, 'time': 35.95, 'positions per second': 2830.21}
+chess v0.27 average time: 20.25842105263158
+Re2
+4r2r/pk4pp/1p1Bpn2/2p5/2P2P2/6P1/PP2R2P/3R2K1 b - - 4 28
+e5 -16.0
+Nd5 -16.0
+Ne4 -16.0
+b5 -12.5
+Rhg8 -12.5
+Rhf8 -12.5
+Rd8 -12.5
+Ka8 -12.5
+h6 -12.5
+a6 -12.5
+Reg8 -12.5
+Ref8 -12.5
+Rc8 -12.5
+Rb8 -12.5
+Ra8 -12.5
+Re7 -12.5
+Nd7 -11.0
+Ng4 -11.0
+h5 -11.0
+a5 -11.0
+Kc8 -5.0
+g5 -5.0
+g6 -5.0
+Ka6 -5.0
+Kc6 -5.0
+Nh5 -5.0
+Ng8 -5.0
+{'positions': 26965, 'time': 10.59, 'positions per second': 2546.27}
+chess v0.22 average time: 4.3863157894736835
+Kc8
+2k1r2r/p5pp/1p1Bpn2/2p5/2P2P2/6P1/PP2R2P/3R2K1 w - - 5 29
+depth 1 complete with best move found being e2e1
+depth 2 complete with best move found being d1e1
+depth 3 complete with best move found being d1e1
+Rde1 5.0
+Rxe6 5.0
+Bxc5 5.0
+f5 5.0
+Ree1 5.0
+g4 5.0
+Be5 5.0
+Re5 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Red2 5.0
+Rc2 5.0
+h3 5.0
+a3 5.0
+Rd5 5.0
+Rd4 5.0
+Rd3 5.0
+Rdd2 5.0
+Rf1 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Be7 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bf8 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 4 complete with best move found being d1e1
+Rde1 5.0
+Rxe6 5.0
+Bxc5 5.0
+f5 5.0
+Ree1 5.0
+g4 5.0
+Be5 5.0
+Re5 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Red2 5.0
+Rc2 5.0
+h3 5.0
+a3 5.0
+Rd5 5.0
+Rd4 5.0
+Rd3 5.0
+Rdd2 5.0
+Rf1 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Be7 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bf8 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 5 complete with best move found being d1e1
+{'positions': 33115, 'time': 9.47, 'positions per second': 3496.83}
+chess v0.27 average time: 19.719
+Rde1
+2k1r2r/p5pp/1p1Bpn2/2p5/2P2P2/6P1/PP2R2P/4R1K1 b - - 6 29
+e5 -17.5
+Kb7 -13.0
+Nd5 -13.0
+Ne4 -13.0
+b5 -13.0
+Rhg8 -13.0
+Rhf8 -13.0
+Rd8 -13.0
+h6 -13.0
+a6 -13.0
+Reg8 -13.0
+Ref8 -13.0
+Re7 -13.0
+Nd7 -13.0
+Ng4 -13.0
+h5 -13.0
+a5 -13.0
+Kd8 -13.0
+Kd7 -5.0
+g5 -5.0
+g6 -5.0
+Nh5 -5.0
+Ng8 -5.0
+{'positions': 7925, 'time': 2.66, 'positions per second': 2979.32}
+chess v0.22 average time: 4.299999999999999
+Kd7
+4r2r/p2k2pp/1p1Bpn2/2p5/2P2P2/6P1/PP2R2P/4R1K1 w - - 7 30
+depth 1 complete with best move found being d6e5
+depth 2 complete with best move found being d6e5
+depth 3 complete with best move found being d6e5
+Be5 5.0
+Rxe6 5.0
+Bxc5 5.0
+f5 5.0
+g4 5.0
+Re5 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Rd2 5.0
+Rc2 5.0
+Rd1 5.0
+h3 5.0
+a3 5.0
+Rf1 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Be7 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bf8 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 4 complete with best move found being d6e5
+Be5 5.0
+Rxe6 5.0
+Bxc5 5.0
+f5 5.0
+g4 5.0
+Re5 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Rd2 5.0
+Rc2 5.0
+Rd1 5.0
+h3 5.0
+a3 5.0
+Rf1 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Be7 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bf8 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 5 complete with best move found being d6e5
+{'positions': 30223, 'time': 9.16, 'positions per second': 3299.45}
+chess v0.27 average time: 19.21619047619048
+Be5
+4r2r/p2k2pp/1p2pn2/2p1B3/2P2P2/6P1/PP2R2P/4R1K1 b - - 8 30
+Kc8 -14.0
+Nd5 -14.0
+Ne4 -14.0
+b5 -14.0
+Rhg8 -5.0
+Rhf8 -5.0
+Rd8 -5.0
+Kd8 -5.0
+Ke7 -5.0
+h6 -5.0
+a6 -5.0
+Reg8 -5.0
+Ref8 -5.0
+Rc8 -5.0
+Rb8 -5.0
+Ra8 -5.0
+Re7 -5.0
+Ng4 -5.0
+h5 -5.0
+a5 -5.0
+g5 -5.0
+g6 -5.0
+Kc6 -5.0
+Nh5 -5.0
+Ng8 -5.0
+{'positions': 4763, 'time': 1.35, 'positions per second': 3528.15}
+chess v0.22 average time: 4.159523809523809
+Rhg8
+4r1r1/p2k2pp/1p2pn2/2p1B3/2P2P2/6P1/PP2R2P/4R1K1 w - - 9 31
+depth 1 complete with best move found being e5f6
+depth 2 complete with best move found being e5f6
+depth 3 complete with best move found being e5f6
+Bxf6 4.0
+f5 4.0
+g4 4.0
+Bd6 4.0
+Bd4 4.0
+Bc3 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Rd2+ 5.0
+Rc2 5.0
+Rd1+ 5.0
+h3 5.0
+a3 5.0
+Rf1 5.0
+Rc1 5.0
+Rb1 5.0
+Ra1 5.0
+h4 5.0
+a4 5.0
+Bc7 5.0
+Kg2 5.0
+Kh1 5.0
+b4 5.0
+b3 5.0
+Bb8 5.0
+Kf1 5.0
+Kf2 5.0
+depth 4 complete with best move found being e5c3
+Bc3 5.0
+Bxf6 5.0
+f5 5.0
+g4 5.0
+Bd6 5.0
+Bd4 5.0
+Re4 5.0
+Re3 5.0
+Rg2 5.0
+Rf2 5.0
+Rd2+ 5.0
+Rc2 5.0
+Rd1+ 5.0
+h3 5.5
+a3 5.5
+Rf1 5.5
+Rc1 5.5
+Rb1 5.5
+Ra1 5.5
+h4 5.5
+a4 5.5
+Bc7 5.5
+Kg2 5.5
+Kh1 5.5
+b4 5.5
+b3 5.5
+Bb8 5.5
+Kf1 5.5
+Kf2 5.5
+depth 5 complete with best move found being h2h3
+{'positions': 43088, 'time': 12.96, 'positions per second': 3324.69}
+chess v0.27 average time: 18.931818181818183
+h3
+4r1r1/p2k2pp/1p2pn2/2p1B3/2P2P2/6PP/PP2R3/4R1K1 b - - 0 31
+Kc8 -5.5
+Nd5 -5.5
+Ne4 -5.5
+b5 -5.5
+Rh8 -5.5
+Rgf8 -5.5
+Rd8 -5.5
+Kd8 -5.5
+Ke7 -5.5
+h6 -5.5
+a6 -5.5
+Ref8 -5.5
+Rc8 -5.5
+Rb8 -5.5
+Ra8 -5.5
+Re7 -5.5
+Ng4 -5.5
+h5 -5.5
+a5 -5.5
+g5 -5.5
+g6 -5.5
+Kc6 -5.5
+Nh5 -5.5
+{'positions': 5360, 'time': 3.03, 'positions per second': 1768.98}
+chess v0.22 average time: 4.1081818181818175
+Kc8
+2k1r1r1/p5pp/1p2pn2/2p1B3/2P2P2/6PP/PP2R3/4R1K1 w - - 1 32
+depth 1 complete with best move found being e5f6
+depth 2 complete with best move found being e5d6
+depth 3 complete with best move found being g3g4
+g4 8.5
+Bxf6 8.5
+f5 8.5
+Bd6 8.5
+Bd4 8.5
+Bc3 8.5
+Re4 8.5
+Re3 8.5
+Rg2 8.5
+Rf2 8.5
+Rd2 8.5
+Rc2 8.5
+Rd1 8.5
+a3 8.5
+Rh2 8.5
+Rf1 8.5
+Rc1 8.5
+Rb1 8.5
+Ra1 8.5
+h4 8.5
+a4 8.5
+Bc7 8.5
+Kh2 8.5
+Kg2 8.5
+Kh1 8.5
+b4 8.5
+b3 8.5
+Bb8 8.5
+Kf1 8.5
+Kf2 8.5
+depth 4 complete with best move found being g3g4
+g4 9.0
+Bxf6 9.0
+f5 9.0
+Bd6 9.0
+Bd4 9.0
+Bc3 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Rh2 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bc7 9.0
+Kh2 9.0
+Kg2 9.0
+Kh1 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Kf1 9.0
+Kf2 9.0
+depth 5 complete with best move found being g3g4
+{'positions': 68777, 'time': 20.93, 'positions per second': 3286.05}
+chess v0.27 average time: 19.018695652173914
+g4
+2k1r1r1/p5pp/1p2pn2/2p1B3/2P2PP1/7P/PP2R3/4R1K1 b - - 0 32
+Nxg4 -25.0
+Kb7 -13.5
+Nd5 -13.5
+Ne4 -13.5
+b5 -13.5
+Rh8 -13.5
+Rgf8 -13.5
+Rd8 -13.5
+h6 -13.5
+a6 -13.5
+Ref8 -13.5
+Re7 -13.5
+Nd7 -9.5
+h5 -9.0
+a5 -9.0
+Kd8 -9.0
+Kd7 -9.0
+g5 -9.0
+g6 -9.0
+Nh5 -9.0
+{'positions': 9558, 'time': 3.17, 'positions per second': 3015.14}
+chess v0.22 average time: 4.067391304347825
+h5
+2k1r1r1/p5p1/1p2pn2/2p1B2p/2P2PP1/7P/PP2R3/4R1K1 w - - 0 33
+depth 1 complete with best move found being g4h5
+depth 2 complete with best move found being g4h5
+depth 3 complete with best move found being g4h5
+gxh5 10.0
+Bxf6 10.0
+f5 10.0
+g5 10.0
+Bd6 10.0
+Bd4 10.0
+Bc3 10.0
+Re4 10.0
+Re3 10.0
+Rg2 10.0
+Rf2 10.0
+Rd2 10.0
+Rc2 10.0
+Rd1 10.0
+a3 10.0
+Rh2 10.0
+Rf1 10.0
+Rc1 10.0
+Rb1 10.0
+Ra1 10.0
+h4 10.0
+a4 10.0
+Bc7 10.0
+Kh2 10.0
+Kg2 10.0
+Kh1 10.0
+b4 10.0
+b3 10.0
+Bb8 10.0
+Kf1 10.0
+Kf2 10.0
+depth 4 complete with best move found being g4h5
+gxh5 10.0
+Bxf6 10.0
+f5 10.0
+g5 10.0
+Bd6 10.0
+Bd4 10.0
+Bc3 10.0
+Re4 10.0
+Re3 10.0
+Rg2 10.0
+Rf2 10.0
+Rd2 10.0
+Rc2 10.0
+Rd1 10.0
+a3 10.0
+Rh2 10.0
+Rf1 10.0
+Rc1 10.0
+Rb1 10.0
+Ra1 10.0
+h4 10.0
+a4 10.0
+Bc7 10.0
+Kh2 10.0
+Kg2 10.0
+Kh1 10.0
+b4 10.0
+b3 10.0
+Bb8 10.0
+Kf1 10.0
+Kf2 10.0
+depth 5 complete with best move found being g4h5
+{'positions': 33362, 'time': 10.58, 'positions per second': 3153.31}
+chess v0.27 average time: 18.667083333333334
+gxh5
+2k1r1r1/p5p1/1p2pn2/2p1B2P/2P2P2/7P/PP2R3/4R1K1 b - - 0 33
+Nxh5 -10.0
+Kb7 -10.0
+Nd5 -10.0
+Ne4 -10.0
+b5 -10.0
+Rh8 -10.0
+Rgf8 -10.0
+Rd8 -10.0
+a6 -10.0
+Ref8 -10.0
+Re7 -10.0
+Nd7 -10.0
+Ng4 -10.0
+a5 -10.0
+Kd8 -10.0
+Kd7 -10.0
+g5 -10.0
+g6 -10.0
+Nh7 -10.0
+{'positions': 3200, 'time': 1.26, 'positions per second': 2539.68}
+chess v0.22 average time: 3.950416666666666
+Nxh5
+2k1r1r1/p5p1/1p2p3/2p1B2n/2P2P2/7P/PP2R3/4R1K1 w - - 0 34
+depth 1 complete with best move found being e5d6
+depth 2 complete with best move found being e5d6
+depth 3 complete with best move found being e5d6
+Bd6 9.0
+Bxg7 9.0
+f5 9.0
+Bd4 9.0
+Bc3 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Rh2 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bc7 9.0
+Kh2 9.0
+Kg2 9.0
+Kh1 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Kf1 9.0
+Kf2 9.0
+depth 4 complete with best move found being e5d6
+Bd6 9.0
+Bxg7 9.0
+f5 9.0
+Bd4 9.0
+Bc3 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Rh2 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bc7 9.0
+Kh2 9.0
+Kg2 9.0
+Kh1 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Kf1 9.0
+Kf2 9.0
+depth 5 complete with best move found being e5d6
+{'positions': 31456, 'time': 8.47, 'positions per second': 3713.81}
+chess v0.27 average time: 18.259200000000003
+Bd6
+2k1r1r1/p5p1/1p1Bp3/2p4n/2P2P2/7P/PP2R3/4R1K1 b - - 1 34
+Nxf4 -26.0
+Nf6 -15.0
+Ng3 -15.0
+e5 -15.0
+Kb7 -15.0
+b5 -15.0
+Rh8 -15.0
+Rgf8 -15.0
+Rd8 -15.0
+a6 -15.0
+Ref8 -15.0
+Re7 -15.0
+a5 -15.0
+Kd8 -15.0
+Kd7 -9.5
+g5 -9.0
+g6 -9.0
+{'positions': 7358, 'time': 2.18, 'positions per second': 3375.23}
+chess v0.22 average time: 3.8796
+g5
+2k1r1r1/p7/1p1Bp3/2p3pn/2P2P2/7P/PP2R3/4R1K1 w - - 0 35
+depth 1 complete with best move found being f4f5
+depth 2 complete with best move found being f4g5
+depth 3 complete with best move found being f4g5
+fxg5 9.0
+Rxe6 9.0
+Bxc5 9.0
+f5 9.0
+Be5 9.0
+Re5 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Rh2 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Be7 9.0
+Bc7 9.0
+Kh2 9.0
+Kg2 9.0
+Kh1 9.0
+b4 9.0
+b3 9.0
+Bf8 9.0
+Bb8 9.0
+Kf1 9.0
+Kf2 9.0
+depth 4 complete with best move found being f4g5
+fxg5 9.0
+Rxe6 9.0
+Bxc5 9.0
+f5 9.0
+Be5 9.0
+Re5 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Rh2 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Be7 9.0
+Bc7 9.0
+Kh2 9.0
+Kg2 9.0
+Kh1 9.0
+b4 9.0
+b3 9.0
+Bf8 9.0
+Bb8 9.0
+Kf1 9.0
+Kf2 9.0
+depth 5 complete with best move found being f4g5
+{'positions': 24759, 'time': 8.51, 'positions per second': 2909.4}
+chess v0.27 average time: 17.884230769230772
+fxg5
+2k1r1r1/p7/1p1Bp3/2p3Pn/2P5/7P/PP2R3/4R1K1 b - - 0 35
+Rxg5+ -9.0
+Nf4 -9.0
+Nf6 -9.0
+Ng3 -9.0
+e5 -9.0
+Kb7 -9.0
+Ng7 -9.0
+b5 -9.0
+Rh8 -9.0
+Rgf8 -9.0
+Rg7 -9.0
+Rg6 -9.0
+Rd8 -9.0
+a6 -9.0
+Ref8 -9.0
+Re7 -9.0
+a5 -9.0
+Kd8 -9.0
+Kd7 -9.0
+{'positions': 2506, 'time': 1.04, 'positions per second': 2409.62}
+chess v0.22 average time: 3.7703846153846152
+Rxg5+
+2k1r3/p7/1p1Bp3/2p3rn/2P5/7P/PP2R3/4R1K1 w - - 0 36
+depth 1 complete with best move found being e2g2
+depth 2 complete with best move found being e2g2
+depth 3 complete with best move found being e2g2
+Rg2 5.0
+Bg3 5.0
+Kh2 8.0
+Kh1 8.0
+Kf1 8.0
+Kf2 8.0
+depth 4 complete with best move found being g1h2
+Kh2 8.5
+Bg3 8.5
+Rg2 8.5
+Kh1 8.5
+Kf1 8.5
+Kf2 8.5
+depth 5 complete with best move found being g1h2
+{'positions': 22118, 'time': 7.64, 'positions per second': 2895.03}
+chess v0.27 average time: 17.504814814814818
+Kh2
+2k1r3/p7/1p1Bp3/2p3rn/2P5/7P/PP2R2K/4R3 b - - 1 36
+Nf4 -36.0
+Nf6 -15.0
+Ng3 -15.0
+e5 -15.0
+Kb7 -15.0
+Ng7 -8.5
+Rg2+ -8.5
+b5 -8.5
+Rd8 -8.5
+Rgg8 -8.5
+Rg7 -8.5
+Rg6 -8.5
+Rf5 -8.5
+Re5 -8.5
+Rd5 -8.5
+Rg4 -8.5
+Rg3 -8.5
+Rg1 -8.5
+a6 -8.5
+Rh8 -8.5
+Reg8 -8.5
+Rf8 -8.5
+Re7 -8.5
+a5 -8.5
+Kd8 -8.5
+Kd7 -8.5
+{'positions': 8164, 'time': 3.0, 'positions per second': 2721.33}
+chess v0.22 average time: 3.7418518518518518
+Ng7
+2k1r3/p5n1/1p1Bp3/2p3r1/2P5/7P/PP2R2K/4R3 w - - 2 37
+depth 1 complete with best move found being d6e5
+depth 2 complete with best move found being e1g1
+depth 3 complete with best move found being e1g1
+Rg1 5.0
+Rxe6 5.0
+Bxc5 5.0
+Be5 9.0
+Bf4 9.0
+Bg3 9.0
+Kh1 9.0
+Re5 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Rh1 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Be7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bf8 9.0
+Bb8 9.0
+depth 4 complete with best move found being d6e5
+Be5 9.0
+Rxe6 9.0
+Bxc5 9.0
+Bf4 9.0
+Bg3 9.0
+Kh1 9.0
+Re5 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Rh1 9.0
+Rg1 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Be7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bf8 9.0
+Bb8 9.0
+depth 5 complete with best move found being d6e5
+{'positions': 29866, 'time': 9.14, 'positions per second': 3267.61}
+chess v0.27 average time: 17.20607142857143
+Be5
+2k1r3/p5n1/1p2p3/2p1B1r1/2P5/7P/PP2R2K/4R3 b - - 3 37
+Rxe5 -25.0
+Nf5 -14.0
+Kb7 -12.0
+Rg2+ -12.0
+b5 -12.0
+Rd8 -12.0
+Rg6 -12.0
+Rf5 -12.0
+Rg4 -12.0
+Rg3 -12.0
+Rg1 -12.0
+a6 -12.0
+Rh8 -12.0
+Rg8 -12.0
+Rf8 -12.0
+Re7 -12.0
+Rh5 -12.0
+a5 -12.0
+Kd8 -12.0
+Kd7 -9.5
+Nh5 -9.0
+{'positions': 7158, 'time': 2.76, 'positions per second': 2593.48}
+chess v0.22 average time: 3.7067857142857146
+Nh5
+2k1r3/p7/1p2p3/2p1B1rn/2P5/7P/PP2R2K/4R3 w - - 4 38
+depth 1 complete with best move found being e5c3
+depth 2 complete with best move found being e2g2
+depth 3 complete with best move found being e2g2
+Rg2 5.5
+Bf4 5.5
+Bd4 5.5
+Bg3 5.5
+Bc3 5.5
+Kh1 5.5
+Re4 6.0
+Re3 7.5
+Rf2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Rh1 9.0
+Rg1 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 4 complete with best move found being e2f2
+Rf2 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Bc3 9.0
+Kh1 9.0
+Re4 9.0
+Re3 9.0
+Rg2 9.0
+Rd2 9.0
+Rc2 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Rh1 9.0
+Rg1 9.0
+Rf1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 5 complete with best move found being e2f2
+{'positions': 37143, 'time': 12.32, 'positions per second': 3014.85}
+chess v0.27 average time: 17.037586206896552
+Rf2
+2k1r3/p7/1p2p3/2p1B1rn/2P5/7P/PP3R1K/4R3 b - - 5 38
+Rxe5 -26.5
+Nf4 -26.5
+Nf6 -26.5
+Ng3 -26.5
+Kb7 -9.0
+Ng7 -9.0
+Rg2+ -9.0
+b5 -9.0
+Rd8 -9.0
+Rgg8 -9.0
+Rg7 -9.0
+Rg6 -9.0
+Rf5 -9.0
+Rg4 -9.0
+Rg3 -9.0
+Rg1 -9.0
+a6 -9.0
+Rh8 -9.0
+Reg8 -9.0
+Rf8 -9.0
+Re7 -9.0
+a5 -9.0
+Kd8 -9.0
+Kd7 -9.0
+{'positions': 5721, 'time': 2.28, 'positions per second': 2509.21}
+chess v0.22 average time: 3.657586206896552
+Kb7
+4r3/pk6/1p2p3/2p1B1rn/2P5/7P/PP3R1K/4R3 w - - 6 39
+depth 1 complete with best move found being f2f7
+depth 2 complete with best move found being f2f7
+depth 3 complete with best move found being f2f7
+Rf7+ 9.0
+Bd6 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Bc3 9.0
+Kh1 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rg2 9.0
+Rfe2 9.0
+Rd2 9.0
+Rc2 9.0
+Rff1 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Re4 9.0
+Re3 9.0
+Ree2 9.0
+Rh1 9.0
+Rg1 9.0
+Ref1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 4 complete with best move found being f2f7
+Rf7+ 9.0
+Bd6 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Bc3 9.0
+Kh1 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rg2 9.0
+Rfe2 9.0
+Rd2 9.0
+Rc2 9.0
+Rff1 9.0
+Rd1 9.0
+a3 9.0
+Bf6 9.0
+Re4 9.0
+Re3 9.0
+Ree2 9.0
+Rh1 9.0
+Rg1 9.0
+Ref1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 5 complete with best move found being f2f7
+{'positions': 27313, 'time': 11.12, 'positions per second': 2456.21}
+chess v0.27 average time: 16.840333333333334
+Rf7+
+4r3/pk3R2/1p2p3/2p1B1rn/2P5/7P/PP5K/4R3 b - - 7 39
+Ka8 -9.0
+Re7 -9.0
+Kc8 -9.0
+Ka6 -9.0
+Kc6 -9.0
+{'positions': 3069, 'time': 0.72, 'positions per second': 4262.5}
+chess v0.22 average time: 3.5596666666666668
+Ka8
+k3r3/p4R2/1p2p3/2p1B1rn/2P5/7P/PP5K/4R3 w - - 8 40
+depth 1 complete with best move found being f7d7
+depth 2 complete with best move found being f7d7
+depth 3 complete with best move found being f7d7
+Rd7 5.5
+Rxa7+ 5.5
+Rg7 5.5
+Re7 5.5
+Rc7 5.5
+Rb7 5.5
+Bd6 8.0
+Bf4 8.0
+Bd4 8.0
+Bg3 8.0
+Bc3 8.0
+Kh1 8.0
+Rd1 8.0
+a3 8.0
+Rh7 8.0
+Bf6 8.0
+Re4 8.0
+Re3 8.0
+Re2 8.0
+Rh1 8.0
+Rg1 8.0
+Ref1 8.0
+Rc1 8.0
+Rb1 8.0
+Ra1 8.0
+h4 8.0
+a4 8.0
+Rf8 8.0
+Rf6 8.0
+Rf5 8.0
+Rf4 8.0
+Rf3 8.0
+Rf2 8.0
+Rff1 8.0
+Bg7 8.0
+Bc7 8.0
+b4 8.0
+b3 8.0
+Bb8 8.0
+Bh8 8.0
+depth 4 complete with best move found being e5d6
+Bd6 8.0
+Rxa7+ 8.0
+Rg7 8.0
+Re7 8.0
+Rd7 8.0
+Rc7 8.0
+Rb7 8.0
+Bf4 8.0
+Bd4 8.0
+Bg3 8.0
+Bc3 8.0
+Kh1 8.0
+Rd1 8.0
+a3 9.0
+Rh7 9.0
+Bf6 9.0
+Re4 9.0
+Re3 9.0
+Re2 9.0
+Rh1 9.0
+Rg1 9.0
+Ref1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rff1 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 5 complete with best move found being a2a3
+{'positions': 100689, 'time': 34.41, 'positions per second': 2926.16}
+chess v0.27 average time: 17.407096774193548
+a3
+k3r3/p4R2/1p2p3/2p1B1rn/2P5/P6P/1P5K/4R3 b - - 0 40
+Rxe5 -37.0
+Nf4 -36.0
+Nf6 -36.0
+Ng3 -34.0
+Ng7 -34.0
+Rg2+ -34.0
+b5 -18.0
+Rd8 -9.0
+Rgg8 -9.0
+Rg7 -9.0
+Rg6 -9.0
+Rf5 -9.0
+Rg4 -9.0
+Rg3 -9.0
+Rg1 -9.0
+a6 -9.0
+Rh8 -9.0
+Reg8 -9.0
+Rf8 -9.0
+Rc8 -9.0
+Rb8 -9.0
+Re7 -9.0
+a5 -9.0
+{'positions': 9285, 'time': 3.64, 'positions per second': 2550.82}
+chess v0.22 average time: 3.5622580645161293
+Rd8
+k2r4/p4R2/1p2p3/2p1B1rn/2P5/P6P/1P5K/4R3 w - - 1 41
+depth 1 complete with best move found being f7e7
+depth 2 complete with best move found being e5c3
+depth 3 complete with best move found being e5c3
+Bc3 8.0
+Rxa7+ 8.0
+Rg7 8.0
+Re7 8.0
+Rd7 8.0
+Rc7 8.0
+Rb7 8.0
+Bd6 8.0
+Bf4 8.0
+Bd4 8.0
+Bg3 8.0
+Kh1 8.0
+Rd1 8.0
+Rh7 8.0
+Bf6 8.0
+Re4 8.0
+Re3 8.0
+Re2 8.0
+Rh1 8.0
+Rg1 8.0
+Ref1 8.0
+Rc1 8.0
+Rb1 8.0
+Ra1 8.0
+h4 8.0
+a4 8.0
+Rf8 8.0
+Rf6 8.0
+Rf5 8.0
+Rf4 8.0
+Rf3 8.0
+Rf2 8.0
+Rff1 8.0
+Bg7 8.0
+Bc7 8.0
+b4 8.0
+b3 8.0
+Bb8 8.0
+Bh8 8.0
+depth 4 complete with best move found being e5c3
+Bc3 9.0
+Rxa7+ 9.0
+Rg7 9.0
+Re7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd6 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Kh1 9.0
+Rd1 9.0
+Rh7 9.0
+Bf6 9.0
+Re4 9.0
+Re3 9.0
+Re2 9.0
+Rh1 9.0
+Rg1 9.0
+Ref1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rff1 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 5 complete with best move found being e5c3
+{'positions': 47054, 'time': 18.41, 'positions per second': 2555.89}
+chess v0.27 average time: 17.4384375
+Bc3
+k2r4/p4R2/1p2p3/2p3rn/2P5/P1B4P/1P5K/4R3 b - - 2 41
+Nf4 -35.0
+Nf6 -35.0
+Ng3 -14.5
+e5 -14.5
+Kb8 -14.5
+Ng7 -14.5
+Rg2+ -14.5
+Rd2+ -14.5
+b5 -14.5
+Re8 -9.0
+Rgg8 -9.0
+Rg7 -9.0
+Rg6 -9.0
+Rf5 -9.0
+Re5 -9.0
+Rgd5 -9.0
+Rg4 -9.0
+Rg3 -9.0
+Rg1 -9.0
+a6 -9.0
+Rh8 -9.0
+Rdg8 -9.0
+Rf8 -9.0
+Rc8 -9.0
+Rb8 -9.0
+Rd7 -9.0
+Rd6 -9.0
+Rdd5 -9.0
+Rd4 -9.0
+Rd3 -9.0
+Rd1 -9.0
+a5 -9.0
+{'positions': 10278, 'time': 3.94, 'positions per second': 2608.63}
+chess v0.22 average time: 3.5740625
+Re8
+k3r3/p4R2/1p2p3/2p3rn/2P5/P1B4P/1P5K/4R3 w - - 3 42
+depth 1 complete with best move found being f7d7
+depth 2 complete with best move found being e1e5
+depth 3 complete with best move found being e1e5
+Re5 8.5
+Rxa7+ 8.5
+Rxe6 8.5
+Rg7 8.5
+Re7 8.5
+Rd7 8.5
+Rc7 8.5
+Rb7 8.5
+Bd4 8.5
+Kh1 8.5
+Rd1 8.5
+Rh7 8.5
+Bf6 8.5
+Re4 8.5
+Re3 8.5
+Re2 8.5
+Rh1 8.5
+Rg1 8.5
+Ref1 8.5
+Rc1 8.5
+Rb1 8.5
+Ra1 8.5
+h4 8.5
+a4 8.5
+Rf8 8.5
+Rf6 8.5
+Rf5 8.5
+Rf4 8.5
+Rf3 8.5
+Rf2 8.5
+Rff1 8.5
+Bg7 8.5
+Bb4 8.5
+Bd2 8.5
+b4 8.5
+b3 8.5
+Ba5 8.5
+Bh8 8.5
+depth 4 complete with best move found being e1e5
+Re5 9.0
+Rxa7+ 9.0
+Rxe6 9.0
+Rg7 9.0
+Re7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd4 9.0
+Kh1 9.0
+Rd1 9.0
+Rh7 9.0
+Bf6 9.0
+Re4 9.0
+Re3 9.0
+Re2 9.0
+Rh1 9.0
+Rg1 9.0
+Ref1 9.0
+Rc1 9.0
+Rb1 9.0
+Ra1 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rff1 9.0
+Bg7 9.0
+Bb4 9.0
+Bd2 9.0
+b4 9.0
+b3 9.0
+Ba5 9.0
+Bh8 9.0
+depth 5 complete with best move found being e1e5
+{'positions': 51507, 'time': 20.55, 'positions per second': 2506.42}
+chess v0.27 average time: 17.53272727272727
+Re5
+k3r3/p4R2/1p2p3/2p1R1rn/2P5/P1B4P/1P5K/8 b - - 4 42
+Rxe5 -9.0
+Nf4 -9.0
+Nf6 -9.0
+Ng3 -9.0
+Kb8 -9.0
+Ng7 -9.0
+Rg2+ -9.0
+b5 -9.0
+Rd8 -9.0
+Rgg8 -9.0
+Rg7 -9.0
+Rg6 -9.0
+Rf5 -9.0
+Rg4 -9.0
+Rg3 -9.0
+Rg1 -9.0
+a6 -9.0
+Rh8 -9.0
+Reg8 -9.0
+Rf8 -9.0
+Rc8 -9.0
+Rb8 -9.0
+Re7 -9.0
+a5 -9.0
+{'positions': 2358, 'time': 1.33, 'positions per second': 1772.93}
+chess v0.22 average time: 3.5060606060606063
+Rxe5
+k3r3/p4R2/1p2p3/2p1r2n/2P5/P1B4P/1P5K/8 w - - 0 43
+depth 1 complete with best move found being c3e5
+depth 2 complete with best move found being c3e5
+depth 3 complete with best move found being c3e5
+Bxe5 9.0
+Rxa7+ 9.0
+Kg1 9.0
+Rg7 9.0
+Re7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd4 9.0
+Kg2 9.0
+Kh1 9.0
+Rh7 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rf1 9.0
+Bb4 9.0
+Bd2 9.0
+b4 9.0
+b3 9.0
+Ba5 9.0
+Be1 9.0
+depth 4 complete with best move found being c3e5
+Bxe5 9.0
+Rxa7+ 9.0
+Kg1 9.0
+Rg7 9.0
+Re7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd4 9.0
+Kg2 9.0
+Kh1 9.0
+Rh7 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rf1 9.0
+Bb4 9.0
+Bd2 9.0
+b4 9.0
+b3 9.0
+Ba5 9.0
+Be1 9.0
+depth 5 complete with best move found being c3e5
+{'positions': 9899, 'time': 3.97, 'positions per second': 2493.45}
+chess v0.27 average time: 17.133823529411764
+Bxe5
+k3r3/p4R2/1p2p3/2p1B2n/2P5/P6P/1P5K/8 b - - 0 43
+Nf4 -35.5
+Nf6 -35.5
+Ng3 -35.5
+Ng7 -35.5
+b5 -22.5
+Rd8 -9.0
+a6 -9.0
+Rh8 -9.0
+Rg8 -9.0
+Rf8 -9.0
+Rc8 -9.0
+Rb8 -9.0
+Re7 -9.0
+a5 -9.0
+{'positions': 3502, 'time': 1.09, 'positions per second': 3212.84}
+chess v0.22 average time: 3.435
+Rd8
+k2r4/p4R2/1p2p3/2p1B2n/2P5/P6P/1P5K/8 w - - 1 44
+depth 1 complete with best move found being h2g1
+depth 2 complete with best move found being h2g1
+depth 3 complete with best move found being h2g1
+Kg1 8.5
+Rxa7+ 8.5
+Rg7 8.5
+Re7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd6 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Bc3 9.0
+Kg2 9.0
+Kh1 9.0
+Rh7 9.0
+Bf6 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rf1 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 4 complete with best move found being f7e7
+Re7 9.0
+Rxa7+ 9.0
+Kg1 9.0
+Rg7 9.0
+Rd7 9.0
+Rc7 9.0
+Rb7 9.0
+Bd6 9.0
+Bf4 9.0
+Bd4 9.0
+Bg3 9.0
+Bc3 9.0
+Kg2 9.0
+Kh1 9.0
+Rh7 9.0
+Bf6 9.0
+h4 9.0
+a4 9.0
+Rf8 9.0
+Rf6 9.0
+Rf5 9.0
+Rf4 9.0
+Rf3 9.0
+Rf2 9.0
+Rf1 9.0
+Bg7 9.0
+Bc7 9.0
+b4 9.0
+b3 9.0
+Bb8 9.0
+Bh8 9.0
+depth 5 complete with best move found being f7e7
+{'positions': 19887, 'time': 6.59, 'positions per second': 3017.75}
+chess v0.27 average time: 16.832571428571427
+Re7
+k2r4/p3R3/1p2p3/2p1B2n/2P5/P6P/1P5K/8 b - - 2 44
+Nf4 -35.0
+Nf6 -35.0
+Ng3 -35.0
+Ng7 -35.0
+Rd2+ -9.0
+b5 -9.0
+Re8 -9.0
+a6 -9.0
+Rh8 -9.0
+Rg8 -9.0
+Rf8 -9.0
+Rc8 -9.0
+Rb8 -9.0
+Rd7 -9.0
+Rd6 -9.0
+Rd5 -9.0
+Rd4 -9.0
+Rd3 -9.0
+Rd1 -9.0
+a5 -9.0
+{'positions': 2034, 'time': 0.66, 'positions per second': 3081.82}
+chess v0.22 average time: 3.355714285714286
+Rd2+
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P1r3K/8 w - - 3 45
+depth 1 complete with best move found being h2g1
+depth 2 complete with best move found being h2g1
+depth 3 complete with best move found being h2g1
+Kg1 9.0
+Kh1 9.0
+depth 4 complete with best move found being h2g1
+Kg1 9.0
+Kh1 9.0
+depth 5 complete with best move found being h2g1
+{'positions': 15493, 'time': 5.35, 'positions per second': 2895.89}
+chess v0.27 average time: 16.51361111111111
+Kg1
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P1r4/6K1 b - - 4 45
+Rxb2 -51.0
+Nf4 -34.0
+Nf6 -34.0
+Ng3 -34.0
+Ng7 -34.0
+b5 -21.0
+Rg2+ -21.0
+Rf2 -21.0
+Re2 -18.0
+Rc2 -11.0
+a6 -11.0
+Rd8 -11.0
+Rh2 -11.0
+a5 -11.0
+Rd7 -11.0
+Rd6 -11.0
+Rd5 -11.0
+Rd4 -11.0
+Rd3 -11.0
+Rd1+ -9.0
+{'positions': 6193, 'time': 2.15, 'positions per second': 2880.47}
+chess v0.22 average time: 3.3222222222222224
+Rd1+
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P6/3r2K1 w - - 5 46
+depth 1 complete with best move found being g1h2
+depth 2 complete with best move found being g1h2
+depth 3 complete with best move found being g1h2
+Kh2 8.5
+Kg2 8.5
+Kf2 8.5
+depth 4 complete with best move found being g1h2
+Kh2 9.0
+Kg2 9.0
+Kf2 9.0
+depth 5 complete with best move found being g1h2
+{'positions': 11967, 'time': 3.43, 'positions per second': 3488.92}
+chess v0.27 average time: 16.16
+Kh2
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P5K/3r4 b - - 6 46
+Nf4 -38.0
+Nf6 -35.5
+Ng3 -35.5
+Ng7 -35.5
+Rd2+ -9.0
+Rd8 -9.0
+b5 -9.0
+Rd7 -9.0
+Rd6 -9.0
+Rd5 -9.0
+Rd4 -9.0
+Rd3 -9.0
+Rh1+ -9.0
+Rg1 -9.0
+Rf1 -9.0
+Re1 -9.0
+Rc1 -9.0
+Rb1 -9.0
+Ra1 -9.0
+a6 -9.0
+a5 -9.0
+{'positions': 3657, 'time': 1.03, 'positions per second': 3550.49}
+chess v0.22 average time: 3.2602702702702704
+Rd2+
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P1r3K/8 w - - 7 47
+depth 1 complete with best move found being h2h1
+depth 2 complete with best move found being h2h1
+depth 3 complete with best move found being h2h1
+Kh1 8.5
+depth 4 complete with best move found being h2h1
+Kh1 9.0
+depth 5 complete with best move found being h2h1
+{'positions': 16054, 'time': 4.99, 'positions per second': 3217.23}
+chess v0.27 average time: 15.866052631578947
+Kh1
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P1r4/7K b - - 8 47
+Rxb2 -50.0
+Nf4 -33.0
+Nf6 -33.0
+Ng3+ -33.0
+Ng7 -33.0
+b5 -20.0
+Rg2 -20.0
+Rf2 -17.0
+Re2 -17.0
+Rc2 -10.0
+a6 -10.0
+Rd8 -10.0
+Rh2+ -10.0
+a5 -10.0
+Rd7 -10.0
+Rd6 -10.0
+Rd5 -10.0
+Rd4 -10.0
+Rd3 -10.0
+Rd1+ -9.0
+{'positions': 6405, 'time': 1.9, 'positions per second': 3371.05}
+chess v0.22 average time: 3.2244736842105266
+Rd1+
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P6/3r3K w - - 9 48
+depth 1 complete with best move found being h1g2
+depth 2 complete with best move found being h1g2
+depth 3 complete with best move found being h1g2
+Kg2 8.5
+depth 4 complete with best move found being h1g2
+Kg2 9.0
+depth 5 complete with best move found being h1g2
+{'positions': 3459, 'time': 1.18, 'positions per second': 2931.36}
+chess v0.27 average time: 15.489487179487178
+Kg2
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P4K1/3r4 b - - 10 48
+Nf4+ -35.0
+Nf6 -35.0
+Ng3 -35.0
+Ng7 -35.0
+Rd2+ -9.0
+Rd8 -9.0
+b5 -9.0
+Rd7 -9.0
+Rd6 -9.0
+Rd5 -9.0
+Rd4 -9.0
+Rd3 -9.0
+Rh1 -9.0
+Rg1+ -9.0
+Rf1 -9.0
+Re1 -9.0
+Rc1 -9.0
+Rb1 -9.0
+Ra1 -9.0
+a6 -9.0
+a5 -9.0
+{'positions': 2078, 'time': 0.79, 'positions per second': 2630.38}
+chess v0.22 average time: 3.1620512820512827
+Rd2+
+k7/p3R3/1p2p3/2p1B2n/2P5/P6P/1P1r2K1/8 w - - 11 49
+depth 1 complete with best move found being g2f1
+depth 2 complete with best move found being g2f1
+depth 3 complete with best move found being g2f1
+Kf1 8.5
+Kf3 13.0
+depth 4 complete with best move found being g2f3
+Kf3 13.0
+Kf1 13.0
+depth 5 complete with best move found being g2f3
+{'positions': 28073, 'time': 7.9, 'positions per second': 3553.54}
+chess v0.27 average time: 15.299749999999998
+Kf3
+k7/p3R3/1p2p3/2p1B2n/2P5/P4K1P/1P1r4/8 b - - 12 49
+Rxb2 -53.0
+Nf4 -32.0
+Nf6 -31.0
+Ng3 -31.0
+Ng7 -31.0
+b5 -19.0
+Rg2 -19.0
+Rf2+ -19.0
+Re2 -19.0
+Rc2 -18.0
+a6 -14.0
+Rd8 -14.0
+Rh2 -14.0
+a5 -14.0
+Rd7 -14.0
+Rd6 -14.0
+Rd5 -14.0
+Rd4 -14.0
+Rd3+ -13.0
+Rd1 -13.0
+{'positions': 7580, 'time': 2.25, 'positions per second': 3368.89}
+chess v0.22 average time: 3.1392500000000005
+Rd3+
+k7/p3R3/1p2p3/2p1B2n/2P5/P2r1K1P/1P6/8 w - - 13 50
+depth 1 complete with best move found being f3g2
+depth 2 complete with best move found being f3g4
+depth 3 complete with best move found being f3g4
+Kg4 13.0
+Kg2 13.0
+Kf2 13.0
+Ke2 13.0
+Ke4 13.0
+depth 4 complete with best move found being f3g4
+Kg4 13.0
+Kg2 13.0
+Kf2 13.0
+Ke2 13.0
+Ke4 13.0
+depth 5 complete with best move found being f3g4
+{'positions': 15526, 'time': 4.04, 'positions per second': 3843.07}
+chess v0.27 average time: 15.025121951219509
+Kg4
+k7/p3R3/1p2p3/2p1B2n/2P3K1/P2r3P/1P6/8 b - - 14 50
+Rxh3 -55.5
+Rxa3 -55.5
+Nf4 -33.0
+Nf6+ -31.5
+Ng3 -31.5
+Ng7 -31.0
+Rd2 -31.0
+Rd8 -31.0
+b5 -23.0
+Rd7 -23.0
+Rd6 -23.0
+Rd5 -23.0
+Rd4+ -23.0
+Rg3+ -23.0
+Rf3 -23.0
+Re3 -13.0
+Rc3 -13.0
+Rb3 -13.0
+Rd1 -13.0
+a6 -13.0
+a5 -13.0
+{'positions': 6653, 'time': 1.96, 'positions per second': 3394.39}
+chess v0.22 average time: 3.110487804878049
+Re3
+k7/p3R3/1p2p3/2p1B2n/2P3K1/P3r2P/1P6/8 w - - 15 51
+depth 1 complete with best move found being e7e6
+depth 2 complete with best move found being e7e8
+depth 3 complete with best move found being e7e8
+Re8+ 13.0
+Kxh5 13.0
+Rxa7+ 13.0
+Rxe6 13.0
+Kh4 13.0
+Rg7 13.0
+Rf7 13.0
+Rd7 13.0
+Rc7 13.0
+Rb7 13.0
+Bd6 13.0
+Bf4 13.0
+Bd4 13.0
+Bg3 13.0
+Bc3 13.0
+Rh7 13.0
+Bf6 13.0
+h4 13.0
+a4 13.0
+Bg7 13.0
+Bc7 13.0
+Kg5 13.0
+b4 13.0
+b3 13.0
+Bb8 13.0
+Bh2 13.0
+Bh8 13.0
+depth 4 complete with best move found being e7e8
+Re8+ 13.0
+Kxh5 13.0
+Rxa7+ 13.0
+Rxe6 13.0
+Kh4 13.0
+Rg7 13.0
+Rf7 13.0
+Rd7 13.0
+Rc7 13.0
+Rb7 13.0
+Bd6 13.0
+Bf4 13.0
+Bd4 13.0
+Bg3 13.0
+Bc3 13.0
+Rh7 13.0
+Bf6 13.0
+h4 13.0
+a4 13.0
+Bg7 13.0
+Bc7 13.0
+Kg5 13.0
+b4 13.0
+b3 13.0
+Bb8 13.0
+Bh2 13.0
+Bh8 13.0
+depth 5 complete with best move found being e7e8
+{'positions': 20684, 'time': 6.49, 'positions per second': 3187.06}
+chess v0.27 average time: 14.821904761904758
+Re8+
+k3R3/p7/1p2p3/2p1B2n/2P3K1/P3r2P/1P6/8 b - - 16 51
+Kb7 -13.0
+{'positions': 1305, 'time': 0.38, 'positions per second': 3434.21}
+chess v0.22 average time: 3.0454761904761907
+Kb7
+4R3/pk6/1p2p3/2p1B2n/2P3K1/P3r2P/1P6/8 w - - 17 52
+depth 1 complete with best move found being e8e6
+depth 2 complete with best move found being e8e7
+depth 3 complete with best move found being e8e7
+Re7+ 12.0
+Kxh5 12.0
+Rxe6 12.0
+Kh4 12.0
+Rh8 12.0
+Rg8 12.0
+Rf8 12.0
+Rd8 12.0
+Rc8 12.0
+Rb8+ 12.0
+Ra8 12.0
+Bd6 12.0
+Bf4 12.0
+Bd4 12.0
+Bg3 12.0
+Bc3 12.0
+Bf6 12.0
+h4 12.0
+a4 12.0
+Bg7 12.0
+Bc7 12.0
+Kg5 12.0
+b4 12.0
+b3 12.0
+Bb8 12.0
+Bh2 12.0
+Bh8 12.0
+depth 4 complete with best move found being e8e7
+Re7+ 12.0
+Kxh5 12.0
+Rxe6 12.0
+Kh4 12.0
+Rh8 12.0
+Rg8 12.0
+Rf8 12.0
+Rd8 12.0
+Rc8 12.0
+Rb8+ 12.0
+Ra8 12.0
+Bd6 12.0
+Bf4 12.0
+Bd4 12.0
+Bg3 12.0
+Bc3 12.0
+Bf6 12.0
+h4 12.0
+a4 12.0
+Bg7 12.0
+Bc7 12.0
+Kg5 12.0
+b4 12.0
+b3 12.0
+Bb8 12.0
+Bh2 12.0
+Bh8 12.0
+depth 5 complete with best move found being e8e7
+{'positions': 23184, 'time': 7.67, 'positions per second': 3022.69}
+chess v0.27 average time: 14.655581395348833
+Re7+
+8/pk2R3/1p2p3/2p1B2n/2P3K1/P3r2P/1P6/8 b - - 18 52
+Ka8 -13.0
+Kc8 -12.0
+Ka6 -12.0
+Kc6 -12.0
+{'positions': 2164, 'time': 0.64, 'positions per second': 3381.25}
+chess v0.22 average time: 2.9895348837209306
+Kc8
+2k5/p3R3/1p2p3/2p1B2n/2P3K1/P3r2P/1P6/8 w - - 19 53
+depth 1 complete with best move found being e7e6
+depth 2 complete with best move found being e5c3
+depth 3 complete with best move found being e5c3
+Bc3 10.0
+Kxh5 10.0
+Rxa7 10.0
+Rxe6 11.0
+Kh4 11.0
+Rg7 11.0
+Rf7 11.0
+Rd7 11.0
+Rc7+ 11.0
+Rb7 11.0
+Bd6 11.0
+Bf4 11.0
+Bd4 11.0
+Bg3 11.0
+Rh7 11.0
+Bf6 11.0
+h4 11.0
+a4 11.0
+Re8+ 11.0
+Bg7 11.0
+Bc7 11.0
+Kg5 11.0
+b4 11.0
+b3 11.0
+Bb8 11.0
+Bh2 11.0
+Bh8 11.0
+depth 4 complete with best move found being e7e6
+Rxe6 11.0
+Kxh5 11.0
+Rxa7 11.0
+Kh4 11.0
+Rg7 11.0
+Rf7 11.0
+Rd7 11.0
+Rc7+ 11.0
+Rb7 11.0
+Bd6 11.0
+Bf4 11.0
+Bd4 11.0
+Bg3 11.0
+Bc3 11.0
+Rh7 11.0
+Bf6 11.0
+h4 11.0
+a4 11.0
+Re8+ 11.0
+Bg7 11.0
+Bc7 11.0
+Kg5 11.0
+b4 11.0
+b3 11.0
+Bb8 11.0
+Bh2 11.0
+Bh8 11.0
+depth 5 complete with best move found being e7e6
+{'positions': 27633, 'time': 7.62, 'positions per second': 3626.38}
+chess v0.27 average time: 14.495681818181815
+Rxe6
+2k5/p7/1p2R3/2p1B2n/2P3K1/P3r2P/1P6/8 b - - 0 53
+Rxe5 -29.0
+Rxh3 -29.0
+Rxa3 -29.0
+Nf4 -29.0
+Nf6+ -11.0
+Ng3 -11.0
+Kb7 -11.0
+Ng7 -11.0
+Re2 -11.0
+b5 -11.0
+Re4+ -11.0
+Rg3+ -11.0
+Rf3 -11.0
+Rd3 -11.0
+Rc3 -11.0
+Rb3 -11.0
+Re1 -11.0
+a6 -11.0
+a5 -11.0
+Kd8 -11.0
+Kd7 -11.0
+{'positions': 2944, 'time': 2.02, 'positions per second': 1457.43}
+chess v0.22 average time: 2.9675000000000007
+Nf6+
+2k5/p7/1p2Rn2/2p1B3/2P3K1/P3r2P/1P6/8 w - - 1 54
+depth 1 complete with best move found being g4h4
+depth 2 complete with best move found being g4f4
+depth 3 complete with best move found being g4f4
+Kf4 27.0
+Rxf6 27.0
+Bxf6 27.0
+Kh4 27.0
+Kg5 27.0
+Kf5 27.0
+depth 4 complete with best move found being g4f4
+Kf4 27.0
+Rxf6 27.0
+Bxf6 27.0
+Kh4 27.0
+Kg5 27.0
+Kf5 27.0
+depth 5 complete with best move found being g4f4
+{'positions': 8596, 'time': 3.55, 'positions per second': 2421.41}
+chess v0.27 average time: 14.25244444444444
+Kf4
+2k5/p7/1p2Rn2/2p1B3/2P2K2/P3r2P/1P6/8 b - - 2 54
+Rxe5 -28.5
+Rxh3 -28.5
+Rxa3 -28.5
+Kb7 -28.5
+Nd5+ -28.5
+Ne4 -28.5
+Re2 -28.5
+b5 -28.5
+Re4+ -27.0
+Rg3 -27.0
+Rf3+ -27.0
+Rd3 -27.0
+Rc3 -27.0
+Rb3 -27.0
+Re1 -27.0
+a6 -27.0
+Nd7 -27.0
+Ng4 -27.0
+a5 -27.0
+Kd8 -27.0
+Kd7 -27.0
+Ne8 -27.0
+Nh5+ -27.0
+Ng8 -27.0
+Nh7 -27.0
+{'positions': 3151, 'time': 1.26, 'positions per second': 2500.79}
+chess v0.22 average time: 2.929555555555556
+Re4+
+2k5/p7/1p2Rn2/2p1B3/2P1rK2/P6P/1P6/8 w - - 3 55
+depth 1 complete with best move found being f4g3
+depth 2 complete with best move found being f4f5
+depth 3 complete with best move found being f4f5
+Kf5 28.5
+Kg3 28.5
+Kf3 28.5
+Kg5 28.5
+depth 4 complete with best move found being f4f5
+Kf5 28.5
+Kg3 28.5
+Kf3 28.5
+Kg5 28.5
+depth 5 complete with best move found being f4f5
+{'positions': 5318, 'time': 2.66, 'positions per second': 1999.25}
+chess v0.27 average time: 14.000434782608691
+Kf5
+2k5/p7/1p2Rn2/2p1BK2/2P1r3/P6P/1P6/8 b - - 4 55
+Rxe5+ -28.5
+Rxc4 -28.5
+Kb7 -28.5
+Nd5 -28.5
+Re2 -28.5
+b5 -28.5
+Rg4 -28.5
+Rf4+ -28.5
+Rd4 -28.5
+Re3 -28.5
+Re1 -28.5
+a6 -28.5
+Nd7 -28.5
+Ng4 -28.5
+Rh4 -28.5
+a5 -28.5
+Kd8 -28.5
+Kd7 -28.5
+Ne8 -28.5
+Nh5 -28.5
+Ng8 -28.5
+Nh7 -28.5
+{'positions': 1843, 'time': 1.12, 'positions per second': 1645.54}
+chess v0.22 average time: 2.8902173913043483
+Rxe5+
+2k5/p7/1p2Rn2/2p1rK2/2P5/P6P/1P6/8 w - - 0 56
+depth 1 complete with best move found being e6e5
+depth 2 complete with best move found being f5e5
+depth 3 complete with best move found being f5e5
+Kxe5 26.5
+Rxe5 28.5
+Kxf6 28.5
+Kf4 28.5
+Kg6 28.5
+depth 4 complete with best move found being e6e5
+Rxe5 29.5
+Kxe5 29.5
+Kxf6 29.5
+Kf4 29.5
+Kg6 29.5
+depth 5 complete with best move found being e6e5
+{'positions': 5067, 'time': 2.27, 'positions per second': 2232.16}
+chess v0.27 average time: 13.750851063829781
+Rxe5
+2k5/p7/1p3n2/2p1RK2/2P5/P6P/1P6/8 b - - 0 56
+Kb8 -57.0
+Kb7 -57.0
+Nd5 -57.0
+Ne4 -57.0
+b5 -57.0
+a6 -57.0
+Nd7 -29.5
+Ng4 -29.5
+a5 -29.5
+Kd8 -29.5
+Kd7 -29.5
+Kc7 -29.5
+Ne8 -29.5
+Nh5 -29.5
+Ng8 -29.5
+Nh7 -29.5
+{'positions': 1991, 'time': 0.52, 'positions per second': 3828.85}
+chess v0.22 average time: 2.8397872340425536
+Nd7
+2k5/p2n4/1p6/2p1RK2/2P5/P6P/1P6/8 w - - 1 57
+depth 1 complete with best move found being e5e7
+depth 2 complete with best move found being e5e7
+depth 3 complete with best move found being e5e7
+Re7 28.5
+Rxc5+ 28.5
+Kg4 28.5
+Kf4 28.5
+Re1 28.5
+Kg6 28.5
+Kg5 28.5
+Ke4 28.5
+Re8+ 28.5
+Re6 28.5
+Rd5 28.5
+Re4 28.5
+Re3 28.5
+Re2 28.5
+h4 28.5
+a4 28.5
+Ke6 28.5
+b4 28.5
+b3 28.5
+depth 4 complete with best move found being e5e7
+Re7 29.5
+Rxc5+ 29.5
+Kg4 29.5
+Kf4 29.5
+Re1 29.5
+Kg6 29.5
+Kg5 29.5
+Ke4 29.5
+Re8+ 29.5
+Re6 29.5
+Rd5 29.5
+Re4 29.5
+Re3 29.5
+Re2 29.5
+h4 29.5
+a4 29.5
+Ke6 29.5
+b4 29.5
+b3 29.5
+depth 5 complete with best move found being e5e7
+{'positions': 13246, 'time': 3.86, 'positions per second': 3431.61}
+chess v0.27 average time: 13.544791666666661
+Re7
+2k5/p2nR3/1p6/2p2K2/2P5/P6P/1P6/8 b - - 2 57
+Kb8 -58.0
+Ne5 -58.0
+Kb7 -58.0
+Nf6 -57.0
+b5 -38.5
+a6 -32.0
+a5 -32.0
+Kd8 -29.5
+Kc7 -29.5
+Nf8 -29.5
+Nb8 -29.5
+{'positions': 3887, 'time': 0.96, 'positions per second': 4048.96}
+chess v0.22 average time: 2.8006250000000006
+Kd8
+3k4/p2nR3/1p6/2p2K2/2P5/P6P/1P6/8 w - - 3 58
+depth 1 complete with best move found being e7g7
+depth 2 complete with best move found being e7g7
+depth 3 complete with best move found being e7g7
+Rg7 32.0
+Rxd7+ 32.0
+Kg4 32.0
+Kf4 32.0
+Rf7 32.0
+Kg6 32.0
+Kg5 32.0
+Ke4 32.0
+Rh7 32.0
+Re1 32.0
+h4 32.0
+a4 32.0
+Re8+ 32.0
+Re6 32.0
+Re5 32.0
+Re4 32.0
+Re3 32.0
+Re2 32.0
+Ke6 32.0
+b4 32.0
+b3 32.0
+depth 4 complete with best move found being e7g7
+Rg7 32.0
+Rxd7+ 32.0
+Kg4 32.0
+Kf4 32.0
+Rf7 32.0
+Kg6 32.0
+Kg5 32.0
+Ke4 32.0
+Rh7 32.0
+Re1 32.0
+h4 32.0
+a4 32.0
+Re8+ 32.0
+Re6 32.0
+Re5 32.0
+Re4 32.0
+Re3 32.0
+Re2 32.0
+Ke6 32.0
+b4 32.0
+b3 32.0
+depth 5 complete with best move found being e7g7
+{'positions': 10172, 'time': 3.41, 'positions per second': 2982.99}
+chess v0.27 average time: 13.337959183673464
+Rg7
+3k4/p2n2R1/1p6/2p2K2/2P5/P6P/1P6/8 b - - 4 58
+Ne5 -61.0
+Kc8 -32.0
+Nf6 -32.0
+b5 -32.0
+Ke8 -32.0
+Kc7 -32.0
+a6 -32.0
+a5 -32.0
+Nf8 -32.0
+Nb8 -32.0
+{'positions': 3948, 'time': 1.92, 'positions per second': 2056.25}
+chess v0.22 average time: 2.78265306122449
+Kc8
+2k5/p2n2R1/1p6/2p2K2/2P5/P6P/1P6/8 w - - 5 59
+depth 1 complete with best move found being f5g4
+depth 2 complete with best move found being f5e6
+depth 3 complete with best move found being f5e6
+Ke6 29.0
+Rxd7 29.0
+Kg4 29.0
+Kf4 29.5
+Rf7 29.5
+Kg6 29.5
+Kg5 29.5
+Ke4 29.5
+Rh7 29.5
+h4 29.5
+a4 29.5
+Rg8+ 29.5
+Rg6 29.5
+Rg5 29.5
+Rg4 29.5
+Rg3 29.5
+Rg2 29.5
+Rg1 29.5
+b4 29.5
+b3 29.5
+depth 4 complete with best move found being f5f4
+Kf4 29.5
+Rxd7 29.5
+Kg4 29.5
+Rf7 33.0
+Kg6 33.0
+Kg5 33.0
+Ke4 33.0
+Rh7 33.0
+h4 33.0
+a4 33.0
+Rg8+ 33.0
+Rg6 33.0
+Rg5 33.0
+Rg4 33.0
+Rg3 33.0
+Rg2 33.0
+Rg1 33.0
+Ke6 33.0
+b4 33.0
+b3 33.0
+depth 5 complete with best move found being g7f7
+{'positions': 14588, 'time': 3.78, 'positions per second': 3859.26}
+chess v0.27 average time: 13.146799999999994
+Rf7
+2k5/p2n1R2/1p6/2p2K2/2P5/P6P/1P6/8 b - - 6 59
+Kb8 -58.0
+Ne5 -58.0
+Kb7 -58.0
+Nf6 -57.0
+b5 -38.5
+a6 -33.0
+a5 -33.0
+Kd8 -33.0
+Kc7 -33.0
+Nf8 -33.0
+Nb8 -33.0
+{'positions': 3278, 'time': 0.84, 'positions per second': 3902.38}
+chess v0.22 average time: 2.7438000000000007
+a6
+2k5/3n1R2/pp6/2p2K2/2P5/P6P/1P6/8 w - - 0 60
+depth 1 complete with best move found being f5g4
+depth 2 complete with best move found being f5e6
+depth 3 complete with best move found being f5e6
+Ke6 32.5
+Rxd7 32.5
+Kg4 32.5
+Kf4 32.5
+Rg7 32.5
+Re7 32.5
+Kg6 32.5
+Kg5 32.5
+Ke4 32.5
+Rh7 32.5
+h4 32.5
+a4 32.5
+Rf8+ 32.5
+Rf6 32.5
+b4 32.5
+b3 32.5
+depth 4 complete with best move found being f5e6
+Ke6 33.5
+Rxd7 33.5
+Kg4 33.5
+Kf4 33.5
+Rg7 33.5
+Re7 33.5
+Kg6 33.5
+Kg5 33.5
+Ke4 33.5
+Rh7 33.5
+h4 33.5
+a4 33.5
+Rf8+ 33.5
+Rf6 33.5
+b4 33.5
+b3 33.5
+depth 5 complete with best move found being f5e6
+{'positions': 6163, 'time': 2.08, 'positions per second': 2962.98}
+chess v0.27 average time: 12.929803921568622
+Ke6
+2k5/3n1R2/pp2K3/2p5/2P5/P6P/1P6/8 b - - 1 60
+Kb8 -56.0
+Ne5 -56.0
+Kb7 -56.0
+Nf6 -56.0
+b5 -46.5
+a5 -46.5
+Kd8 -46.5
+Kc7 -46.5
+Nf8+ -46.5
+Nb8 -33.5
+{'positions': 1906, 'time': 0.47, 'positions per second': 4055.32}
+chess v0.22 average time: 2.6992156862745103
+Nb8
+1nk5/5R2/pp2K3/2p5/2P5/P6P/1P6/8 w - - 2 61
+depth 1 complete with best move found being e6f6
+depth 2 complete with best move found being e6d6
+depth 3 complete with best move found being e6d6
+Kd6 33.5
+Kf6 33.5
+Kf5 33.5
+Rg7 33.5
+Re7 33.5
+Rd7 33.5
+Rc7+ 33.5
+Rb7 33.5
+Ke7 33.5
+Ke5 33.5
+Kd5 33.5
+Rh7 33.5
+Ra7 33.5
+h4 33.5
+a4 33.5
+Rf8+ 33.5
+Rf6 33.5
+Rf5 33.5
+Rf4 33.5
+Rf3 33.5
+Rf2 33.5
+Rf1 33.5
+b4 33.5
+b3 33.5
+depth 4 complete with best move found being e6d6
+Kd6 33.5
+Kf6 33.5
+Kf5 33.5
+Rg7 33.5
+Re7 33.5
+Rd7 33.5
+Rc7+ 33.5
+Rb7 33.5
+Ke7 33.5
+Ke5 33.5
+Kd5 33.5
+Rh7 33.5
+Ra7 33.5
+h4 33.5
+a4 33.5
+Rf8+ 33.5
+Rf6 33.5
+Rf5 33.5
+Rf4 33.5
+Rf3 33.5
+Rf2 33.5
+Rf1 33.5
+b4 33.5
+b3 33.5
+depth 5 complete with best move found being e6d6
+{'positions': 6970, 'time': 3.2, 'positions per second': 2178.12}
+chess v0.27 average time: 12.742692307692304
+Kd6
+1nk5/5R2/pp1K4/2p5/2P5/P6P/1P6/8 b - - 3 61
+Nc6 -67.5
+Nd7 -57.0
+b5 -43.0
+a5 -33.5
+Kd8 -33.5
+{'positions': 2258, 'time': 0.43, 'positions per second': 5251.16}
+chess v0.22 average time: 2.6555769230769237
+a5
+1nk5/5R2/1p1K4/p1p5/2P5/P6P/1P6/8 w - - 0 62
+depth 1 complete with best move found being f7c7
+depth 2 complete with best move found being f7c7
+depth 3 complete with best move found being f7c7
+Rc7+ 41.0
+Rg7 41.0
+Re7 41.0
+Rd7 41.0
+Rb7 41.0
+Ke7 41.0
+Ke6 41.0
+Ke5 41.0
+Kd5 41.0
+Rh7 41.0
+Ra7 41.0
+h4 41.0
+a4 41.0
+Rf8+ 41.0
+Rf6 41.0
+Rf5 41.0
+Rf4 41.0
+Rf3 41.0
+Rf2 41.0
+Rf1 41.0
+b4 41.0
+b3 41.0
+depth 4 complete with best move found being f7c7
+Rc7+ 41.0
+Rg7 41.0
+Re7 41.0
+Rd7 41.0
+Rb7 41.0
+Ke7 41.0
+Ke6 41.0
+Ke5 41.0
+Kd5 41.0
+Rh7 41.0
+Ra7 41.0
+h4 41.0
+a4 41.0
+Rf8+ 41.0
+Rf6 41.0
+Rf5 41.0
+Rf4 41.0
+Rf3 41.0
+Rf2 41.0
+Rf1 41.0
+b4 41.0
+b3 41.0
+depth 5 complete with best move found being f7c7
+{'positions': 6263, 'time': 1.46, 'positions per second': 4289.73}
+chess v0.27 average time: 12.529811320754714
+Rc7+
+1nk5/2R5/1p1K4/p1p5/2P5/P6P/1P6/8 b - - 1 62
+Kd8 -41.0
+{'positions': 668, 'time': 0.12, 'positions per second': 5566.67}
+chess v0.22 average time: 2.6077358490566045
+Kd8
+1n1k4/2R5/1p1K4/p1p5/2P5/P6P/1P6/8 w - - 2 63
+depth 1 complete with best move found being c7g7
+depth 2 complete with best move found being c7b7
+depth 3 complete with best move found being c7b7
+Rb7 36.5
+Rxc5 36.5
+Rg7 36.5
+Rf7 36.5
+Re7 36.5
+Rd7+ 36.5
+Ke6 36.5
+Ke5 36.5
+Kd5 36.5
+Rh7 36.5
+Ra7 36.5
+h4 36.5
+a4 36.5
+Rc8+ 36.5
+Rc6 36.5
+b4 36.5
+b3 36.5
+depth 4 complete with best move found being c7b7
+Rb7 37.5
+Rxc5 37.5
+Rg7 37.5
+Rf7 37.5
+Re7 37.5
+Rd7+ 37.5
+Ke6 37.5
+Ke5 37.5
+Kd5 37.5
+Rh7 37.5
+Ra7 37.5
+h4 40.0
+a4 40.0
+Rc8+ 40.0
+Rc6 40.0
+b4 40.0
+b3 40.0
+depth 5 complete with best move found being h3h4
+{'positions': 13048, 'time': 3.66, 'positions per second': 3565.03}
+chess v0.27 average time: 12.365555555555552
+h4
+1n1k4/2R5/1p1K4/p1p5/2P4P/P7/1P6/8 b - - 0 63
+Nc6 -69.0
+Nd7 -59.0
+Na6 -40.0
+b5 -40.0
+a4 -40.0
+Ke8 -40.0
+{'positions': 1527, 'time': 0.73, 'positions per second': 2091.78}
+chess v0.22 average time: 2.5729629629629636
+Na6
+3k4/2R5/np1K4/p1p5/2P4P/P7/1P6/8 w - - 1 64
+depth 1 complete with best move found being c7g7
+depth 2 complete with best move found being c7c6
+depth 3 complete with best move found being c7c6
+Rc6 37.0
+Rxc5 37.0
+Kc6 37.0
+h5 37.0
+Rg7 39.5
+Rf7 39.5
+Re7 39.5
+Rd7+ 39.5
+Rb7 47.5
+Ke6 47.5
+Ke5 47.5
+Kd5 47.5
+Rh7 47.5
+Ra7 47.5
+a4 47.5
+Rc8+ 47.5
+b4 47.5
+b3 47.5
+depth 4 complete with best move found being c7b7
+Rb7 47.5
+Rxc5 47.5
+Kc6 47.5
+h5 47.5
+Rg7 47.5
+Rf7 47.5
+Re7 47.5
+Rd7+ 47.5
+Ke6 47.5
+Ke5 47.5
+Kd5 47.5
+Rh7 47.5
+Ra7 47.5
+a4 47.5
+Rc8+ 47.5
+Rc6 47.5
+b4 47.5
+b3 47.5
+depth 5 complete with best move found being c7b7
+{'positions': 9388, 'time': 3.69, 'positions per second': 2544.17}
+chess v0.27 average time: 12.20781818181818
+Rb7
+3k4/1R6/np1K4/p1p5/2P4P/P7/1P6/8 b - - 2 64
+Nb4 -99999
+Nc7 -99999
+Kc8 -47.5
+b5 -47.5
+a4 -47.5
+Ke8 -47.5
+Nb8 -47.5
+{'positions': 481, 'time': 0.24, 'positions per second': 2004.17}
+chess v0.22 average time: 2.530545454545455
+Kc8
+2k5/1R6/np1K4/p1p5/2P4P/P7/1P6/8 w - - 3 65
+depth 1 complete with best move found being b7b6
+depth 2 complete with best move found being b7b6
+depth 3 complete with best move found being b7b6
+Rxb6 45.5
+Kc6 45.5
+h5 45.5
+Rg7 45.5
+Rf7 45.5
+Re7 45.5
+Rd7 45.5
+Rc7+ 45.5
+Ke7 45.5
+Ke6 45.5
+Ke5 45.5
+Kd5 45.5
+Rh7 45.5
+Ra7 45.5
+a4 45.5
+Rb8+ 45.5
+b4 45.5
+b3 45.5
+depth 4 complete with best move found being b7b6
+Rxb6 45.5
+Kc6 45.5
+h5 45.5
+Rg7 45.5
+Rf7 45.5
+Re7 45.5
+Rd7 45.5
+Rc7+ 45.5
+Ke7 45.5
+Ke6 45.5
+Ke5 45.5
+Kd5 45.5
+Rh7 45.5
+Ra7 45.5
+a4 45.5
+Rb8+ 45.5
+b4 45.5
+b3 45.5
+depth 5 complete with best move found being b7b6
+{'positions': 5897, 'time': 1.39, 'positions per second': 4242.45}
+chess v0.27 average time: 12.014642857142855
+Rxb6
+2k5/8/nR1K4/p1p5/2P4P/P7/1P6/8 b - - 0 65
+Nb4 -56.5
+Nc7 -56.5
+a4 -56.5
+Kd8 -56.5
+Nb8 -45.5
+{'positions': 1110, 'time': 0.25, 'positions per second': 4440.0}
+chess v0.22 average time: 2.489821428571429
+Nb8
+1nk5/8/1R1K4/p1p5/2P4P/P7/1P6/8 w - - 1 66
+depth 1 complete with best move found being d6c5
+depth 2 complete with best move found being b6b5
+depth 3 complete with best move found being b6b5
+Rb5 46.5
+Rxb8+ 46.5
+Kxc5 46.5
+Rb7 46.5
+h5 46.5
+Ke7 46.5
+Ke6 46.5
+Ke5 46.5
+Kd5 46.5
+Rc6+ 46.5
+Rb4 46.5
+Rb3 46.5
+Ra6 46.5
+a4 46.5
+b4 46.5
+b3 46.5
+depth 4 complete with best move found being b6b5
+Rb5 48.5
+Rxb8+ 48.5
+Kxc5 48.5
+Rb7 48.5
+h5 48.5
+Ke7 48.5
+Ke6 48.5
+Ke5 48.5
+Kd5 48.5
+Rc6+ 48.5
+Rb4 48.5
+Rb3 48.5
+Ra6 48.5
+a4 48.5
+b4 48.5
+b3 48.5
+depth 5 complete with best move found being b6b5
+{'positions': 5092, 'time': 2.04, 'positions per second': 2496.08}
+chess v0.27 average time: 11.839649122807014
+Rb5
+1nk5/8/3K4/pRp5/2P4P/P7/1P6/8 b - - 2 66
+Nc6 -77.0
+Nd7 -56.0
+Na6 -48.5
+a4 -48.5
+Kd8 -48.5
+{'positions': 1347, 'time': 0.39, 'positions per second': 3453.85}
+chess v0.22 average time: 2.4529824561403513
+Na6
+2k5/8/n2K4/pRp5/2P4P/P7/1P6/8 w - - 3 67
+depth 1 complete with best move found being b5a5
+depth 2 complete with best move found being b5a5
+depth 3 complete with best move found being b5a5
+Rxa5 48.5
+Rxc5+ 48.5
+Kc6 48.5
+Rb7 48.5
+h5 48.5
+Ke7 48.5
+Ke6 48.5
+Ke5 48.5
+Kd5 48.5
+Rb8+ 48.5
+Rb4 48.5
+Rb3 48.5
+a4 48.5
+b4 48.5
+b3 48.5
+depth 4 complete with best move found being b5a5
+Rxa5 50.0
+Rxc5+ 50.0
+Kc6 50.0
+Rb7 50.0
+h5 50.0
+Ke7 50.0
+Ke6 50.0
+Ke5 50.0
+Kd5 50.0
+Rb8+ 50.0
+Rb4 50.0
+Rb3 50.0
+a4 50.0
+b4 50.0
+b3 50.0
+depth 5 complete with best move found being b5a5
+{'positions': 9478, 'time': 2.74, 'positions per second': 3459.12}
+chess v0.27 average time: 11.682758620689652
+Rxa5
+2k5/8/n2K4/R1p5/2P4P/P7/1P6/8 b - - 0 67
+Nb4 -85.5
+Nc7 -85.5
+Kb8 -75.5
+Kb7 -50.0
+Kd8 -50.0
+Nb8 -50.0
+{'positions': 1713, 'time': 0.38, 'positions per second': 4507.89}
+chess v0.22 average time: 2.417241379310345
+Kb7
+8/1k6/n2K4/R1p5/2P4P/P7/1P6/8 w - - 1 68
+depth 1 complete with best move found being a5b5
+depth 2 complete with best move found being a5b5
+depth 3 complete with best move found being d6e5
+Ke5 48.5
+Rxa6 48.5
+Rxc5 48.5
+Rb5+ 49.5
+h5 49.5
+Ke7 49.5
+Kd7 49.5
+Ke6 49.5
+Kd5 49.5
+Ra4 49.5
+a4 49.5
+b4 49.5
+b3 49.5
+depth 4 complete with best move found being a5b5
+Rb5+ 50.5
+Rxa6 50.5
+Rxc5 50.5
+h5 50.5
+Ke7 50.5
+Kd7 50.5
+Ke6 50.5
+Ke5 50.5
+Kd5 50.5
+Ra4 50.5
+a4 50.5
+b4 50.5
+b3 50.5
+depth 5 complete with best move found being a5b5
+{'positions': 6057, 'time': 2.36, 'positions per second': 2566.53}
+chess v0.27 average time: 11.524745762711861
+Rb5+
+8/1k6/n2K4/1Rp5/2P4P/P7/1P6/8 b - - 2 68
+Ka8 -50.5
+Ka7 -50.5
+Kc8 -50.5
+{'positions': 832, 'time': 0.44, 'positions per second': 1890.91}
+chess v0.22 average time: 2.383728813559322
+Ka8
+k7/8/n2K4/1Rp5/2P4P/P7/1P6/8 w - - 3 69
+depth 1 complete with best move found being d6c6
+depth 2 complete with best move found being d6c6
+depth 3 complete with best move found being d6c6
+Kc6 57.0
+Rxc5 57.0
+Rb7 57.0
+h5 57.0
+Ke7 57.0
+Kd7 57.0
+Ke6 57.0
+Ke5 57.0
+Kd5 57.0
+Rb8+ 57.0
+Rb6 60.5
+Rb4 60.5
+Rb3 60.5
+Ra5 60.5
+a4 60.5
+b4 60.5
+b3 60.5
+depth 4 complete with best move found being b5b6
+Rb6 60.5
+Rxc5 60.5
+Kc6 60.5
+Rb7 60.5
+h5 60.5
+Ke7 60.5
+Kd7 60.5
+Ke6 60.5
+Ke5 60.5
+Kd5 60.5
+Rb8+ 60.5
+Rb4 60.5
+Rb3 60.5
+Ra5 60.5
+a4 60.5
+b4 60.5
+b3 60.5
+depth 5 complete with best move found being b5b6
+{'positions': 5774, 'time': 1.42, 'positions per second': 4066.2}
+chess v0.27 average time: 11.35633333333333
+Rb6
+k7/8/nR1K4/2p5/2P4P/P7/1P6/8 b - - 4 69
+Nb4 -76.0
+Nc7 -76.0
+Ka7 -60.5
+Nb8 -60.5
+{'positions': 935, 'time': 0.17, 'positions per second': 5500.0}
+chess v0.22 average time: 2.3468333333333335
+Ka7
+8/k7/nR1K4/2p5/2P4P/P7/1P6/8 w - - 5 70
+depth 1 complete with best move found being d6c6
+depth 2 complete with best move found being d6c6
+depth 3 complete with best move found being d6c6
+Kc6 46.0
+Rxa6+ 46.0
+Rb7+ 46.0
+h5 46.0
+Ke7 46.0
+Kd7 46.0
+Ke6 46.0
+Ke5 46.0
+Kd5 46.0
+Rb8 46.0
+Rc6 49.0
+Rb5 49.5
+Rb4 49.5
+Rb3 49.5
+a4 49.5
+b4 49.5
+b3 49.5
+depth 4 complete with best move found being b6b5
+Rb5 50.5
+Rxa6+ 50.5
+Kc6 50.5
+Rb7+ 50.5
+h5 50.5
+Ke7 50.5
+Kd7 50.5
+Ke6 50.5
+Ke5 50.5
+Kd5 50.5
+Rb8 50.5
+Rc6 50.5
+Rb4 50.5
+Rb3 50.5
+a4 50.5
+b4 50.5
+b3 50.5
+depth 5 complete with best move found being b6b5
+{'positions': 4883, 'time': 1.08, 'positions per second': 4521.3}
+chess v0.27 average time: 11.187868852459014
+Rb5
+8/k7/n2K4/1Rp5/2P4P/P7/1P6/8 b - - 6 70
+Nb4 -75.0
+Nc7 -75.0
+Ka8 -50.5
+Nb8 -50.5
+{'positions': 1222, 'time': 0.6, 'positions per second': 2036.67}
+chess v0.22 average time: 2.3181967213114754
+Ka8
+k7/8/n2K4/1Rp5/2P4P/P7/1P6/8 w - - 7 71
+depth 1 complete with best move found being d6c6
+depth 2 complete with best move found being d6c6
+depth 3 complete with best move found being d6c6
+Kc6 57.0
+Rxc5 57.0
+Rb7 57.0
+h5 57.0
+Ke7 57.0
+Kd7 57.0
+Ke6 57.0
+Ke5 57.0
+Kd5 57.0
+Rb8+ 57.0
+Rb4 57.0
+Rb3 57.0
+Ra5 57.0
+a4 57.0
+b4 57.0
+b3 57.0
+depth 4 complete with best move found being d6c6
+Kc6 57.0
+Rxc5 57.0
+Rb7 57.0
+h5 57.0
+Ke7 57.0
+Kd7 57.0
+Ke6 57.0
+Ke5 57.0
+Kd5 57.0
+Rb8+ 57.0
+Rb4 57.0
+Rb3 57.0
+Ra5 57.0
+a4 57.0
+b4 57.0
+b3 57.0
+depth 5 complete with best move found being d6c6
+{'positions': 7225, 'time': 2.06, 'positions per second': 3507.28}
+chess v0.27 average time: 11.04064516129032
+Kc6
+k7/8/n1K5/1Rp5/2P4P/P7/1P6/8 b - - 8 71
+Nb4+ -76.0
+Nc7 -76.0
+Ka7 -75.0
+Nb8+ -57.0
+{'positions': 550, 'time': 0.11, 'positions per second': 5000.0}
+chess v0.22 average time: 2.2825806451612904
+Nb8+
+kn6/8/2K5/1Rp5/2P4P/P7/1P6/8 w - - 9 72
+depth 1 complete with best move found being c6c5
+depth 2 complete with best move found being c6c5
+depth 3 complete with best move found being c6c5
+Kxc5 56.5
+Rxb8+ 56.5
+Kc7 60.5
+Kb6 60.5
+Kd6 60.5
+Kd5 60.5
+depth 4 complete with best move found being c6c7
+Kc7 76.0
+Rxb8+ 76.0
+Kxc5 76.0
+Kb6 76.5
+Kd6 76.5
+Kd5 76.5
+depth 5 complete with best move found being c6b6
+{'positions': 1995, 'time': 0.69, 'positions per second': 2891.3}
+chess v0.27 average time: 10.876349206349204
+Kb6
+kn6/8/1K6/1Rp5/2P4P/P7/1P6/8 b - - 10 72
+Nc6 -86.5
+Nd7+ -86.5
+Na6 -76.5
+{'positions': 554, 'time': 0.24, 'positions per second': 2308.33}
+chess v0.22 average time: 2.2501587301587302
+Na6
+k7/8/nK6/1Rp5/2P4P/P7/1P6/8 w - - 11 73
+depth 1 complete with best move found being b6a5
+depth 2 complete with best move found being b5a5
+depth 3 complete with best move found being h4h5
+h5 76.5
+Rxc5 76.5
+Ka5 76.5
+Rb4 76.5
+Rb3 76.5
+Ra5 87.5
+a4 87.5
+b4 87.5
+b3 87.5
+Kxa6 87.5
+depth 4 complete with best move found being b5a5
+Ra5 88.5
+Rxc5 88.5
+Ka5 88.5
+h5 88.5
+Rb4 88.5
+Rb3 88.5
+a4 88.5
+b4 88.5
+b3 88.5
+Kxa6 88.5
+depth 5 complete with best move found being b5a5
+{'positions': 1347, 'time': 0.73, 'positions per second': 1845.21}
+chess v0.27 average time: 10.717812499999997
+Ra5
+k7/8/nK6/R1p5/2P4P/P7/1P6/8 b - - 12 73
+Kb8 -88.5
+{'positions': 189, 'time': 0.09, 'positions per second': 2100.0}
+chess v0.22 average time: 2.2164062500000004
+Kb8
+1k6/8/nK6/R1p5/2P4P/P7/1P6/8 w - - 13 74
+depth 1 complete with best move found being b6a6
+depth 2 complete with best move found being b6a6
+depth 3 complete with best move found being a5a6
+Rxa6 88.5
+Kxa6 88.5
+Rxc5 88.5
+Rb5 88.5
+h5 88.5
+Kc6 88.5
+Kb5 88.5
+Ra4 88.5
+a4 88.5
+b4 88.5
+b3 88.5
+depth 4 complete with best move found being a5a6
+Rxa6 88.5
+Kxa6 88.5
+Rxc5 88.5
+Rb5 88.5
+h5 88.5
+Kc6 88.5
+Kb5 88.5
+Ra4 88.5
+a4 88.5
+b4 88.5
+b3 88.5
+depth 5 complete with best move found being a5a6
+{'positions': 1229, 'time': 0.6, 'positions per second': 2048.33}
+chess v0.27 average time: 10.562153846153844
+Rxa6
+1k6/8/RK6/2p5/2P4P/P7/1P6/8 b - - 0 74
+Kc8 -88.5
+{'positions': 296, 'time': 0.14, 'positions per second': 2114.29}
+chess v0.22 average time: 2.1844615384615387
+Kc8
+2k5/8/RK6/2p5/2P4P/P7/1P6/8 w - - 1 75
+depth 1 complete with best move found being a6a8
+depth 2 complete with best move found being a6a8
+depth 3 complete with best move found being a6a8
+Ra8+ 88.5
+Kxc5 88.5
+Ka7 88.5
+Ka5 88.5
+Ra7 88.5
+h5 88.5
+Kc6 88.5
+Kb5 88.5
+Ra5 88.5
+Ra4 88.5
+a4 88.5
+b4 88.5
+b3 88.5
+depth 4 complete with best move found being a6a8
+Ra8+ 89.5
+Kxc5 89.5
+Ka7 89.5
+Ka5 89.5
+Ra7 89.5
+h5 89.5
+Kc6 89.5
+Kb5 89.5
+Ra5 89.5
+Ra4 89.5
+a4 89.5
+b4 89.5
+b3 89.5
+depth 5 complete with best move found being a6a8
+{'positions': 2155, 'time': 0.94, 'positions per second': 2292.55}
+chess v0.27 average time: 10.416363636363634
+Ra8+
+R1k5/8/1K6/2p5/2P4P/P7/1P6/8 b - - 2 75
+Kd7 -89.5
+{'positions': 495, 'time': 0.18, 'positions per second': 2750.0}
+chess v0.22 average time: 2.1540909090909093
+Kd7
+R7/3k4/1K6/2p5/2P4P/P7/1P6/8 w - - 3 76
+depth 1 complete with best move found being b6c5
+depth 2 complete with best move found being b6c5
+depth 3 complete with best move found being b6c5
+Kxc5 87.5
+Ka7 87.5
+Ka6 87.5
+Ka5 87.5
+Ra7+ 88.5
+h5 89.0
+Rh8 89.0
+Rg8 89.0
+Rf8 89.0
+Re8 89.0
+Rd8+ 89.0
+Rc8 89.0
+Rb8 89.0
+Kb7 89.0
+Kb5 89.0
+Ra6 89.0
+Ra5 89.0
+Ra4 89.0
+a4 89.0
+b4 89.0
+b3 89.0
+depth 4 complete with best move found being h4h5
+h5 90.0
+Kxc5 90.0
+Ka7 90.0
+Ka6 90.0
+Ka5 90.0
+Ra7+ 90.0
+Rh8 90.0
+Rg8 90.0
+Rf8 90.0
+Re8 90.0
+Rd8+ 90.0
+Rc8 90.0
+Rb8 90.0
+Kb7 90.0
+Kb5 90.0
+Ra6 90.0
+Ra5 90.0
+Ra4 90.0
+a4 90.0
+b4 90.0
+b3 90.0
+depth 5 complete with best move found being h4h5
+{'positions': 3614, 'time': 1.67, 'positions per second': 2164.07}
+chess v0.27 average time: 10.285820895522386
+h5
+R7/3k4/1K6/2p4P/2P5/P7/1P6/8 b - - 0 76
+Ke7 -90.0
+Ke6 -90.0
+Kd6 -90.0
+{'positions': 663, 'time': 0.15, 'positions per second': 4420.0}
+chess v0.22 average time: 2.124179104477612
+Ke7
+R7/4k3/1K6/2p4P/2P5/P7/1P6/8 w - - 1 77
+depth 1 complete with best move found being b6c5
+depth 2 complete with best move found being b6c5
+depth 3 complete with best move found being b6c5
+Kxc5 89.5
+Ka7 89.5
+Ka6 89.5
+Ka5 89.5
+Ra7+ 89.5
+h6 89.5
+Rh8 89.5
+Rg8 89.5
+Rf8 89.5
+Re8+ 89.5
+Rd8 89.5
+Rc8 89.5
+Rb8 89.5
+Kc7 89.5
+Kb7 89.5
+Kc6 89.5
+Kb5 89.5
+Ra6 89.5
+Ra5 89.5
+Ra4 89.5
+a4 89.5
+b4 89.5
+b3 89.5
+depth 4 complete with best move found being b6c5
+Kxc5 91.5
+Ka7 91.5
+Ka6 91.5
+Ka5 91.5
+Ra7+ 91.5
+h6 91.5
+Rh8 91.5
+Rg8 91.5
+Rf8 91.5
+Re8+ 91.5
+Rd8 91.5
+Rc8 91.5
+Rb8 91.5
+Kc7 91.5
+Kb7 91.5
+Kc6 91.5
+Kb5 91.5
+Ra6 91.5
+Ra5 91.5
+Ra4 91.5
+a4 91.5
+b4 91.5
+b3 91.5
+depth 5 complete with best move found being b6c5
+{'positions': 3945, 'time': 0.92, 'positions per second': 4288.04}
+chess v0.27 average time: 10.148088235294114
+Kxc5
+R7/4k3/8/2K4P/2P5/P7/1P6/8 b - - 0 77
+Kf7 -91.5
+Kd7 -91.5
+Kf6 -91.5
+Ke6 -91.5
+{'positions': 766, 'time': 0.21, 'positions per second': 3647.62}
+chess v0.22 average time: 2.0960294117647065
+Kf7
+R7/5k2/8/2K4P/2P5/P7/1P6/8 w - - 1 78
+depth 1 complete with best move found being c5b4
+depth 2 complete with best move found being h5h6
+depth 3 complete with best move found being h5h6
+h6 89.5
+Kb4 89.5
+Ra7+ 89.5
+Rh8 89.5
+Rg8 89.5
+Rf8+ 89.5
+Re8 89.5
+Rd8 89.5
+Rc8 89.5
+Rb8 89.5
+Kc6 89.5
+Kb6 89.5
+Kb5 89.5
+Kd4 89.5
+Ra6 89.5
+Ra5 89.5
+Ra4 89.5
+a4 89.5
+Kd6 89.5
+Kd5 89.5
+b4 89.5
+b3 89.5
+depth 4 complete with best move found being h5h6
+h6 93.5
+Kb4 93.5
+Ra7+ 93.5
+Rh8 93.5
+Rg8 93.5
+Rf8+ 93.5
+Re8 93.5
+Rd8 93.5
+Rc8 93.5
+Rb8 93.5
+Kc6 93.5
+Kb6 93.5
+Kb5 93.5
+Kd4 93.5
+Ra6 93.5
+Ra5 93.5
+Ra4 93.5
+a4 93.5
+Kd6 93.5
+Kd5 93.5
+b4 93.5
+b3 93.5
+depth 5 complete with best move found being h5h6
+{'positions': 4337, 'time': 1.85, 'positions per second': 2344.32}
+chess v0.27 average time: 10.02782608695652
+h6
+R7/5k2/7P/2K5/2P5/P7/1P6/8 b - - 0 78
+Ke7 -164.5
+Kg6 -93.5
+Kf6 -93.5
+Ke6 -93.5
+{'positions': 1152, 'time': 0.48, 'positions per second': 2400.0}
+chess v0.22 average time: 2.0726086956521743
+Kg6
+R7/8/6kP/2K5/2P5/P7/1P6/8 w - - 1 79
+depth 1 complete with best move found being a8h8
+depth 2 complete with best move found being a8h8
+depth 3 complete with best move found being a8h8
+Rh8 91.5
+h7 91.5
+Kb4 91.5
+Ra7 91.5
+Rg8+ 91.5
+Rf8 91.5
+Re8 91.5
+Rd8 91.5
+Rc8 91.5
+Rb8 91.5
+Kc6 91.5
+Kb6 91.5
+Kb5 91.5
+Kd4 91.5
+Ra6+ 91.5
+Ra5 91.5
+Ra4 91.5
+a4 91.5
+Kd6 91.5
+Kd5 91.5
+b4 91.5
+b3 91.5
+depth 4 complete with best move found being a8h8
+Rh8 94.5
+h7 94.5
+Kb4 94.5
+Ra7 94.5
+Rg8+ 94.5
+Rf8 94.5
+Re8 94.5
+Rd8 94.5
+Rc8 94.5
+Rb8 94.5
+Kc6 94.5
+Kb6 94.5
+Kb5 94.5
+Kd4 94.5
+Ra6+ 94.5
+Ra5 94.5
+Ra4 94.5
+a4 94.5
+Kd6 94.5
+Kd5 94.5
+b4 94.5
+b3 94.5
+depth 5 complete with best move found being a8h8
+{'positions': 4881, 'time': 1.13, 'positions per second': 4319.47}
+chess v0.27 average time: 9.900714285714283
+Rh8
+7R/8/6kP/2K5/2P5/P7/1P6/8 b - - 2 79
+Kf7 -94.5
+Kf6 -94.5
+Kh5 -94.5
+Kg5 -94.5
+Kf5 -94.5
+{'positions': 567, 'time': 0.35, 'positions per second': 1620.0}
+chess v0.22 average time: 2.048
+Kf7
+7R/5k2/7P/2K5/2P5/P7/1P6/8 w - - 3 80
+depth 1 complete with best move found being h6h7
+depth 2 complete with best move found being h6h7
+depth 3 complete with best move found being c5b4
+Kb4 92.5
+h7 92.5
+Rh7+ 92.5
+Rg8 92.5
+Rf8+ 92.5
+Re8 92.5
+Rd8 92.5
+Rc8 92.5
+Rb8 92.5
+Kc6 92.5
+Kb6 92.5
+Kb5 92.5
+Kd4 92.5
+a4 92.5
+Kd6 92.5
+Kd5 92.5
+b4 92.5
+b3 92.5
+depth 4 complete with best move found being c5b4
+Kb4 95.5
+h7 95.5
+Rh7+ 95.5
+Rg8 95.5
+Rf8+ 95.5
+Re8 95.5
+Rd8 95.5
+Rc8 95.5
+Rb8 95.5
+Kc6 95.5
+Kb6 95.5
+Kb5 95.5
+Kd4 95.5
+a4 95.5
+Kd6 95.5
+Kd5 95.5
+b4 95.5
+b3 95.5
+depth 5 complete with best move found being c5b4
+{'positions': 3330, 'time': 2.2, 'positions per second': 1513.64}
+chess v0.27 average time: 9.792253521126758
+Kb4
+7R/5k2/7P/8/1KP5/P7/1P6/8 b - - 4 80
+Ke7 -95.5
+Kg6 -95.5
+Kf6 -95.5
+Ke6 -95.5
+{'positions': 530, 'time': 0.38, 'positions per second': 1394.74}
+chess v0.22 average time: 2.0245070422535214
+Ke7
+7R/4k3/7P/8/1KP5/P7/1P6/8 w - - 5 81
+depth 1 complete with best move found being h6h7
+depth 2 complete with best move found being h6h7
+depth 3 complete with best move found being h6h7
+h7 94.5
+Ka4 94.5
+Kc3 94.5
+Kb3 95.5
+c5 95.5
+Rh7+ 95.5
+Rg8 95.5
+Rf8 95.5
+Re8+ 95.5
+Rd8 95.5
+Rc8 95.5
+Rb8 95.5
+Ra8 95.5
+Ka5 95.5
+a4 95.5
+Kc5 95.5
+Kb5 95.5
+b3 95.5
+depth 4 complete with best move found being b4b3
+Kb3 98.5
+h7 98.5
+Ka4 98.5
+Kc3 98.5
+c5 98.5
+Rh7+ 98.5
+Rg8 98.5
+Rf8 98.5
+Re8+ 114.5
+Rd8 114.5
+Rc8 114.5
+Rb8 114.5
+Ra8 114.5
+Ka5 114.5
+a4 114.5
+Kc5 114.5
+Kb5 114.5
+b3 114.5
+depth 5 complete with best move found being h8e8
+{'positions': 2940, 'time': 1.88, 'positions per second': 1563.83}
+chess v0.27 average time: 9.68236111111111
+Re8+
+4R3/4k3/7P/8/1KP5/P7/1P6/8 b - - 6 81
+Kxe8 -114.5
+Kf7 -114.5
+Kd7 -114.5
+Kf6 -114.5
+Kd6 -114.5
+{'positions': 195, 'time': 0.13, 'positions per second': 1500.0}
+chess v0.22 average time: 1.9981944444444446
+Kxe8
+4k3/8/7P/8/1KP5/P7/1P6/8 w - - 0 82
+depth 1 complete with best move found being h6h7
+depth 2 complete with best move found being h6h7
+depth 3 complete with best move found being h6h7
+h7 114.5
+Ka4 114.5
+Kc3 114.5
+Kb3 114.5
+c5 114.5
+Ka5 114.5
+a4 114.5
+Kc5 114.5
+Kb5 114.5
+b3 114.5
+depth 4 complete with best move found being h6h7
+h7 117.0
+Ka4 117.0
+Kc3 117.0
+Kb3 117.0
+c5 117.0
+Ka5 117.0
+a4 117.0
+Kc5 117.0
+Kb5 117.0
+b3 117.0
+depth 5 complete with best move found being h6h7
+{'positions': 877, 'time': 0.4, 'positions per second': 2192.5}
+chess v0.27 average time: 9.555205479452052
+h7
+4k3/7P/8/8/1KP5/P7/1P6/8 b - - 0 82
+Kf8 -117.0
+Kd8 -117.0
+Kf7 -117.0
+Ke7 -117.0
+Kd7 -117.0
+{'positions': 365, 'time': 0.12, 'positions per second': 3041.67}
+chess v0.22 average time: 1.9724657534246577
+Kf8
+5k2/7P/8/8/1KP5/P7/1P6/8 w - - 1 83
+depth 1 complete with best move found being h7h8q
+depth 2 complete with best move found being h7h8q
+depth 3 complete with best move found being h7h8q
+h8=Q+ 115.5
+h8=R+ 115.5
+h8=B 115.5
+h8=N 115.5
+Ka4 115.5
+Kc3 115.5
+Kb3 115.5
+c5 115.5
+Ka5 115.5
+a4 115.5
+Kc5 115.5
+Kb5 115.5
+b3 115.5
+depth 4 complete with best move found being h7h8q
+h8=Q+ 119.5
+h8=R+ 119.5
+h8=B 119.5
+h8=N 119.5
+Ka4 119.5
+Kc3 119.5
+Kb3 119.5
+c5 119.5
+Ka5 119.5
+a4 119.5
+Kc5 119.5
+Kb5 119.5
+b3 119.5
+depth 5 complete with best move found being h7h8q
+{'positions': 2891, 'time': 0.59, 'positions per second': 4900.0}
+chess v0.27 average time: 9.434054054054053
+h8=Q+
+5k1Q/8/8/8/1KP5/P7/1P6/8 b - - 0 83
+Kf7 -119.5
+Ke7 -119.5
+{'positions': 1606, 'time': 0.33, 'positions per second': 4866.67}
+chess v0.22 average time: 1.9502702702702706
+Kf7
+7Q/5k2/8/8/1KP5/P7/1P6/8 w - - 1 84
+depth 1 complete with best move found being h8e5
+depth 2 complete with best move found being b4a4
+depth 3 complete with best move found being b4b3
+Kb3 119.5
+Qf6+ 119.5
+Qe5 119.5
+Qd4 119.5
+Qc3 119.5
+Qg7+ 119.5
+Qe8+ 119.5
+Qd8 119.5
+Qh5+ 119.5
+Qh4 119.5
+Qg8+ 119.5
+Qf8+ 119.5
+Qc8 119.5
+Qb8 119.5
+Qh7+ 119.5
+Qh6 119.5
+Qh3 119.5
+Qh2 119.5
+Ka4 119.5
+Kc3 119.5
+c5 119.5
+Qa8 119.5
+Qh1 119.5
+Ka5 119.5
+a4 119.5
+Kc5 119.5
+Kb5 119.5
+b3 119.5
+depth 4 complete with best move found being b4b3
+Kb3 122.0
+Qf6+ 122.0
+Qe5 122.0
+Qd4 122.0
+Qc3 122.0
+Qg7+ 122.0
+Qe8+ 122.0
+Qd8 122.0
+Qh5+ 122.0
+Qh4 122.0
+Qg8+ 122.0
+Qf8+ 122.0
+Qc8 122.0
+Qb8 122.0
+Qh7+ 122.0
+Qh6 122.0
+Qh3 122.0
+Qh2 122.0
+Ka4 122.0
+Kc3 122.0
+c5 122.0
+Qa8 122.0
+Qh1 122.0
+Ka5 122.0
+a4 122.0
+Kc5 122.0
+Kb5 122.0
+b3 122.0
+depth 5 complete with best move found being b4b3
+{'positions': 6745, 'time': 2.03, 'positions per second': 3322.66}
+chess v0.27 average time: 9.335333333333331
+Kb3
+7Q/5k2/8/8/2P5/PK6/1P6/8 b - - 2 84
+Ke7 -122.0
+Kg6 -122.0
+Ke6 -122.0
+{'positions': 912, 'time': 0.46, 'positions per second': 1982.61}
+chess v0.22 average time: 1.9304000000000003
+Ke7
+7Q/4k3/8/8/2P5/PK6/1P6/8 w - - 3 85
+depth 1 complete with best move found being b3a2
+depth 2 complete with best move found being b3a2
+depth 3 complete with best move found being b3a2
+Ka2 120.5
+Qf6+ 120.5
+Qe5+ 120.5
+Qd4 120.5
+Qc3 120.5
+Qg7+ 120.5
+Kc2 120.5
+Qe8+ 120.5
+Qd8+ 120.5
+Qh5 120.5
+Qh4+ 120.5
+Qg8 120.5
+Qf8+ 120.5
+Qc8 120.5
+Qb8 120.5
+Qh7+ 120.5
+Qh6 120.5
+Qh3 120.5
+Qh2 120.5
+c5 120.5
+Qa8 120.5
+Qh1 120.5
+Ka4 120.5
+Kc3 120.5
+a4 120.5
+Kb4 120.5
+depth 4 complete with best move found being b3a2
+Ka2 123.0
+Qf6+ 123.0
+Qe5+ 123.0
+Qd4 123.0
+Qc3 123.0
+Qg7+ 123.0
+Kc2 123.0
+Qe8+ 123.0
+Qd8+ 123.0
+Qh5 123.0
+Qh4+ 123.0
+Qg8 123.0
+Qf8+ 123.0
+Qc8 123.0
+Qb8 123.0
+Qh7+ 123.0
+Qh6 123.0
+Qh3 123.0
+Qh2 123.0
+c5 123.0
+Qa8 123.0
+Qh1 123.0
+Ka4 123.0
+Kc3 123.0
+a4 123.0
+Kb4 123.0
+depth 5 complete with best move found being b3a2
+{'positions': 8612, 'time': 2.01, 'positions per second': 4284.58}
+chess v0.27 average time: 9.238947368421051
+Ka2
+7Q/4k3/8/8/2P5/P7/KP6/8 b - - 4 85
+Kf7 -123.0
+Kd7 -123.0
+Ke6 -123.0
+Kd6 -123.0
+{'positions': 1437, 'time': 0.6, 'positions per second': 2395.0}
+chess v0.22 average time: 1.9128947368421056
+Kf7
+7Q/5k2/8/8/2P5/P7/KP6/8 w - - 5 86
+depth 1 complete with best move found being h8e5
+depth 2 complete with best move found being a2b1
+depth 3 complete with best move found being a2b1
+Kb1 122.5
+Qf6+ 122.5
+Qe5 122.5
+Qd4 122.5
+Qc3 122.5
+Qg7+ 122.5
+Qe8+ 122.5
+Qd8 122.5
+Qh5+ 122.5
+Qh4 122.5
+Qg8+ 122.5
+Qf8+ 122.5
+Qc8 122.5
+Qb8 122.5
+Qh7+ 122.5
+Qh6 122.5
+Qh3 122.5
+Qh2 122.5
+c5 122.5
+Qa8 122.5
+Qh1 122.5
+Ka1 122.5
+a4 122.5
+b4 122.5
+b3 122.5
+depth 4 complete with best move found being a2b1
+Kb1 124.0
+Qf6+ 124.0
+Qe5 124.0
+Qd4 124.0
+Qc3 124.0
+Qg7+ 124.0
+Qe8+ 124.0
+Qd8 124.0
+Qh5+ 124.0
+Qh4 124.0
+Qg8+ 124.0
+Qf8+ 124.0
+Qc8 124.0
+Qb8 124.0
+Qh7+ 124.0
+Qh6 124.0
+Qh3 124.0
+Qh2 124.0
+c5 124.0
+Qa8 124.0
+Qh1 124.0
+Ka1 124.0
+a4 124.0
+b4 124.0
+b3 124.0
+depth 5 complete with best move found being a2b1
+{'positions': 6487, 'time': 2.03, 'positions per second': 3195.57}
+chess v0.27 average time: 9.145324675324673
+Kb1
+7Q/5k2/8/8/2P5/P7/1P6/1K6 b - - 6 86
+Ke7 -124.0
+Kg6 -124.0
+Ke6 -124.0
+{'positions': 1240, 'time': 0.63, 'positions per second': 1968.25}
+chess v0.22 average time: 1.8962337662337665
+Ke7
+7Q/4k3/8/8/2P5/P7/1P6/1K6 w - - 7 87
+depth 1 complete with best move found being h8d4
+depth 2 complete with best move found being h8g7
+depth 3 complete with best move found being c4c5
+c5 122.5
+Qf6+ 122.5
+Qe5+ 122.5
+Qd4 122.5
+Qc3 122.5
+Qg7+ 122.5
+Qe8+ 122.5
+Qd8+ 122.5
+Qh5 122.5
+Qh4+ 122.5
+Qg8 122.5
+Qf8+ 122.5
+Qc8 122.5
+Qb8 122.5
+Qh7+ 122.5
+Qh6 122.5
+Qh3 122.5
+Qh2 122.5
+Qa8 122.5
+Qh1 122.5
+a4 122.5
+Ka1 122.5
+b4 122.5
+b3 122.5
+Kc1 122.5
+Kc2 122.5
+depth 4 complete with best move found being c4c5
+c5 124.0
+Qf6+ 124.0
+Qe5+ 124.0
+Qd4 124.0
+Qc3 124.0
+Qg7+ 124.0
+Qe8+ 124.0
+Qd8+ 124.0
+Qh5 124.0
+Qh4+ 124.0
+Qg8 124.0
+Qf8+ 124.0
+Qc8 124.0
+Qb8 124.0
+Qh7+ 124.0
+Qh6 124.0
+Qh3 124.0
+Qh2 124.0
+Qa8 124.0
+Qh1 124.0
+a4 124.0
+Ka1 124.0
+b4 124.0
+b3 124.0
+Kc1 124.0
+Kc2 124.0
+depth 5 complete with best move found being c4c5
+{'positions': 10992, 'time': 2.97, 'positions per second': 3701.01}
+chess v0.27 average time: 9.066153846153844
+c5
+7Q/4k3/8/2P5/8/P7/1P6/1K6 b - - 0 87
+Kf7 -125.5
+Kd7 -124.0
+Ke6 -124.0
+{'positions': 1845, 'time': 0.34, 'positions per second': 5426.47}
+chess v0.22 average time: 1.8762820512820515
+Kd7
+7Q/3k4/8/2P5/8/P7/1P6/1K6 w - - 1 88
+depth 1 complete with best move found being h8f6
+depth 2 complete with best move found being h8f6
+depth 3 complete with best move found being h8f6
+Qf6 122.5
+Qe5 124.0
+Qd4+ 124.0
+Qc3 124.0
+Qg7+ 124.0
+Qe8+ 124.0
+Qd8+ 124.0
+Qh5 124.0
+Qh4 124.0
+Qg8 124.0
+Qf8 124.0
+Qc8+ 124.0
+Qb8 124.0
+Qh7+ 124.0
+Qh6 124.0
+Qh3+ 124.0
+Qh2 124.0
+c6+ 124.0
+Qa8 124.0
+Qh1 124.0
+a4 124.0
+Ka2 124.0
+Ka1 124.0
+b4 124.0
+b3 124.0
+Kc1 124.0
+Kc2 124.0
+depth 4 complete with best move found being h8e5
+Qe5 127.0
+Qf6 127.0
+Qd4+ 127.0
+Qc3 127.0
+Qg7+ 127.0
+Qe8+ 127.0
+Qd8+ 127.0
+Qh5 127.0
+Qh4 127.0
+Qg8 127.0
+Qf8 127.0
+Qc8+ 127.0
+Qb8 127.0
+Qh7+ 127.0
+Qh6 127.0
+Qh3+ 127.0
+Qh2 127.0
+c6+ 127.0
+Qa8 127.0
+Qh1 127.0
+a4 127.0
+Ka2 127.0
+Ka1 127.0
+b4 127.0
+b3 127.0
+Kc1 127.0
+Kc2 127.0
+depth 5 complete with best move found being h8e5
+{'positions': 10408, 'time': 3.01, 'positions per second': 3457.81}
+chess v0.27 average time: 8.989493670886073
+Qe5
+8/3k4/8/2P1Q3/8/P7/1P6/1K6 b - - 2 88
+Kc8 -127.0
+Kd8 -127.0
+Kc6 -127.0
+{'positions': 1571, 'time': 0.58, 'positions per second': 2708.62}
+chess v0.22 average time: 1.8598734177215195
+Kc8
+2k5/8/8/2P1Q3/8/P7/1P6/1K6 w - - 3 89
+depth 1 complete with best move found being c5c6
+depth 2 complete with best move found being c5c6
+depth 3 complete with best move found being c5c6
+c6 127.0
+Qf6 127.0
+Qe6+ 127.0
+Qd6 127.0
+Qf5+ 127.0
+Qd5 127.0
+Qf4 127.0
+Qe4 127.0
+Qd4 127.0
+Qe3 127.0
+Qc3 127.0
+Qg7 127.0
+Qe7 127.0
+Qc7+ 127.0
+Qg5 127.0
+Qg3 127.0
+Qe2 127.0
+a4 127.0
+Qe8+ 127.0
+Qh5 127.0
+Qe1 127.0
+Ka2 127.0
+Ka1 127.0
+b4 127.0
+Qb8+ 127.0
+Qh2 127.0
+b3 127.0
+Kc1 127.0
+Qh8+ 127.0
+Kc2 127.0
+depth 4 complete with best move found being c5c6
+c6 127.0
+Qf6 127.0
+Qe6+ 127.0
+Qd6 127.0
+Qf5+ 127.0
+Qd5 127.0
+Qf4 127.0
+Qe4 127.0
+Qd4 127.0
+Qe3 127.0
+Qc3 127.0
+Qg7 127.0
+Qe7 127.0
+Qc7+ 127.0
+Qg5 127.0
+Qg3 127.0
+Qe2 127.0
+a4 127.0
+Qe8+ 127.0
+Qh5 127.0
+Qe1 127.0
+Ka2 127.0
+Ka1 127.0
+b4 127.0
+Qb8+ 127.0
+Qh2 127.0
+b3 127.0
+Kc1 127.0
+Qh8+ 127.0
+Kc2 127.0
+depth 5 complete with best move found being c5c6
+{'positions': 9227, 'time': 2.87, 'positions per second': 3214.98}
+chess v0.27 average time: 8.912999999999998
+c6
+2k5/8/2P5/4Q3/8/P7/1P6/1K6 b - - 0 89
+Kd8 -127.0
+{'positions': 1215, 'time': 0.33, 'positions per second': 3681.82}
+chess v0.22 average time: 1.8407500000000006
+Kd8
+3k4/8/2P5/4Q3/8/P7/1P6/1K6 w - - 1 90
+depth 1 complete with best move found being c6c7
+depth 2 complete with best move found being c6c7
+depth 3 complete with best move found being c6c7
+c7+ 126.0
+Qf6+ 126.0
+Qe6 126.0
+Qd6+ 126.0
+Qf5 126.0
+Qd5+ 126.0
+Qc5 126.0
+Qf4 126.0
+Qe4 126.0
+Qd4+ 126.0
+Qe3 126.0
+Qc3 126.0
+Qg7 126.0
+Qe7+ 126.0
+Qc7+ 126.0
+Qg5+ 126.0
+Qb5 126.0
+Qg3 126.0
+Qe2 126.0
+a4 126.0
+Qe8+ 126.0
+Qh5 126.0
+Qa5+ 126.0
+Qe1 126.0
+Ka2 126.0
+Ka1 126.0
+b4 126.0
+Qb8+ 126.5
+Qh2 126.5
+b3 126.5
+Kc1 126.5
+Qh8+ 126.5
+Kc2 126.5
+depth 4 complete with best move found being e5b8
+Qb8+ 198.5
+c7+ 198.5
+Qf6+ 198.5
+Qe6 198.5
+Qd6+ 200.0
+Qf5 200.0
+Qd5+ 200.0
+Qc5 200.0
+Qf4 200.0
+Qe4 200.0
+Qd4+ 200.0
+Qe3 200.0
+Qc3 200.0
+Qg7 99999
+depth 5 complete with best move found being e5g7
+{'positions': 15441, 'time': 3.57, 'positions per second': 4325.21}
+chess v0.27 average time: 8.847037037037035
+Qg7
+3k4/6Q1/2P5/8/8/P7/1P6/1K6 b - - 2 90
+Kc8 -99999
+Ke8 -99999
+{'positions': 659, 'time': 0.12, 'positions per second': 5491.67}
+chess v0.22 average time: 1.8195061728395068
+Kc8
+2k5/6Q1/2P5/8/8/P7/1P6/1K6 w - - 3 91
+depth 1 complete with best move found being c6c7
+depth 2 complete with best move found being c6c7
+depth 3 complete with best move found being g7f7
+Qf7 99999
+depth 4 complete with best move found being g7f7
+Qf7 99999
+depth 5 complete with best move found being g7f7
+{'positions': 316, 'time': 0.08, 'positions per second': 3950.0}
+chess v0.27 average time: 8.740121951219512
+Qf7
+2k5/5Q2/2P5/8/8/P7/1P6/1K6 b - - 4 91
+Kb8 -99999
+Kd8 -99999
+{'positions': 6, 'time': 0.0, 'positions per second': 'inf'}
+chess v0.22 average time: 1.7973170731707324
+Kb8
+1k6/5Q2/2P5/8/8/P7/1P6/1K6 w - - 5 92
+depth 1 complete with best move found being f7b7
+depth 2 complete with best move found being f7b7
+depth 3 complete with best move found being f7b7
+depth 4 complete with best move found being f7b7
+depth 5 complete with best move found being f7b7
+{'positions': 5, 'time': 0.01, 'positions per second': 500.0}
+chess v0.27 average time: 8.634939759036143
+Qb7#
+1k6/1Q6/2P5/8/8/P7/1P6/1K6 b - - 6 92
+White won the game by checkmate!
+['d4', 'd5', 'c4', 'c6', 'Nc3', 'e6', 'e4', 'dxe4', 'Nxe4', 'Bb4+', 'Bd2', 'Qxd4', 'Bxb4', 'Qxe4+', 'Be2', 'Ne7', 'Qd2', 'Ng6', 'Nf3', 'Nf4', 'g3', 'Qxe2+', 'Qxe2', 'Nxe2', 'Kxe2', 'Nd7', 'Bd6', 'b6', 'Kf1', 'Bb7', 'Kg2', 'O-O-O', 'Ng5', 'c5+', 'f3', 'Rhg8', 'Nxf7', 'Rde8', 'Bf4', 'Ref8', 'Nd6+', 'Kb8', 'Nxb7+', 'Kxb7', 'Rhe1', 'Re8', 'Rad1', 'Kc8', 'Bd6', 'Kb7', 'f4', 'Nf6', 'Kg1', 'Rh8', 'Re2', 'Kc8', 'Rde1', 'Kd7', 'Be5', 'Rhg8', 'h3', 'Kc8', 'g4', 'h5', 'gxh5', 'Nxh5', 'Bd6', 'g5', 'fxg5', 'Rxg5+', 'Kh2', 'Ng7', 'Be5', 'Nh5', 'Rf2', 'Kb7', 'Rf7+', 'Ka8', 'a3', 'Rd8', 'Bc3', 'Re8', 'Re5', 'Rxe5', 'Bxe5', 'Rd8', 'Re7', 'Rd2+', 'Kg1', 'Rd1+', 'Kh2', 'Rd2+', 'Kh1', 'Rd1+', 'Kg2', 'Rd2+', 'Kf3', 'Rd3+', 'Kg4', 'Re3', 'Re8+', 'Kb7', 'Re7+', 'Kc8', 'Rxe6', 'Nf6+', 'Kf4', 'Re4+', 'Kf5', 'Rxe5+', 'Rxe5', 'Nd7', 'Re7', 'Kd8', 'Rg7', 'Kc8', 'Rf7', 'a6', 'Ke6', 'Nb8', 'Kd6', 'a5', 'Rc7+', 'Kd8', 'h4', 'Na6', 'Rb7', 'Kc8', 'Rxb6', 'Nb8', 'Rb5', 'Na6', 'Rxa5', 'Kb7', 'Rb5+', 'Ka8', 'Rb6', 'Ka7', 'Rb5', 'Ka8', 'Kc6', 'Nb8+', 'Kb6', 'Na6', 'Ra5', 'Kb8', 'Rxa6', 'Kc8', 'Ra8+', 'Kd7', 'h5', 'Ke7', 'Kxc5', 'Kf7', 'h6', 'Kg6', 'Rh8', 'Kf7', 'Kb4', 'Ke7', 'Re8+', 'Kxe8', 'h7', 'Kf8', 'h8=Q+', 'Kf7', 'Kb3', 'Ke7', 'Ka2', 'Kf7', 'Kb1', 'Ke7', 'c5', 'Kd7', 'Qe5', 'Kc8', 'c6', 'Kd8', 'Qg7', 'Kc8', 'Qf7', 'Kb8', 'Qb7#']

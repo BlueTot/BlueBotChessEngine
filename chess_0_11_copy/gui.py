@@ -1,49 +1,37 @@
+import chess.polyglot
 import chess.svg
 import pygame
 import cairosvg
 import io
-# import chess_011
-import chess_018
+from search import *
 
 
-class Player:
-    name = "player"
-    tag = 1
-
-
-# class Chess011:
-#     depth = 3
-#     name = f"Chess v0.11 (depth {depth})"
-#     tag = (chess_011.root, depth)
-
-
-class Chess018:
-    depth = 4
-    name = f"Chess v0.18 (depth {depth})"
-    tag = (chess_018.root, depth)
+class Modes:
+    PLAYER_VS_COMPUTER = 0
+    COMPUTER_ONLY = 1
+    PLAYER_ONLY = 2
 
 
 class ChessGame:
-    def __init__(self, player1, player2, perspective):
+    def __init__(self, player_colour, mode, depth):
         self.__board = chess.Board()
 
         pygame.init()
-        pygame.display.set_caption(f"Chess: {player1.name} vs {player2.name}")
+        pygame.display.set_caption("Chess")
         self.__display = pygame.display.set_mode((800, 800))
         self.__clock = pygame.time.Clock()
         self.__move_list = []
-        self.__player1 = player1.tag
-        self.__player2 = player2.tag
-        self.__perspective = perspective
+        self.__player = player_colour
+        self.__mode = mode
         self.__gameOver = False
-        self.__moves = []
+        self.__computer_search_depth = depth
 
     def __get_img(self, selected_square):  # Get board pygame image to render
         if selected_square is not None:
-            svg = chess.svg.board(board=self.__board, flipped=True if self.__perspective == chess.BLACK else False,
+            svg = chess.svg.board(board=self.__board, flipped=True if self.__player == chess.BLACK else False,
                                   fill=dict.fromkeys(self.__get_move_squares(selected_square), "#cc0000cc"))
         else:
-            svg = chess.svg.board(board=self.__board, flipped=True if self.__perspective == chess.BLACK else False)
+            svg = chess.svg.board(board=self.__board, flipped=True if self.__player == chess.BLACK else False)
 
         png_io = io.BytesIO()
         cairosvg.svg2png(bytestring=bytes(svg, "utf8"), write_to=png_io)
@@ -73,7 +61,7 @@ class ChessGame:
     def __player_make_move(self):
         if len(self.__move_list) == 2:  # Player clicked twice
             try:
-                promotion_squares = [i for i in range(8)] if self.__board.turn == chess.BLACK else [i for i in range(56, 64)]
+                promotion_squares = [i for i in range(8)] if self.__player == chess.BLACK else [i for i in range(56, 64)]
                 if self.__move_list[1] in promotion_squares and self.__board.piece_at(
                         self.__move_list[0]).piece_type == chess.PAWN:  # Promotion
                     move = chess.Move(from_square=self.__move_list[0], to_square=self.__move_list[1], promotion=chess.QUEEN)
@@ -81,7 +69,6 @@ class ChessGame:
                     move = chess.Move(from_square=self.__move_list[0], to_square=self.__move_list[1])
                 if move in self.__board.legal_moves:  # Move is legal
                     print(san := self.__board.san(move))
-                    self.__moves.append(san)
                     self.__board.push_san(san)
                 else:  # Illegal move
                     raise chess.IllegalMoveError
@@ -93,16 +80,11 @@ class ChessGame:
                 self.__move_list = []
 
     def __computer_make_move(self):
-        turn = self.__player1 if self.__board.turn else self.__player2
-        move = turn[0](self.__board, turn[1])
+        move = root(self.__board, self.__computer_search_depth)
         if move == chess.Move.null():
             move = list(self.__board.legal_moves)[-1]
         print(move)
-        try:
-            print(san := self.__board.san(move))
-            self.__moves.append(san)
-        except AssertionError:
-            pass
+        print(self.__board.san(move))
         self.__board.push(move)
 
     def play(self):
@@ -120,13 +102,18 @@ class ChessGame:
                     x, y = pygame.mouse.get_pos()
                     if pygame.mouse.get_pressed(3)[0]:
                         if 30 <= x <= 800 - 30 and 30 <= y <= 800 - 30:
-                            self.__move_list.append(self.__get_square(x, y, self.__perspective == chess.BLACK))
+                            self.__move_list.append(self.__get_square(x, y, self.__player == chess.BLACK))
 
             if not self.__gameOver:  # If game is still ongoing
-                if self.__board.turn:
-                    self.__computer_make_move() if type(self.__player1) == tuple else self.__player_make_move()
-                else:
-                    self.__computer_make_move() if type(self.__player2) == tuple else self.__player_make_move()
+                if self.__mode == Modes.PLAYER_ONLY:
+                    self.__player_make_move()
+                elif self.__mode == Modes.PLAYER_VS_COMPUTER:
+                    if self.__board.turn == self.__player:
+                        self.__player_make_move()
+                    else:  # Computer's turn
+                        self.__computer_make_move()
+                elif self.__mode == Modes.COMPUTER_ONLY:  # Computer vs computer
+                    self.__computer_make_move()
 
             # Render board
             img = pygame.transform.scale(
@@ -139,27 +126,23 @@ class ChessGame:
                     print(title := f"{'White' if not self.__board.turn else 'Black'} won the game by checkmate!")
                     pygame.display.set_caption(f"Chess: {title}")
                     self.__gameOver = True
-                    print(self.__moves)
 
                 if self.__board.is_stalemate():  # Stalemate
                     print(title := "Draw by stalemate")
                     pygame.display.set_caption(f"Chess: {title}")
                     self.__gameOver = True
-                    print(self.__moves)
 
                 if self.__board.can_claim_draw():
                     print(title := "Draw by threefold repetition")
                     pygame.display.set_caption(f"Chess: {title}")
                     self.__gameOver = True
-                    print(self.__moves)
 
                 if self.__board.is_insufficient_material():
                     print(title := "Draw by insufficient material")
                     pygame.display.set_caption(f"Chess: {title}")
                     self.__gameOver = True
-                    print(self.__moves)
 
 
 if __name__ in "__main__":  # Run the game
-    game = ChessGame(player1=Chess018(), player2=Player(), perspective=chess.BLACK)
+    game = ChessGame(player_colour=chess.BLACK, mode=Modes.COMPUTER_ONLY, depth=3)
     game.play()

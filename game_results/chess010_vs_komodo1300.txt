@@ -1,0 +1,13 @@
+White: Chess v0.10
+Black: Komodo (1300)
+
+Status: White won by checkmate
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 O-O 5. Bd3 c5 6. Ne2 d5 7. cxd5 exd5 8. a3
+Ba5 $2 9. dxc5 Re8 10. b4 Bc7 11. O-O Qd7 $6 12. b5 $2 Ne4 13. Nxe4 dxe4 14. Bc4 Qg4 $2
+15. Nd4 Qh4 $6 16. g3 $6 Qe7 $2 17. c6 $6 Qg5 $2 18. Bb2 $6 Bb6 $2 19. h4 $6 Qg6 20. h5 Qg5
+21. cxb7 Bxb7 22. Nb3 $6 Rd8 23. Nd4 $2 Bc5 24. Bc3 a6 25. bxa6 Bxa6 26. Bxa6 Rxa6
+27. Qc2 Qe5 28. Nc6 $4 Nxc6 $4 29. Bxe5 Nxe5 30. Qxc5 f6 31. Rfe1 Rad6 32. Rab1 $6
+h6 $6 33. Rb7 Kh7 34. Re7 Rd2 35. g4 $6 Ra8 36. Qc3 Nf3+ 37. Kf1 Nh2+ 38. Kg2 Nf3
+39. Rh1 Rf8 40. Rxe4 f5 $6 41. Re7 Rg8 42. gxf5 Kh8 43. e4 Rd6 44. Qxf3 Rgd8 $6
+45. Qg3 g5 46. Qe5+ Rf6 47. Qxf6+ Kg8 48. Qg7# 1-0

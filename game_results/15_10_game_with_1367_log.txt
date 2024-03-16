@@ -1,0 +1,295 @@
+C:\Users\nhlo\PycharmProjects\chess_game\venv\Scripts\python.exe C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py
+pygame 2.3.0 (SDL 2.24.2, Python 3.10.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+e4
+rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+e5
+Nf3
+rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
+Nc6
+Bc4
+r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3
+Nd4
+Nxd4 0.5
+Nxe5 14.5
+Bxf7+ 14.5
+Nc3 14.5
+O-O 14.5
+d3 14.5
+Kf1 14.5
+Na3 14.5
+Qe2 14.5
+Be6 14.5
+Bd5 14.5
+Bd3 14.5
+Bb3 14.5
+Rg1 14.5
+Rf1 14.5
+h3 14.5
+a3 14.5
+Bb5 14.5
+Ng5 14.5
+h4 14.5
+a4 14.5
+Be2 14.5
+g4 14.5
+b4 14.5
+g3 14.5
+b3 14.5
+Ba6 14.5
+Bf1 14.5
+c3 14.5
+Nh4 14.5
+Ng1 14.5
+{'positions': 4433, 'time': 1.72, 'positions per second': 2577.33}
+chess v0.22 average time: 1.72
+Nxe5
+r1bqkbnr/pppp1ppp/8/4N3/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4
+Qg5
+Bxf7+ 16.0
+Nxf7 16.0
+Nxd7 16.0
+Nc3 16.0
+O-O 16.0
+d3 16.0
+Kf1 16.0
+Qf3 16.0
+Na3 16.0
+Qg4 16.0
+Qe2 16.0
+Be6 16.0
+Bd5 16.0
+Bd3 16.0
+Bb3 16.0
+Rg1 16.0
+Rf1 16.0
+Qh5 16.0
+h3 16.0
+a3 16.0
+Nd3 16.0
+Bb5 16.0
+h4 16.0
+a4 16.0
+Nc6 16.0
+Nf3 16.0
+Be2 16.0
+g4 16.0
+f4 16.0
+b4 16.0
+Ng4 16.0
+g3 16.0
+b3 16.0
+Ng6 16.0
+Ba6 16.0
+Bf1 16.0
+f3 16.0
+c3 16.0
+{'positions': 6803, 'time': 4.77, 'positions per second': 1426.21}
+chess v0.22 average time: 3.2449999999999997
+Bxf7+
+r1b1kbnr/pppp1Bpp/8/4N1q1/3nP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5
+Ke7
+Bxg8 5.0
+Nxd7 5.0
+Nc3 5.0
+O-O 5.0
+d3 5.0
+Be6 5.0
+Bd5 5.0
+Bc4 5.0
+Bb3 5.0
+Kf1 5.0
+Qf3 5.0
+Na3 5.0
+Qg4 5.0
+Qe2 5.0
+Bg6 5.0
+Rg1 5.0
+Rf1 5.0
+Qh5 5.0
+h3 5.0
+a3 5.0
+Nc4 5.0
+Nd3 5.0
+h4 5.0
+a4 5.0
+Be8 5.0
+Bh5 5.0
+Nc6+ 5.0
+Nf3 5.0
+g4 5.0
+f4 5.0
+c4 5.0
+b4 5.0
+Ng4 5.0
+g3 5.0
+b3 5.0
+Ng6+ 5.0
+f3 5.0
+c3 5.0
+{'positions': 9218, 'time': 6.31, 'positions per second': 1460.86}
+chess v0.22 average time: 4.266666666666667
+Bxg8
+r1b2bBr/ppppk1pp/8/4N1q1/3nP3/8/PPPP1PPP/RNBQK2R b KQ - 0 6
+Qxg2
+Bxh7 -99999
+Nxd7 -99999
+Nc3 -99999
+Be6 -99999
+Bd5 -99999
+Bc4 -57.0
+Bb3 -57.0
+d3 -42.0
+Bf7 -42.0
+Qf3 -42.0
+Na3 -42.0
+Qg4 -42.0
+Qe2 -42.0
+Rg1 -42.0
+Rf1 -42.0
+Qh5 -42.0
+h3 -42.0
+a3 -42.0
+Nc4 -42.0
+Nd3 -42.0
+h4 -42.0
+a4 -42.0
+Nc6+ -42.0
+Nf3 -42.0
+f4 -42.0
+c4 -42.0
+b4 -42.0
+Ng4 -42.0
+b3 -42.0
+Nf7 -42.0
+Ng6+ -42.0
+f3 -42.0
+c3 -42.0
+{'positions': 5755, 'time': 1.63, 'positions per second': 3530.67}
+chess v0.22 average time: 3.6075
+d3
+r1b2bBr/ppppk1pp/8/4N3/3nP3/3P4/PPP2PqP/RNBQK2R b KQ - 0 7
+Qxh1+
+Kd2 -42.0
+{'positions': 1565, 'time': 0.41, 'positions per second': 3817.07}
+chess v0.22 average time: 2.968
+Kd2
+r1b2bBr/ppppk1pp/8/4N3/3nP3/3P4/PPPK1P1P/RNBQ3q b - - 1 8
+Qxd1+
+Kxd1 -39.0
+Ke3 -39.0
+Kc3 -39.0
+{'positions': 989, 'time': 0.23, 'positions per second': 4300.0}
+chess v0.22 average time: 2.5116666666666667
+Kxd1
+r1b2bBr/ppppk1pp/8/4N3/3nP3/3P4/PPP2P1P/RNBK4 b - - 0 9
+Rxg8
+Nxd7 -63.0
+Nc3 -37.5
+Nd2 -37.5
+Bf4 -37.5
+Be3 -37.5
+Bg5+ -37.5
+Bd2 -37.5
+Na3 -37.5
+Kd2 -37.5
+Ke1 -37.5
+Bh6 -37.5
+h3 -37.5
+a3 -37.5
+Nc4 -37.5
+h4 -37.5
+a4 -37.5
+Nc6+ -37.5
+Nf3 -37.5
+f4 -37.5
+c4 -37.5
+b4 -37.5
+Ng4 -37.5
+b3 -37.5
+Nf7 -37.5
+Ng6+ -37.5
+f3 -37.5
+c3 -37.5
+{'positions': 8247, 'time': 3.03, 'positions per second': 2721.78}
+chess v0.22 average time: 2.585714285714286
+Nc3
+r1b2br1/ppppk1pp/8/4N3/3nP3/2NP4/PPP2P1P/R1BK4 b - - 1 10
+d6
+Bf4 -59.5
+Be3 -59.5
+Bg5+ -40.0
+Nd5+ -17.0
+Bd2 -17.0
+Kd2 -17.0
+Ke1 -17.0
+Bh6 -17.0
+Rb1 -17.0
+h3 -17.0
+a3 -17.0
+Nc4 -17.0
+Nb5 -17.0
+Ne2 -17.0
+h4 -17.0
+a4 -17.0
+Nc6+ -17.0
+Nf3 -17.0
+f4 -17.0
+b4 -17.0
+Ng4 -17.0
+b3 -17.0
+Nf7 -17.0
+Nd7 -17.0
+Ng6+ -17.0
+f3 -17.0
+Na4 -17.0
+Nb1 -17.0
+{'positions': 2099, 'time': 0.76, 'positions per second': 2761.84}
+chess v0.22 average time: 2.3575000000000004
+Nd5+
+r1b2br1/ppp1k1pp/3p4/3NN3/3nP3/3P4/PPP2P1P/R1BK4 b - - 1 11
+Kd8
+Nxc7 -62.5
+Bf4 -58.5
+Be3 -58.5
+Bg5+ -6.0
+Bd2 -6.0
+Kd2 -6.0
+Ke1 -6.0
+Bh6 -6.0
+Rb1 -6.0
+h3 -6.0
+a3 -6.0
+Nc4 -6.0
+Nf4 -6.0
+Ne3 -6.0
+h4 -6.0
+a4 -6.0
+Nc6+ -6.0
+Nf3 -6.0
+Nf6 -6.0
+Nc3 -6.0
+f4 -6.0
+c4 -6.0
+b4 -6.0
+Ng4 -6.0
+Nb4 -6.0
+b3 -6.0
+Nf7+ -6.0
+Nd7 -6.0
+Ng6 -6.0
+Ne7 -6.0
+Nb6 -6.0
+f3 -6.0
+c3 -6.0
+{'positions': 3850, 'time': 1.17, 'positions per second': 3290.6}
+chess v0.22 average time: 2.2255555555555557
+Bg5+
+r1bk1br1/ppp3pp/3p4/3NN1B1/3nP3/3P4/PPP2P1P/R2K4 b - - 3 12
+Ke8
+Nxc7#
+r1b1kbr1/ppN3pp/3p4/4N1B1/3nP3/3P4/PPP2P1P/R2K4 b - - 0 13
+White won the game by checkmate!
+['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nd4', 'Nxe5', 'Qg5', 'Bxf7+', 'Ke7', 'Bxg8', 'Qxg2', 'd3', 'Qxh1+', 'Kd2', 'Qxd1+', 'Kxd1', 'Rxg8', 'Nc3', 'd6', 'Nd5+', 'Kd8', 'Bg5+', 'Ke8', 'Nxc7#']
+
+Process finished with exit code 0

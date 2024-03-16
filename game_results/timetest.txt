@@ -1,0 +1,184 @@
+Chess v0.27 Depth 5
+
+C:\Users\nhlo\PycharmProjects\chess_game\venv\Scripts\python.exe C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py
+pygame 2.3.0 (SDL 2.24.2, Python 3.10.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+depth 1 complete with best move found being e4e5
+depth 2 complete with best move found being e4e5
+depth 3 complete with best move found being e4e5
+e5 5.0
+Qxf6 5.0
+Qxc7 5.0
+Nxb5 5.0
+Nd5 5.0
+Rd7 5.0
+Qd6 5.0
+Qf5 5.0
+Qe5 5.0
+Qf3 5.0
+Qe3 5.0
+Re1 5.0
+Rac1 5.0
+Rab1 5.0
+h3 5.0
+a3 5.0
+Qg5 5.0
+Qg4 5.0
+Qg3 5.0
+Qd2 5.0
+Ne2 5.0
+Rd8 5.0
+Rd6 5.0
+Rd5 5.0
+Rd4 5.0
+Rd3 5.0
+Rd2 5.0
+Rf1 5.0
+Rdc1 5.0
+Rdb1 5.0
+h4 5.0
+a4 5.0
+Qh4 5.0
+Kh1 5.0
+g4 5.0
+b4 5.0
+Qh6 5.0
+Qc1 5.0
+g3 5.0
+b3 5.0
+Kf1 5.0
+f3 5.0
+Na4 5.0
+Nb1 5.0
+depth 4 complete with best move found being e4e5
+e5 3.0
+Qxf6 3.0
+Qxc7 3.0
+Nxb5 3.0
+Nd5 3.0
+Rd7 3.0
+Qd6 3.0
+Qf5 3.0
+Qe5 3.0
+Qf3 3.0
+Qe3 3.0
+Re1 3.0
+Rac1 3.0
+Rab1 3.0
+h3 3.0
+a3 3.5
+Qg5 3.5
+Qg4 3.5
+Qg3 3.5
+Qd2 3.5
+Ne2 3.5
+Rd8 3.5
+Rd6 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rf1 3.5
+Rdc1 3.5
+Rdb1 3.5
+h4 3.5
+a4 3.5
+Qh4 3.5
+Kh1 3.5
+g4 3.5
+b4 3.5
+Qh6 3.5
+Qc1 3.5
+g3 3.5
+b3 3.5
+Kf1 3.5
+f3 3.5
+Na4 3.5
+Nb1 3.5
+depth 5 complete with best move found being a2a3
+{'positions': 398893, 'negamax positions': 177159, 'q-search positions': 221734, 'tt stores': 19232, 'tt hits': 3094, 'time': 65.3, 'positions per second': 6108.62, 'hit rate': '16.0878%'}
+chess v0.27 average time: 65.3
+a3
+r4rk1/2p1qppp/p1p2n2/1p6/4PQ2/P1N5/1PP2PPP/R2R2K1 b - - 0 1
+Traceback (most recent call last):
+  File "C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py", line 200, in <module>
+    game.play()
+  File "C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py", line 164, in play
+    pygame.display.flip()
+KeyboardInterrupt
+
+Process finished with exit code -1073741510 (0xC000013A: interrupted by Ctrl+C)
+
+Chess v0.22 Depth 5
+
+C:\Users\nhlo\PycharmProjects\chess_game\venv\Scripts\python.exe C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py
+pygame 2.3.0 (SDL 2.24.2, Python 3.10.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+Qxf6 -53.5
+Qxc7 -53.5
+Nxb5 -16.0
+Nd5 -16.0
+Rd7 -16.0
+e5 3.0
+Qd6 3.0
+Qf5 3.0
+Qe5 3.0
+Qf3 3.0
+Qe3 3.0
+Re1 3.0
+Rac1 3.0
+Rab1 3.0
+h3 3.0
+a3 3.5
+Qg5 3.5
+Qg4 3.5
+Qg3 3.5
+Qd2 3.5
+Ne2 3.5
+Rd8 3.5
+Rd6 3.5
+Rd5 3.5
+Rd4 3.5
+Rd3 3.5
+Rd2 3.5
+Rf1 3.5
+Rdc1 3.5
+Rdb1 3.5
+h4 3.5
+a4 3.5
+Qh4 3.5
+Kh1 3.5
+g4 3.5
+b4 3.5
+Qh6 3.5
+Qc1 3.5
+g3 3.5
+b3 3.5
+Kf1 3.5
+f3 3.5
+Na4 3.5
+Nb1 3.5
+{'positions': 278789, 'time': 68.86, 'positions per second': 4048.63}
+chess v0.22 average time: 68.86
+a3
+r4rk1/2p1qppp/p1p2n2/1p6/4PQ2/P1N5/1PP2PPP/R2R2K1 b - - 0 1
+Traceback (most recent call last):
+  File "C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py", line 200, in <module>
+    game.play()
+  File "C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py", line 162, in play
+    self.__get_img(None if not self.__move_list else self.__move_list[0]), (800, 800))
+  File "C:\Users\nhlo\PycharmProjects\chess_game\match_tester\gui.py", line 76, in __get_img
+    cairosvg.svg2png(bytestring=bytes(svg, "utf8"), write_to=png_io)
+  File "C:\Users\nhlo\PycharmProjects\chess_game\venv\lib\site-packages\cairosvg\__init__.py", line 55, in svg2png
+    return surface.PNGSurface.convert(
+  File "C:\Users\nhlo\PycharmProjects\chess_game\venv\lib\site-packages\cairosvg\surface.py", line 133, in convert
+    instance = cls(
+  File "C:\Users\nhlo\PycharmProjects\chess_game\venv\lib\site-packages\cairosvg\surface.py", line 225, in __init__
+    self.draw(tree)
+  File "C:\Users\nhlo\PycharmProjects\chess_game\venv\lib\site-packages\cairosvg\surface.py", line 471, in draw
+    self.draw(child)
+  File "C:\Users\nhlo\PycharmProjects\chess_game\venv\lib\site-packages\cairosvg\surface.py", line 320, in draw
+    opacity = float(node.get('opacity', 1))
+KeyboardInterrupt
+
+Process finished with exit code -1073741510 (0xC000013A: interrupted by Ctrl+C)

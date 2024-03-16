@@ -1,0 +1,88 @@
+Game 1:
+
+White: BlueTot
+Black: Chess v0.22
+
+Status: White won by checkmate
+
+Moves:
+['d4', 'd5',
+'Bf4', 'Nf6',
+'e3', 'c5',
+'c3', 'Nc6',
+'Nd2', 'e6',
+'Bd3', 'c4',
+'Bc2', 'Bd6',
+'Bg3', 'Bxg3',
+'hxg3', 'O-O',
+'Ngf3', 'Bd7',
+'Ne5', 'Re8',
+'f4', 'Rc8',
+'g4', 'Qc7',
+'g5', 'Ne4',
+'Qf3', 'Nxe5',
+'dxe5', 'Nxd2',
+'Kxd2', 'g6',
+'Qe2', 'Bc6',
+'Rh2', 'Rcd8',
+'Rah1', 'Qa5',
+'Rxh7', 'Kf8',
+'Qg4', 'Qxa2',
+'f5', 'gxf5',
+'Rh8+', 'Ke7',
+'Rxe8+', 'Rxe8',
+'Qh5', 'Qxb2',
+'Qh6', 'Rg8',
+'Qf6+', 'Kf8',
+'Rh8', 'Rxh8',
+'Qxh8+', 'Ke7',
+'Qf6+', 'Kf8',
+'g6', 'Be8',
+'g7+', 'Kg8',
+'Qh6', 'Qxc2+',
+'Kxc2', 'Ba4+',
+'Kd2', 'f6',
+'Qh8+', 'Kf7',
+'g8=Q+', 'Ke7',
+'Qhh7#']
+
+Game 2:
+
+White: BlueTot
+Black: Chess v0.22
+
+Status: White won by checkmate
+
+['d4', 'Nf6',
+'Nf3', 'g6',
+'c4', 'Bg7',
+'Nc3', 'd6',
+'e4', 'O-O',
+'Bf4', 'Nbd7',
+'Qd2', 'e5',
+'Bh6', 'Bxh6',
+'Qxh6', 'exd4',
+'Nxd4', 'Ne5',
+'f4', 'c5',
+'Nf3', 'Nxf3+',
+'gxf3', 'Be6',
+'e5', 'dxe5',
+'fxe5', 'Nd7',
+'f4', 'Re8',
+'O-O-O', 'Bg4',
+'Be2', 'Bxe2',
+'Nxe2', 'Qe7',
+'h4', 'Nb6',
+'b3', 'f6',
+'h5', 'fxe5',
+'hxg6', 'e4',
+'gxh7+', 'Kh8',
+'Rdg1', 'Rad8',
+'Qg6', 'Rd1+',
+'Kxd1', 'Rd8+',
+'Kc1', 'Rd1+',
+'Kxd1', 'Qd7+',
+'Kc1', 'Qd2+',
+'Kxd2', 'a5',
+'Qg8#']
+

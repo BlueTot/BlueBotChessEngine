@@ -1,0 +1,11 @@
+White: Komodo (550)
+Black: Chess v0.5
+
+Status: Black won by checkmate
+
+1. e4 Nf6 2. e5 Ne4 3. d3 Nc5 4. d4 Ne4 5. f3 Nc6 6. c4 Nxe5 7. fxe4 Nc6 8. Bg5
+h6 9. Bh4 g5 10. Bf2 e6 11. c5 Qf6 12. Be2 Qf4 13. e5 Bg7 14. Nh3 Qe4 15. a3
+Qxg2 16. Ra2 Qxh1+ 17. Bg1 d5 18. Ra1 g4 19. Nc3 gxh3 20. Bd3 Qxg1+ 21. Bf1 Qe3+
+22. Ne2 O-O 23. Bxh3 Qxh3 24. Qc2 Qxh2 25. Qb3 Qh1+ 26. Kd2 Qxa1 27. Qa4 Qxb2+
+28. Ke3 b5 29. Kf4 bxa4 30. Kg4 Qxe2+ 31. Kf4 Nxd4 32. Kg3 Bxe5+ 33. Kh4 f5 34.
+Kh3 a5 35. c6 h5 36. Kh4 Qg4# 0-1

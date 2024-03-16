@@ -1,0 +1,15 @@
+White: Chess v0.15 Test
+Black: Komodo (1500)
+
+Status: White won by checkmate
+Rating of White in this game (by chess.com): 1300
+
+1. d4 d6 2. e4 Nf6 3. Nc3 g6 4. h3 Bg7 5. Nf3 O-O 6. Be3 Bd7 $2 7. e5 Ne8 8. Bb5 $2
+c6 $6 9. Bd3 d5 $2 10. O-O f6 11. exf6 exf6 12. Bf4 g5 $6 13. Bg3 $6 f5 14. Ne5 $2 Nd6
+$9 15. Re1 $9 Ne4 $9 16. Qf3 $9 Qb6 $9 17. Bxe4 dxe4 18. Qe2 Be6 19. Qd2 Bf6 20. Na4
+Qd8 21. Nc5 Bc8 22. Qb4 b6 23. Nb3 Be6 24. Qc3 Qc8 25. Nc4 $2 Na6 $9 26. f3 $9 Bd5 $4
+27. fxe4 fxe4 28. Nbd2 $6 Qf5 $2 29. Nd6 Qg6 30. N6xe4 Rae8 $2 31. Bd6 $6 Bxe4 $6 32.
+Nxe4 $9 Rxe4 $1 33. Rxe4 $6 Qxe4 34. Qc4+ Rf7 $1 35. Rd1 b5 36. Qc3 Bh8 $6 37. Bg3 b4 $4
+38. Qc4 $1 Qe3+ $2 39. Kh2 $1 Qe4 40. Re1 $6 Qxd4 $4 41. Re8+ $1 Kg7 42. Qxd4+ Rf6 43.
+Qxa7+ Rf7 44. Qxa6 Rf6 45. Be5 Kh6 46. Rxh8 Re6 47. Qb7 g4 48. Qxh7+ Kg5 49.
+Qh5# 1-0

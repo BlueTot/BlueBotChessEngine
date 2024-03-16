@@ -1,0 +1,10 @@
+White: Chess v0.7
+Black: Komodo (1000)
+
+Status: White won by checkmate
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. Nxe5 Qd4 6. Qh5 g6 7. Qg5 Bc5 8.
+Qf4 f5 9. Nd3 Bd6 10. Qe3 fxe4 11. Qxd4 exd3 12. Qxh8 Be6 13. cxd3 Bd5 14. Qd4
+O-O-O 15. O-O Rd7 16. Nc3 c5 17. Qxd5 Ne7 18. Qe6 Be5 19. Qxe5 b5 20. Qe6 Kb8
+21. Qxd7 b4 22. Qd8+ Nc8 23. Ne4 a5 24. Nxc5 h6 25. d4 Ka7 26. Qxc7+ Ka8 27.
+Qb7# 1-0

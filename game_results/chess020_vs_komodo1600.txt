@@ -1,0 +1,13 @@
+White: Chess v0.20
+Black: Komodo 12 (1600)
+
+Status: White won by checkmate
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. f4 Qa5 7. Nb3 Qd8 8. e5
+Nfd7 9. exd6 b5 10. Qf3 Nb6 11. Nd5 Qxd6 12. Nxb6 Qxb6 13. Qxa8 Bf5 14. Bd3 e6
+15. Bxf5 exf5 16. Qd5 Be7 17. Nd4 O-O 18. Nxf5 Bc5 19. Qe5 f6 20. Qd5+ Rf7 21.
+Kf1 b4 22. Qd3 Qc6 23. Qd8+ Rf8 24. Qd3 Re8 25. Qc4+ Kh8 26. Bd2 a5 27. a3 bxa3
+28. bxa3 g6 29. Nd4 Bxd4 30. Qxd4 Re4 31. Qd8+ Re8 32. Qxa5 Qc4+ 33. Kf2 Nc6 34.
+Qc3 Qe4 35. Qxf6+ Kg8 36. Rhe1 Qd4+ 37. Qxd4 Nxd4 38. Rxe8+ Kf7 39. Rc8 Ne6 40.
+Kg1 Kf6 41. Rh8 Kf5 42. Rxh7 g5 43. fxg5 Kg6 44. Rh6+ Kf7 45. Rf1+ Ke7 46. Bb4+
+Kd7 47. Rf7+ Kc6 48. c4 Kb6 49. Rxe6# 1-0
