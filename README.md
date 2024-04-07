@@ -15,3 +15,7 @@ Main features:
 - Null move pruning
 - Principal Variation move ordering
 - Iterative deepening
+
+Also...
+- All chess bot releases use an opening book called Titans which can be found here: https://digilander.libero.it/taioscacchi/archivio/Titans.zip
+- Latest version v0.29 is best run with PyPy instead of normal Python which can be found here: https://www.pypy.org/download.html
