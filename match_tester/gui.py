@@ -2,7 +2,7 @@ import chess.svg
 import pygame
 import cairosvg
 import io
-import chess_020, chess_021, chess_022, chess_023, chess_025, chess_027, chess_028
+import chess_022, chess_029, chess_030, chess_031
 
 
 class Player:
@@ -10,46 +10,26 @@ class Player:
     tag = 1
 
 
-class Chess020:
-    depth = 4
-    name = f"Chess v0.20 (depth {depth})"
-    tag = (chess_020.root, depth)
-
-
-class Chess021:
-    depth = 4
-    name = f"Chess v0.21 (depth {depth})"
-    tag = (chess_021.root, depth)
-
-
 class Chess022:
-    depth = 4
+    depth = 6
     name = f"Chess v0.22 (depth {depth})"
     tag = (chess_022.get_best_move, depth)
 
 
-class Chess023:
-    depth = 4
-    name = f"Chess v0.23 (depth {depth})"
-    tag = (chess_023.get_best_move, depth)
+class Chess029:
+    depth = 6
+    name = f"Chess v0.29 (depth {depth})"
+    tag = (chess_029.get_best_move, depth)
 
+class Chess030:
+    depth = 5
+    name = f"Chess v0.30 (depth {depth})"
+    tag = (chess_030.get_best_move, depth)
 
-class Chess025:
-    depth = 4
-    name = f"Chess v0.25 (depth {depth})"
-    tag = (chess_025.get_best_move, depth)
-
-
-class Chess027:
-    depth = 4
-    name = f"Chess v0.27 (depth {depth})"
-    tag = (chess_027.get_best_move, depth)
-
-
-class Chess028:
-    depth = 4
-    name = f"Chess v0.28 (depth {depth})"
-    tag = (chess_028.get_best_move, depth)
+class Chess031:
+    depth = 5
+    name = f"Chess v0.31 (depth {depth})"
+    tag = (chess_031.get_best_move, depth)
 
 
 class ChessGame:
@@ -133,13 +113,13 @@ class ChessGame:
         if move == chess.Move.null():
             move = list(self.__board.legal_moves)[-1]
         try:
-            print(san := self.__board.san(move))
+            san = self.__board.san(move)
+            print(f"\033[32;1;1m{san}\33[0m")
             self.__moves.append(san)
         except AssertionError:
             pass
         self.__board.push(move)
-        print(self.__board.fen())
-        print(self.__board.legal_moves)
+        print(f"FEN: {self.__board.fen()}")
 
     def play(self):
         while True:
@@ -198,33 +178,16 @@ class ChessGame:
 
 if __name__ in "__main__":  # Run the game
     bot = True
-    bot_perspective = False
-    game = ChessGame(player1=Chess022() if bot else Player(),
-                     player2=Player() if bot else Chess022(),
+    bot_perspective = True
+    version = Chess029
+    game = ChessGame(player1=version() if bot else Player(),
+                     player2=Player() if bot else version(),
                      perspective=chess.WHITE if (bot if bot_perspective else not bot) else chess.BLACK)
-                         # game = ChessGame(player1=Chess027(), player2=Chess022(), perspective=chess.WHITE,
-    #                  fen="r4rk1/pp2ppbp/3p1np1/2q5/1n2PPb1/2NB1N2/PPP3PP/R1B1QR1K")
-    # game = ChessGame(player1=Chess022(), player2=Chess022(), perspective=chess.WHITE,
-    #                  fen="r1b1kbnr/pp1n1ppp/2p1p3/3p4/3PP3/3BBP2/PqPN2PP/R2QK1NR")
+    # game = ChessGame(player1=Chess022(), player2=Player(), perspective=chess.WHITE,
+    #                  fen="r1b1k2r/ppppnppp/2n3q1/1Bb3B1/3pP3/2P2N2/PP3PPP/RN1Q1RK1")
     game.play()
 
-'''
-chess 0.23 : 1.5
-chess 0.22 : 3.5
-'''
-
-'''
-chess 0.24: 7.0
-chess 0.22: 6.0
-'''
-
-'''
-chess 0.25 : 1.0
-chess 0.22 : 0.0
-
-first game: ['c4', 'Nf6', 'Nc3', 'e6', 'Nf3', 'Bb4', 'g3', 'O-O', 'Bg2', 'd5', 'a3', 'Bxc3', 'dxc3', 'Nbd7', 'cxd5', 'exd5', 'O-O', 'b6', 'Bf4', 'Bb7', 'e3', 'Nc5', 'c4', 'Ne6', 'cxd5', 'Nxf4', 'gxf4', 'Qxd5', 'Re1', 'Rfe8', 'Qc2', 'Qd6', 'Rad1', 'Qc5', 'Qxc5', 'bxc5', 'Rc1', 'Nd7', 'b4', 'cxb4', 'Rxc7', 'Bxf3', 'Bxf3', 'Rad8', 'axb4', 'a6', 'Bc6', 'Re7', 'Ra1', 'Kf8', 'Rd1', 'Ke8', 'Ra7', 'h5', 'e4', 'h4', 'f5', 'h3', 'Rd6', 'f6', 'Rd3', 'g5', 'Rxh3', 'Rg7', 'Rh8+', 'Ke7', 'Rxd8', 'Kxd8', 'Rxa6', 'Ne5', 'Bd5', 'Nd3', 'b5', 'Ke7', 'Re6+', 'Kf7', 'Rc6+', 'Ke7', 'b6', 'Nb4', 'Re6+', 'Kd8', 'Rxf6', 'Nxd5', 'exd5', 'Kc8', 'Rf8+', 'Kb7', 'd6', 'Kxb6', 'f6', 'Rd7', 'f7', 'Rb7', 'Rg8', 'Rxf7', 'Rxg5', 'Kc6', 'Rg6', 'Rd7', 'Rf6', 'Rxd6', 'Rf7', 'Rd7', 'Rxd7', 'Kxd7', 'h4', 'Kc8', 'h5', 'Kb7', 'h6', 'Kb8', 'h7', 'Ka8', 'h8=Q+', 'Kb7', 'Qe5', 'Ka8', 'Qd6', 'Kb7', 'Qf4', 'Ka8', 'Qe5', 'Kb7', 'Qd6', 'Ka8', 'Qc6+', 'Kb8', 'Qa6', 'Kc7', 'Qb5', 'Kc8', 'Qb6', 'Kd7', 'Qc5', 'Ke8', 'Qf5', 'Kd8', 'Qc5', 'Ke8', 'Qd6', 'Kf7', 'Qc5']
-
-
-'''
-
-'''fen="r4rk1/2p1qppp/p1p2n2/1p6/4PQ2/2N5/PPP2PPP/R2R2K1"'''
+'''original fen test: r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R
+   second fen test: 1q1r1rk1/pb2bppp/1pn1pn2/8/3P4/P1N1BN2/1P2QPPP/1B1R1RK1
+   third fen test: r3kb1r/pppb1ppp/2n1p3/qB6/3P4/1QP1PN2/P4PPP/R1B1K2R
+   fourth fen test: r1b1k2r/ppppnppp/2n3q1/1Bb3B1/3pP3/2P2N2/PP3PPP/RN1Q1RK1'''

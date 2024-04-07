@@ -267,7 +267,10 @@ def negamax(board, alpha, beta, depth):
             depth += 1
         else:
             debug["leaf nodes"] += 1
-            return quiescence(board, alpha, beta)
+            val = quiescence(board, alpha, beta)
+            tt.store(board, TTEntry(TTEntry.EXACT, depth, val, None))
+            debug["tt stores"] += 1
+            return val
 
     # null move pruning
     if depth >= 3 and not board.is_check():
