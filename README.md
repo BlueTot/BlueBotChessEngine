@@ -7,7 +7,7 @@ Used to play on chess.com as: (chess v0.22)
 
 Latest version won against:
 - Komodo 17 (2100 elo) on chess.com
-- Fairy Stockfish 6 on lichess in 10 min rapid
+- Fairy Stockfish 6 (~2100) on lichess in 10 min rapid
 
 Latest version: v0.34
 
