@@ -6,7 +6,7 @@ Used to play on chess.com as: (chess v0.22)
 - BlueBotChessTest3 : 1833 rating on 10 min rapid
 
 Latest version won against:
-- Komodo 17 (2100 elo) on chess.com
+- Komodo 17 (2100) on chess.com
 - Fairy Stockfish 6 (~2100) on lichess in 10 min rapid
 
 Latest version: v0.34
