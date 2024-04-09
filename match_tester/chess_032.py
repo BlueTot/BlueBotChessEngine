@@ -3,7 +3,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.29"
+VERSION = "v0.32"
 INF = 99999
 R = 2
 
@@ -94,6 +94,32 @@ PAWN = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 PAWN.reverse()
 R_PAWN = reverse(PAWN)
 
+class TranspositionTable:
+
+    EXACT_FLAG = 0
+    ALPHA_FLAG = 1
+    BETA_FLAG = 2
+
+    def __init__(self):
+        self.__table = {} # Depth, flag, value, best move
+
+    def probe_hash(self, depth, alpha, beta, zhash):
+        if zhash in self.__table:
+            entry_depth, entry_flag, entry_value, _ = self.__table[zhash]
+            if entry_depth >= depth:
+                if entry_flag == self.EXACT_FLAG:
+                    return entry_value
+                elif entry_flag == self.ALPHA_FLAG and entry_value <= alpha:
+                    return alpha
+                elif entry_flag == self.BETA_FLAG and entry_value >= beta:
+                    return beta
+
+    def record_hash(self, depth, flag, val, best, zhash):
+        self.__table[zhash] = (depth, flag, val, best)
+    
+    @property
+    def length(self):
+        return len(self.__table)
 
 def evaluate(board):
     Eval = 0
@@ -184,7 +210,7 @@ def quiescence(board, alpha, beta):
 
 
 def negamax(board, alpha, beta, depth): # Main negamax search function
-    global debug, best_moves
+    global debug, best_moves, tt
 
     # call q-search if at leaf node
     if depth == 0 or board.is_game_over() or board.can_claim_draw():
@@ -201,6 +227,11 @@ def negamax(board, alpha, beta, depth): # Main negamax search function
         if score >= beta:
             return beta
     
+    if (val := tt.probe_hash(depth, alpha, beta, chess.polyglot.zobrist_hash(board))) is not None:
+        debug["tt hits"] += 1
+        return val
+    
+    flag = TranspositionTable.ALPHA_FLAG
     best_move = chess.Move.null()
 
     # search child nodes
@@ -210,12 +241,15 @@ def negamax(board, alpha, beta, depth): # Main negamax search function
         score = -negamax(board, -beta, -alpha, depth - 1)
         board.pop()
         if score >= beta:
+            tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             best_moves[chess.polyglot.zobrist_hash(board)] = move # Beta cutoff move is the best move
             return beta
         if score > alpha:
+            flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move = move
     
+    tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board))
     if best_move != chess.Move.null():
         best_moves[chess.polyglot.zobrist_hash(board)] = best_move # Current best move is the best move
 
@@ -227,6 +261,7 @@ def root_search(board, depth): # Root negamax search function
     alpha = -INF
     beta = INF
     best_move_found = chess.Move.null()
+    flag = TranspositionTable.ALPHA_FLAG
 
     for move in sort_moves(board):
         debug["positions"] += 1
@@ -243,32 +278,33 @@ def root_search(board, depth): # Root negamax search function
         if depth >= 4:
             print(board.san(move), score)
         if score >= beta:
+            tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             best_moves[chess.polyglot.zobrist_hash(board)] = move # Beta cutoff move is the best move
             return move
         if score > alpha:
+            flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move_found = move
     
-    if best_move_found != chess.Move.null():
-        best_moves[chess.polyglot.zobrist_hash(board)] = best_move_found # Store best move
+    tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board))
+    best_moves[chess.polyglot.zobrist_hash(board)] = best_move_found # Store best move
 
     return best_move_found
 
-def get_pv_line(board, depth): # Function to get principal variation for printing purposes
+def get_pv_line(board): # Function to get principal variation for printing purposes
     global best_moves
     pv = []
     curr = copy.deepcopy(board)
     while (zobrist_hash := chess.polyglot.zobrist_hash(curr)) in best_moves:
         best_move = best_moves[zobrist_hash]
-        if len(pv) > depth:
-            break
         curr.push(best_move)
         pv.append(best_move)
     return pv
 
 def get_best_move(board, max_depth): # Function to get best move after search
-    global debug, best_moves
+    global debug, best_moves, tt
 
+    tt = TranspositionTable()
     best_moves = {}
 
     try:
@@ -276,13 +312,13 @@ def get_best_move(board, max_depth): # Function to get best move after search
 
     except IndexError:
 
-        debug = {"positions": 0, "best move hits": 0} # Debug dictionary
+        debug = {"positions": 0, "best move hits": 0, "tt hits": 0} # Debug dictionary
         stime = time.perf_counter()
 
         for depth in range(1, max_depth + 1): # Iterative deepening
             
             best_move_found = root_search(board, depth) # Search at given depth
-            print(f"PV line: {' '.join(list(map(str, get_pv_line(board, depth))))}") # Print the principal variation
+            print(f"PV line: {' '.join(list(map(str, get_pv_line(board))))}") # Print the principal variation
             print(f"Depth {depth} complete, best move found is {best_move_found}")
             print(debug)
 
@@ -292,6 +328,7 @@ def get_best_move(board, max_depth): # Function to get best move after search
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
         debug["best moves table length"] = len(best_moves)
+        debug["tt length"] = tt.length
         print(f"{VERSION} DEBUG: {debug}")
         times.append(debug["time"])
         print(f"{VERSION} Average Time: {sum(times)/len(times)}, Total Time: {sum(times)}")

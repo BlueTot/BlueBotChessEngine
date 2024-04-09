@@ -1,22 +1,24 @@
+# Imports
 import chess.polyglot
 import chess.svg
 import time
 import copy
 
-VERSION = "v0.29"
-INF = 99999
-R = 2
+VERSION = "v0.34" # Version
+INF = 99999 # Infinity value
+R = 2 # Null move pruning reduction R
 
 times = []
 
 
-def reverse(lst):
+def reverse(lst): # Function to reverse piece square tables for black side
     lst2 = copy.deepcopy(lst)
     for i in range(len(lst2)):
         lst2[i].reverse()
     lst2.reverse()
     return lst2
 
+# Piece square tables for evaluation function
 
 KING = [[-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
         [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
@@ -94,13 +96,71 @@ PAWN = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 PAWN.reverse()
 R_PAWN = reverse(PAWN)
 
+class TranspositionTable: # Transposition Table class
 
-def evaluate(board):
+    EXACT_FLAG = 0
+    ALPHA_FLAG = 1
+    BETA_FLAG = 2
+
+    def __init__(self):
+        self.__table = {} # Depth, flag, value, best move
+
+    def probe_hash(self, depth, alpha, beta, zhash): # Lookup
+        if zhash in self.__table:
+            entry_depth, entry_flag, entry_value, _ = self.__table[zhash]
+            if entry_depth >= depth:
+                if entry_flag == self.EXACT_FLAG:
+                    return entry_value
+                elif entry_flag == self.ALPHA_FLAG and entry_value <= alpha:
+                    return alpha
+                elif entry_flag == self.BETA_FLAG and entry_value >= beta:
+                    return beta
+
+    def record_hash(self, depth, flag, val, best, zhash): # Store
+        self.__table[zhash] = (depth, flag, val, best)
+    
+    def get_best_move(self, zhash): # Lookup best move for move ordering
+        if zhash in self.__table:
+            return self.__table[zhash][3]
+    
+    @property
+    def length(self):
+        return len(self.__table)
+
+class KillerMovesTable: # Killer moves table class
+
+    NUM_OF_KILLERS = 2 # 2 killer moves is most optimal
+
+    def __init__(self):
+        self.__table = {}
+
+    def add_move(self, move, ply): # Add killer move
+        if ply not in self.__table:
+            self.__table[ply] = []
+        if move not in self.__table[ply]:
+            if len(self.__table[ply]) == self.NUM_OF_KILLERS:
+                self.__table[ply] = [move] + [self.__table[ply][:self.NUM_OF_KILLERS-1]]
+            else:
+                self.__table[ply] = [move] + self.__table[ply]
+
+    def in_table(self, move, ply): # Check if ply is in table
+        if ply in self.__table:
+            return move in self.__table[ply]
+        return False
+
+    def get_moves(self, ply): # Get killer moves for given ply
+        if ply in self.__table:
+            return self.__table[ply]
+
+    def __repr__(self):
+        return str(self.__table)
+
+def evaluate(board): # Evaluation function
     Eval = 0
 
     if board.is_checkmate():
         return -INF
-    if board.is_stalemate() or board.is_repetition(3):
+    if board.is_stalemate():
         return 0
 
     for row in range(8):
@@ -130,18 +190,27 @@ def evaluate(board):
     return Eval if board.turn else -1 * Eval
 
 
-def sort_moves(board): # Sort normal moves
-    global best_moves, debug
+def sort_moves(board, ply): # Sort normal moves
+    global debug, tt, kt
     moves = {}
+    killer_moves = kt.get_moves(ply)
     for move in board.legal_moves: # Evaluate all the moves using evaluation function
-        board.push(move)
-        moves[move] = evaluate(board)
-        board.pop()
+        if board.is_capture(move): # Captures
+            board.push(move)
+            moves[move] = evaluate(board) - 10000
+            board.pop()
+        elif killer_moves is not None and move in killer_moves: # Killer move ordering
+            debug["killer move orders"] += 1
+            moves[move] = -5000
+        else: # Non-captures
+            board.push(move)
+            moves[move] = evaluate(board)
+            board.pop()
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
     sorted_moves = [i[0] for i in sorted_dict] # Sort moves
-    if (zobrist_hash := chess.polyglot.zobrist_hash(board)) in best_moves: # If current position found
-        if (best_move := best_moves[zobrist_hash]) in sorted_moves: # If best move found
-            debug["best move hits"] += 1
+    if (best_move := tt.get_best_move(chess.polyglot.zobrist_hash(board))) is not None: # If current position found
+        if best_move in sorted_moves: # If best move found
+            debug["tt move orders"] += 1
             sorted_moves.remove(best_move)
             sorted_moves.insert(0, best_move) # Move best move to the start of the list
     return sorted_moves
@@ -157,7 +226,7 @@ def sort_captures(board): # Sort captures
     return [i[0] for i in sorted_dict]
 
 
-def quiescence(board, alpha, beta):
+def quiescence(board, alpha, beta): # Quiescence search
     global debug
 
     stand_pat = evaluate(board)
@@ -183,100 +252,119 @@ def quiescence(board, alpha, beta):
     return alpha
 
 
-def negamax(board, alpha, beta, depth): # Main negamax search function
-    global debug, best_moves
+def negamax(board, alpha, beta, depth, ply): # Main negamax search function
+    global debug, tt, kt
 
-    # call q-search if at leaf node
+    # call quiescence search at leaf node
     if depth == 0 or board.is_game_over() or board.can_claim_draw():
-        if board.is_check():  # inc. depth if last move is check
+        if board.is_check():  # increment depth if last move is check
             depth += 1
         else:
-            return quiescence(board, alpha, beta)
+            return quiescence(board, alpha, beta) # call quiescence search
 
     # null move pruning
-    if depth > R and not board.is_check() and list(board.move_stack)[-1] != chess.Move.null():
-        board.push(chess.Move.null())
-        score = -negamax(board, -beta, -beta + 1, depth - R - 1)
+    if depth > R and not board.is_check() and list(board.move_stack)[-1] != chess.Move.null(): # Check if null move can be played
+        board.push(chess.Move.null()) # push null move
+        score = -negamax(board, -beta, -beta + 1, depth - R - 1, ply + R + 1) # search with reduction R
         board.pop()
-        if score >= beta:
+        if score >= beta: # check if there is a beta cutoff
             return beta
     
+    if (val := tt.probe_hash(depth, alpha, beta, chess.polyglot.zobrist_hash(board))) is not None: # Transposition table lookup
+        debug["tt hits"] += 1
+        return val
+    
+    flag = TranspositionTable.ALPHA_FLAG
     best_move = chess.Move.null()
 
     # search child nodes
-    for move in sort_moves(board):
+    for move in sort_moves(board, ply): # Sort moves
         debug["positions"] += 1
         board.push(move)
-        score = -negamax(board, -beta, -alpha, depth - 1)
+        score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
         board.pop()
-        if score >= beta:
-            best_moves[chess.polyglot.zobrist_hash(board)] = move # Beta cutoff move is the best move
+        if score >= beta: # Beta cutoff
+            debug["killer move stores"] += 1
+            tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
+            if not board.is_capture(move):
+                kt.add_move(move, ply)  # Store killer move
             return beta
-        if score > alpha:
+        if score > alpha: # New best move found
+            flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move = move
     
-    if best_move != chess.Move.null():
-        best_moves[chess.polyglot.zobrist_hash(board)] = best_move # Current best move is the best move
+    tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
     return alpha
 
 def root_search(board, depth): # Root negamax search function
-    global best_moves
 
     alpha = -INF
     beta = INF
     best_move_found = chess.Move.null()
+    flag = TranspositionTable.ALPHA_FLAG
+    ply = 0
 
-    for move in sort_moves(board):
+    for move in sort_moves(board, ply): # Iterate through sorted moves
+
         debug["positions"] += 1
         board.push(move)
+
         if board.is_checkmate():  # checks for M1
             board.pop()
             return move
-        score = -negamax(board, -beta, -alpha, depth - 1)
+        
+        if board.can_claim_draw(): # Checks for draws
+            score = 0
+        else:
+            score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
+
         is_repetition = board.is_repetition(2)
         board.pop()
 
-        if evaluate(board) > 0 and is_repetition:
+        if evaluate(board) > 0 and is_repetition: # Do not allow bot to repeat moves when winning
             continue
         if depth >= 4:
-            print(board.san(move), score)
-        if score >= beta:
-            best_moves[chess.polyglot.zobrist_hash(board)] = move # Beta cutoff move is the best move
+            print(board.san(move), score) # Print score of move
+        if score >= beta: # Beta cutoff
+            debug["killer move stores"] += 1
+            tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
+            if not board.is_capture(move):
+                kt.add_move(move, ply)  # Store killer move
             return move
-        if score > alpha:
+        if score > alpha: # New best move found
+            flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move_found = move
     
-    if best_move_found != chess.Move.null():
-        best_moves[chess.polyglot.zobrist_hash(board)] = best_move_found # Store best move
+    tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
     return best_move_found
 
 def get_pv_line(board, depth): # Function to get principal variation for printing purposes
-    global best_moves
+    global tt
     pv = []
     curr = copy.deepcopy(board)
-    while (zobrist_hash := chess.polyglot.zobrist_hash(curr)) in best_moves:
-        best_move = best_moves[zobrist_hash]
+    while (best_move := tt.get_best_move(chess.polyglot.zobrist_hash(curr))) is not None: # If there is a next best move
+        curr.push(best_move) # Update board
+        pv.append(best_move) # Add to PV list
         if len(pv) > depth:
             break
-        curr.push(best_move)
-        pv.append(best_move)
     return pv
 
 def get_best_move(board, max_depth): # Function to get best move after search
-    global debug, best_moves
+    global debug, tt, kt
 
-    best_moves = {}
+    tt = TranspositionTable() # Initialise transposition table
+    kt = KillerMovesTable() # Initialise killer moves table
 
     try:
-        return chess.polyglot.MemoryMappedReader("../Titans.bin").weighted_choice(board).move
+        return chess.polyglot.MemoryMappedReader("../Titans.bin").weighted_choice(board).move # Opening book
 
     except IndexError:
 
-        debug = {"positions": 0, "best move hits": 0} # Debug dictionary
+        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0} # Debug dictionary
         stime = time.perf_counter()
 
         for depth in range(1, max_depth + 1): # Iterative deepening
@@ -291,7 +379,7 @@ def get_best_move(board, max_depth): # Function to get best move after search
             debug["positions per second"] = round(debug["positions"] / debug["time"], 2)
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
-        debug["best moves table length"] = len(best_moves)
+        debug["tt length"] = tt.length
         print(f"{VERSION} DEBUG: {debug}")
         times.append(debug["time"])
         print(f"{VERSION} Average Time: {sum(times)/len(times)}, Total Time: {sum(times)}")
