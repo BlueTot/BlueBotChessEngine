@@ -1,50 +1,15 @@
 import chess
-import chess_022, chess_029, chess_034, chess_035, chess_036, chess_037, chess_038, chess_039
+import chess_036
 
 
 class Player:
     name = "player"
     tag = 1
 
-class Chess022:
-    depth = 6
-    name = f"Chess v0.22 (depth {depth})"
-    tag = (chess_022.get_best_move, depth)
-
-class Chess029:
-    depth = 6
-    name = f"Chess v0.29 (depth {depth})"
-    tag = (chess_029.get_best_move, depth)
-
-class Chess034:
-    depth = 6
-    name = f"Chess v0.34 (depth {depth})"
-    tag = (chess_034.get_best_move, depth)
-
-class Chess035:
-    depth = 6
-    name = f"Chess v0.35 (depth {depth})"
-    tag = (chess_035.get_best_move, depth)
-
 class Chess036:
     depth = 6
     name = f"Chess v0.36 (depth {depth})"
     tag = (chess_036.get_best_move, depth)
-
-class Chess037:
-    depth = 6
-    name = f"Chess v0.37 (depth {depth})"
-    tag = (chess_037.get_best_move, depth)
-
-class Chess038:
-    depth = 6
-    name = f"Chess v0.38 (depth {depth})"
-    tag = (chess_038.get_best_move, depth)
-
-class Chess039:
-    depth = 6
-    name = f"Chess v0.39 (depth {depth})"
-    tag = (chess_039.get_best_move, depth)
 
 class ChessGame:
     def __init__(self, player1, player2, fen=None, turn=chess.WHITE):
@@ -124,21 +89,5 @@ if __name__ in "__main__":  # Run the game
     bot_perspective = True
     version = Chess036
     game = ChessGame(player1=version() if bot else Player(),
-                     player2=Player() if bot else version(),
-                     fen="r1b1kb1r/2p1np1p/p1p2qp1/1B6/3P4/2N5/PP2QPPP/R1B1K2R")
+                     player2=Player() if bot else version())
     game.play()
-
-'''original fen test: r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R
-   second fen test: 1q1r1rk1/pb2bppp/1pn1pn2/8/3P4/P1N1BN2/1P2QPPP/1B1R1RK1
-   third fen test: r3kb1r/pppb1ppp/2n1p3/qB6/3P4/1QP1PN2/P4PPP/R1B1K2R
-   fourth fen test: r1b1k2r/ppppnppp/2n3q1/1Bb3B1/3pP3/2P2N2/PP3PPP/RN1Q1RK1
-   problematic fen: 3r4/1r1PR3/3R2kp/pp3p2/7P/P7/BpP2P2/6K1 (black to move = Kh5)
-   endgame draw fen test: 7r/8/2p2k2/5pp1/3P1n2/P1P2N2/1P2KPPP/1R6 (original move white = Kf1 draws the game)
-   endgame draw fen test 2: r7/8/2p2k2/5pp1/3P4/P1Pn1N2/1P3PPP/1R3K2
-   problematic fen 2: r1b1k2r/1ppp1p1p/3b4/8/2P3B1/P3P3/P2N1PPP/qQKR3R
-   endgame 2 fen: 8/5p2/1p1k1n2/3P2pp/Rpr5/P6P/5PPK/3B4 (Bb3 is best move)
-   checkmate prevention fen (black to move): 8/2R2pk1/1r3p1p/4p3/3pP1Q1/3q3P/5PP1/6K1
-   mate in 10 fen (white to move): 5k2/2R2p2/1r3p1p/4p3/3pP1Q1/3q3P/5PP1/6K1
-   KQ endgame fen: 4k3/4P3/4K3/8/8/8/8/8
-   complex position fen: 2r3k1/1pr1q1p1/7p/p2n1p2/PnBP4/4B2P/1P2QPP1/R1R3K1
-   complex position 2 fen: r1b1kb1r/2p1np1p/p1p2qp1/1B6/3P4/2N5/PP2QPPP/R1B1K2R '''
