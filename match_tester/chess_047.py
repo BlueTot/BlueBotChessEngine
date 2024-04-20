@@ -3,14 +3,17 @@ import chess.polyglot
 import chess.svg
 import time
 import copy
+from functools import lru_cache
 
-VERSION = "v0.36" # Version
+VERSION = "v0.47" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
 WINDOW = 1/4 * PAWN_VAL # Aspiration window value = 1/4 of a pawn
+chess.Board.__hash__ = chess.polyglot.zobrist_hash
 
 times = []
+evaluations = {}
 
 
 def reverse(lst): # Function to reverse piece square tables for black side
@@ -157,40 +160,74 @@ class KillerMovesTable: # Killer moves table class
     def __repr__(self):
         return str(self.__table)
 
-def evaluate(board): # Evaluation function
-    Eval = 0
+def __evaluate_squares(board, squares):
 
+    score = 0
+
+    for square in squares:
+        row, col = divmod(square, 8)
+        piece = board.piece_at(square)
+
+        if piece is not None:
+
+            mult = 1 if piece.color else -1
+
+            match piece.piece_type:
+                case chess.KING:
+                    score += mult * (900 + (KING if piece.color else R_KING)[row][col])
+                case chess.QUEEN:
+                    score += mult * (88 + (QUEEN if piece.color else R_QUEEN)[row][col])
+                case chess.ROOK:
+                    score += mult * (51 + (ROOK if piece.color else R_ROOK)[row][col])
+                case chess.BISHOP:
+                    score += mult * (32 + (BISHOP if piece.color else R_BISHOP)[row][col])
+                case chess.KNIGHT:
+                    score += mult * (30 + (KNIGHT if piece.color else R_KNIGHT)[row][col])
+                case chess.PAWN:
+                    score += mult * (10 + (PAWN if piece.color else R_PAWN)[row][col])
+    
+    return score
+
+@lru_cache
+def __evaluate(board : chess.Board): # Evaluation function
+        
     if board.is_checkmate():
         return -INF
     if board.is_stalemate():
         return 0
 
-    for row in range(8):
-        for col in range(8):
+    if len(list(board.move_stack)) == 0: # Has previous move
+        return __evaluate_squares(board, [i for i in range(64)])
+    
+    last_move = list(board.move_stack)[-1]
+    board.pop()
+    score = __evaluate(board)
 
-            square = row * 8 + col
-            piece = board.piece_at(square)
+    if board.is_castling(last_move):
+        match last_move.to_square:
+            case chess.G1:
+                rook_squares = (chess.H1, chess.F1)
+            case chess.C1:
+                rook_squares = (chess.A1, chess.D1)
+            case chess.G8:
+                rook_squares = (chess.H8, chess.F8)
+            case chess.C8:
+                rook_squares = (chess.A8, chess.D8)
+        score -= __evaluate_squares(board, [last_move.from_square, last_move.to_square, rook_squares[0], rook_squares[1]])
+        board.push(last_move)
+        score += __evaluate_squares(board, [last_move.from_square, last_move.to_square, rook_squares[0], rook_squares[1]])
+    elif board.is_en_passant(last_move):
+        score -= __evaluate_squares(board, [last_move.from_square, last_move.to_square, last_move.to_square - 8 * (1 if board.turn else -1)])
+        board.push(last_move)
+        score += __evaluate_squares(board, [last_move.from_square, last_move.to_square, last_move.to_square - 8 * (1 if board.turn else -1)])
+    else:
+        score -= __evaluate_squares(board, [last_move.from_square, last_move.to_square])
+        board.push(last_move)
+        score += __evaluate_squares(board, [last_move.from_square, last_move.to_square])
+    return score
 
-            if piece is not None:
-
-                mult = 1 if piece.color else -1
-
-                match piece.piece_type:
-                    case chess.KING:
-                        Eval += mult * (900 + (KING if piece.color else R_KING)[row][col])
-                    case chess.QUEEN:
-                        Eval += mult * (88 + (QUEEN if piece.color else R_QUEEN)[row][col])
-                    case chess.ROOK:
-                        Eval += mult * (51 + (ROOK if piece.color else R_ROOK)[row][col])
-                    case chess.BISHOP:
-                        Eval += mult * (32 + (BISHOP if piece.color else R_BISHOP)[row][col])
-                    case chess.KNIGHT:
-                        Eval += mult * (30 + (KNIGHT if piece.color else R_KNIGHT)[row][col])
-                    case chess.PAWN:
-                        Eval += mult * (10 + (PAWN if piece.color else R_PAWN)[row][col])
-
-    return Eval if board.turn else -1 * Eval
-
+def evaluate(board): # Evaluation function
+    return __evaluate(board) * (1 if board.turn else -1)
 
 def sort_moves(board, ply): # Sort normal moves
     global debug, tt, kt

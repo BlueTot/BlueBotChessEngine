@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.36" # Version
+VERSION = "v0.42" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -97,6 +97,8 @@ PAWN = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
         [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
 PAWN.reverse()
 R_PAWN = reverse(PAWN)
+
+MATERIAL = {chess.PAWN : 1, chess.KNIGHT : 3, chess.BISHOP : 3, chess.ROOK : 5, chess.QUEEN : 9, chess.KING: 900}
 
 class TranspositionTable: # Transposition Table class
 
@@ -191,16 +193,38 @@ def evaluate(board): # Evaluation function
 
     return Eval if board.turn else -1 * Eval
 
+def evaluate_capture(board : chess.Board, move): # returns eval of capture (negative = good)
+    if board.is_en_passant(move):
+        orig_piece = chess.PAWN
+    else:
+        orig_piece = board.piece_at(move.to_square).piece_type
+    board.push(move)
+    new_piece = board.piece_at(move.to_square).piece_type
+    if (attackers := list(board.attackers(board.turn, move.to_square))): # If there are attackers on the square
+        for from_sq, _ in sorted([[sq, MATERIAL[board.piece_at(sq).piece_type]] for sq in attackers], key=lambda x:x[1]):
+            new_move = chess.Move(from_sq, move.to_square)
+            if board.is_legal(new_move):
+                board.pop()
+                return -(MATERIAL[orig_piece] - MATERIAL[new_piece]) # Negative score = good
+        else:
+            board.pop()
+            return -MATERIAL[orig_piece] # Negative score = good
+    else: # No attackers mean that there is free material
+        board.pop()
+        return -MATERIAL[orig_piece] # Negative score = good
 
 def sort_moves(board, ply): # Sort normal moves
+    '''Move ordering is as follows: PV NODE, GOOD CAPTURES, KILLER MOVES, BAD CAPTURES & QUIET MOVES'''
     global debug, tt, kt
     moves = {}
     killer_moves = kt.get_moves(ply)
     for move in board.legal_moves: # Evaluate all the moves using evaluation function
         if board.is_capture(move): # Captures
-            board.push(move)
-            moves[move] = evaluate(board) - 10000
-            board.pop()
+            score = evaluate_capture(board, move)
+            if score <= 0: # good or equal captures
+                moves[move] = score - 10000
+            else: # bad capture
+                moves[move] = score
         elif killer_moves is not None and move in killer_moves: # Killer move ordering
             debug["killer move orders"] += 1
             moves[move] = -5000
@@ -221,9 +245,8 @@ def sort_moves(board, ply): # Sort normal moves
 def sort_captures(board): # Sort captures
     moves = {}
     for move in list(board.generate_legal_captures()):
-        board.push(move)
-        moves[move] = evaluate(board)
-        board.pop()
+        score = evaluate_capture(board, move)
+        moves[move] = score
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
     return [i[0] for i in sorted_dict]
 
@@ -280,14 +303,12 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
     best_move = chess.Move.null()
 
     # search child nodes
-    for move_num, move in enumerate(moves := sort_moves(board, ply)): # Sort moves
+    for move in sort_moves(board, ply): # Sort moves
         debug["positions"] += 1
         board.push(move)
         score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
         board.pop()
         if score >= beta: # Beta cutoff
-            debug["beta cutoff move num"][0] += move_num
-            debug["beta cutoff move num"][1] += 1
             debug["killer move stores"] += 1
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
@@ -298,8 +319,6 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
             alpha = score
             best_move = move
     
-    debug["beta cutoff move num"][0] += len(moves)
-    debug["beta cutoff move num"][1] += 1
     if best_move != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
@@ -311,14 +330,14 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
     flag = TranspositionTable.ALPHA_FLAG
     ply = 0
 
-    for move_num, move in enumerate(moves := sort_moves(board, ply)): # Iterate through sorted moves
+    for move in sort_moves(board, ply): # Iterate through sorted moves
 
         debug["positions"] += 1
         board.push(move)
 
         if board.is_checkmate():  # checks for M1
             board.pop()
-            return move, -INF
+            return move
         
         if board.can_claim_draw(): # Checks for draws
             score = 0
@@ -333,8 +352,6 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
         if depth >= 4:
             print(board.san(move), score) # Print score of move
         if score >= beta: # Beta cutoff
-            debug["beta cutoff move num"][0] += move_num
-            debug["beta cutoff move num"][1] += 1
             debug["killer move stores"] += 1
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
@@ -345,8 +362,6 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
             alpha = score
             best_move_found = move
     
-    debug["beta cutoff move num"][0] += len(moves)
-    debug["beta cutoff move num"][1] += 1
     if best_move_found != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
@@ -368,7 +383,7 @@ def get_best_move(board, max_depth): # Function to get best move after search
 
     tt = TranspositionTable() # Initialise transposition table
     kt = KillerMovesTable() # Initialise killer moves table
-    
+
     try:
         return chess.polyglot.MemoryMappedReader("../Titans.bin").weighted_choice(board).move # Opening book
 
@@ -376,15 +391,15 @@ def get_best_move(board, max_depth): # Function to get best move after search
 
         alpha = -INF
         beta = INF
-        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0, "beta cutoff move num": [0, 0]} # Debug dictionary
+        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0} # Debug dictionary
         stime = time.perf_counter()
-        print(f"Current Evaluation: {evaluate(board)}")
 
         for depth in range(1, max_depth + 1): # Iterative deepening
             
             best_move_found, score = root_search(board, depth, alpha, beta) # Search at given depth
             print(f"PV line: {' '.join(list(map(str, pv_line := get_pv_line(board, depth))))}") # Print the principal variation
-            print(f"Depth {depth} complete, best move found is {best_move_found}, nodes taken: {debug['positions']}")
+            print(f"Depth {depth} complete, best move found is {best_move_found}")
+            print(debug)
 
             # Aspiration window
             if score <= alpha or score >= beta: # If the score lies outside the alpha-beta range
@@ -400,13 +415,9 @@ def get_best_move(board, max_depth): # Function to get best move after search
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
         debug["tt length"] = tt.length
-        try:
-            debug["beta cutoff move num"] = debug["beta cutoff move num"][0] / debug["beta cutoff move num"][1]
-        except ZeroDivisionError:
-            debug["beta cutoff move num"] = "inf"
         print(f"{VERSION} DEBUG: {debug}")
         times.append(debug["time"])
         print(f"{VERSION} Average Time: {sum(times)/len(times)}, Total Time: {sum(times)}")
 
-        return pv_line[0] if pv_line else best_move_found
+        return pv_line[0]
 

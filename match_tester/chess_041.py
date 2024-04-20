@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.36" # Version
+VERSION = "v0.41" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -98,6 +98,8 @@ PAWN = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 PAWN.reverse()
 R_PAWN = reverse(PAWN)
 
+MATERIAL = {chess.PAWN : 1, chess.KNIGHT : 3, chess.BISHOP : 3, chess.ROOK : 5, chess.QUEEN : 9, chess.KING: 900}
+
 class TranspositionTable: # Transposition Table class
 
     EXACT_FLAG = 0
@@ -157,6 +159,25 @@ class KillerMovesTable: # Killer moves table class
     def __repr__(self):
         return str(self.__table)
 
+def see(board : chess.Board, square, colour):
+    value = 0
+    if (attackers := list(board.attackers(colour, square))):
+        from_sq, piece = min([[sq, board.piece_at(sq).piece_type, MATERIAL[board.piece_at(sq).piece_type]] for sq in attackers], key=lambda x:x[2])[:2]
+        captured_piece = board.piece_at(square).piece_type
+        board.push(chess.Move(from_sq, square, chess.QUEEN if piece == chess.PAWN and chess.square_rank(from_sq) in (1, 8) else None))
+        value = max(0, MATERIAL[captured_piece] - see(board, square, not colour))
+        board.pop()
+    return value
+
+def see_capture(board, from_sq, to_sq, colour):
+    value = 0
+    piece = board.piece_at(from_sq).piece_type
+    captured_piece = board.piece_at(to_sq).piece_type
+    board.push(chess.Move(from_sq, to_sq, chess.QUEEN if piece == chess.PAWN and chess.square_rank(from_sq) in (1, 8) else None))
+    value = MATERIAL[captured_piece] - see(board, to_sq, not colour)
+    board.pop()
+    return value
+
 def evaluate(board): # Evaluation function
     Eval = 0
 
@@ -198,9 +219,7 @@ def sort_moves(board, ply): # Sort normal moves
     killer_moves = kt.get_moves(ply)
     for move in board.legal_moves: # Evaluate all the moves using evaluation function
         if board.is_capture(move): # Captures
-            board.push(move)
-            moves[move] = evaluate(board) - 10000
-            board.pop()
+            moves[move] = see_capture(board, move.from_square, move.to_square, board.turn) - 10000
         elif killer_moves is not None and move in killer_moves: # Killer move ordering
             debug["killer move orders"] += 1
             moves[move] = -5000
@@ -209,6 +228,8 @@ def sort_moves(board, ply): # Sort normal moves
             moves[move] = evaluate(board)
             board.pop()
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
+    print(sorted_dict)
+    input()
     sorted_moves = [i[0] for i in sorted_dict] # Sort moves
     if (best_move := tt.get_best_move(chess.polyglot.zobrist_hash(board))) is not None: # If current position found
         if best_move in sorted_moves: # If best move found
@@ -221,9 +242,7 @@ def sort_moves(board, ply): # Sort normal moves
 def sort_captures(board): # Sort captures
     moves = {}
     for move in list(board.generate_legal_captures()):
-        board.push(move)
-        moves[move] = evaluate(board)
-        board.pop()
+        moves[move] = see_capture(board, move.from_square, move.to_square, board.turn)
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
     return [i[0] for i in sorted_dict]
 
@@ -280,14 +299,12 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
     best_move = chess.Move.null()
 
     # search child nodes
-    for move_num, move in enumerate(moves := sort_moves(board, ply)): # Sort moves
+    for move in sort_moves(board, ply): # Sort moves
         debug["positions"] += 1
         board.push(move)
         score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
         board.pop()
         if score >= beta: # Beta cutoff
-            debug["beta cutoff move num"][0] += move_num
-            debug["beta cutoff move num"][1] += 1
             debug["killer move stores"] += 1
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
@@ -298,8 +315,6 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
             alpha = score
             best_move = move
     
-    debug["beta cutoff move num"][0] += len(moves)
-    debug["beta cutoff move num"][1] += 1
     if best_move != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
@@ -311,14 +326,14 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
     flag = TranspositionTable.ALPHA_FLAG
     ply = 0
 
-    for move_num, move in enumerate(moves := sort_moves(board, ply)): # Iterate through sorted moves
+    for move in sort_moves(board, ply): # Iterate through sorted moves
 
         debug["positions"] += 1
         board.push(move)
 
         if board.is_checkmate():  # checks for M1
             board.pop()
-            return move, -INF
+            return move
         
         if board.can_claim_draw(): # Checks for draws
             score = 0
@@ -333,8 +348,6 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
         if depth >= 4:
             print(board.san(move), score) # Print score of move
         if score >= beta: # Beta cutoff
-            debug["beta cutoff move num"][0] += move_num
-            debug["beta cutoff move num"][1] += 1
             debug["killer move stores"] += 1
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
@@ -345,8 +358,6 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
             alpha = score
             best_move_found = move
     
-    debug["beta cutoff move num"][0] += len(moves)
-    debug["beta cutoff move num"][1] += 1
     if best_move_found != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
@@ -368,7 +379,7 @@ def get_best_move(board, max_depth): # Function to get best move after search
 
     tt = TranspositionTable() # Initialise transposition table
     kt = KillerMovesTable() # Initialise killer moves table
-    
+
     try:
         return chess.polyglot.MemoryMappedReader("../Titans.bin").weighted_choice(board).move # Opening book
 
@@ -376,15 +387,15 @@ def get_best_move(board, max_depth): # Function to get best move after search
 
         alpha = -INF
         beta = INF
-        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0, "beta cutoff move num": [0, 0]} # Debug dictionary
+        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0} # Debug dictionary
         stime = time.perf_counter()
-        print(f"Current Evaluation: {evaluate(board)}")
 
         for depth in range(1, max_depth + 1): # Iterative deepening
             
             best_move_found, score = root_search(board, depth, alpha, beta) # Search at given depth
             print(f"PV line: {' '.join(list(map(str, pv_line := get_pv_line(board, depth))))}") # Print the principal variation
-            print(f"Depth {depth} complete, best move found is {best_move_found}, nodes taken: {debug['positions']}")
+            print(f"Depth {depth} complete, best move found is {best_move_found}")
+            print(debug)
 
             # Aspiration window
             if score <= alpha or score >= beta: # If the score lies outside the alpha-beta range
@@ -400,13 +411,9 @@ def get_best_move(board, max_depth): # Function to get best move after search
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
         debug["tt length"] = tt.length
-        try:
-            debug["beta cutoff move num"] = debug["beta cutoff move num"][0] / debug["beta cutoff move num"][1]
-        except ZeroDivisionError:
-            debug["beta cutoff move num"] = "inf"
         print(f"{VERSION} DEBUG: {debug}")
         times.append(debug["time"])
         print(f"{VERSION} Average Time: {sum(times)/len(times)}, Total Time: {sum(times)}")
 
-        return pv_line[0] if pv_line else best_move_found
+        return pv_line[0]
 
