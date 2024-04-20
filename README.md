@@ -1,9 +1,8 @@
 # BlueBotChessEngine
 A python chess bot that started out of a tutorial
 
-Used to play on chess.com as: (chess v0.22)
-- BlueBotChessTest2 : 1355 rating on 15 | 10 rapid
-- BlueBotChessTest3 : 1833 rating on 10 min rapid
+Currently playing on chess.com as:
+- BlueBotChessTest4 : 2096 rating in 10 | 0 rapid
 
 Latest version won against:
 - Komodo 17 (2100) on chess.com
