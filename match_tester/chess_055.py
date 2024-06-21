@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.46" # Version
+VERSION = "v0.55" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -112,6 +112,18 @@ R_PAWN_END = reverse(PAWN_END)
 
 MATERIAL = {chess.KING: 900, chess.QUEEN: 88, chess.ROOK: 51, chess.BISHOP: 32, chess.KNIGHT: 30, chess.PAWN: 10}
 
+# MVV LVA table
+# attacker  K  Q  R  B  N  P  None
+MVV_LVA = [[0, 0, 0, 0, 0, 0, 0], # victim K
+           [50, 51, 52, 53, 54, 55, 0], # victim Q
+           [40, 41, 42, 43, 44, 45, 0], # victim R
+           [30, 31, 32, 33, 34, 35, 0], # victim B
+           [20, 21, 22, 23, 24, 25, 0], # victim N
+           [10, 11, 12, 13, 14, 15, 0], # victim P
+           [0, 0, 0, 0, 0, 0, 0]] # victim None
+
+PIECE_INDEXES = {chess.KING: 0, chess.QUEEN: 1, chess.ROOK: 2, chess.BISHOP: 3, chess.KNIGHT: 4, chess.PAWN: 5, None: 6}
+
 class TranspositionTable: # Transposition Table class
 
     EXACT_FLAG = 0
@@ -171,6 +183,23 @@ class KillerMovesTable: # Killer moves table class
     def __repr__(self):
         return str(self.__table)
 
+class HistoryMovesTable: # History moves table class
+
+    def __init__(self):
+        self.__table = {}
+    
+    def add_move(self, turn, move, depth):
+        if (turn, move.from_square, move.to_square) not in self.__table:
+            self.__table[(turn, move.from_square, move.to_square)] = 0
+        self.__table[(turn, move.from_square, move.to_square)] += depth * depth
+    
+    def get_move_score(self, turn, move):
+        if (turn, move.from_square, move.to_square) in self.__table:
+            return self.__table[(turn, move.from_square, move.to_square)]
+    
+    def __repr__(self):
+        return str(self.__table)
+
 def endgame_score(board):
     mm_material = 0
     for square in range(64):
@@ -185,6 +214,32 @@ def endgame_score(board):
         endgame = (mm_material - ENDGAME_LOWER) / (ENDGAME_UPPER - ENDGAME_LOWER)
     return endgame
 
+def evaluate_king_pawn(file, colour, wpbb, bpbb):
+    own_pawns, opp_pawns = wpbb if colour else bpbb, bpbb if colour else wpbb
+    second_rank, third_rank, fourth_rank = (chess.BB_RANK_2 if colour else chess.BB_RANK_7), \
+        (chess.BB_RANK_3 if colour else chess.BB_RANK_6), (chess.BB_RANK_4 if colour else chess.BB_RANK_5)
+    score = 0
+
+    # White pawns around the king
+    if own_pawns & second_rank & chess.BB_FILES[file]: # White pawn on 2nd rank
+        pass
+    elif own_pawns & third_rank & chess.BB_FILES[file]: # White pawn on 3rd rank
+        score -= 0.6
+    elif own_pawns & fourth_rank & chess.BB_FILES[file]: # White pawn on 4th rank
+        score -= 2.0
+    else: # Pawns on 5th rank or higher or no pawn at all
+        score -= 3.0
+
+    # Black pawns advancing towards the king
+    if opp_pawns & third_rank & chess.BB_FILES[file]: # Black pawn on 3rd rank
+        score -= 1.5
+    elif opp_pawns & fourth_rank & chess.BB_FILES[file]: # Black pawn on 4th rank:
+        score -= 0.8
+    elif opp_pawns & chess.BB_FILES[file] == 0: # No black pawn on this file
+        score -= 1.8
+    
+    return score
+
 def evaluate(board : chess.Board): # Evaluation function
     score = 0
 
@@ -194,14 +249,11 @@ def evaluate(board : chess.Board): # Evaluation function
     if board.is_stalemate():
         return 0
 
-    # King Location Calculation
-    white_king, black_king = board.king(chess.WHITE), board.king(chess.BLACK)
-
     # Game Stage Calculation
     endgame = endgame_score(board)
     
     # Material and Piece Square Tables
-    wp, bp, wpbb, bpbb = [], [], 0, 0
+    wpbb, bpbb = 0, 0
     for square in range(64):
         row, col = divmod(square, 8)
         piece = board.piece_at(square)
@@ -209,115 +261,85 @@ def evaluate(board : chess.Board): # Evaluation function
         if piece is not None:
 
             mult = 1 if piece.color else -1
-            if piece.color:
-                dist_to_king = abs(row - black_king // 8) + abs(col - black_king % 8)
-            else:
-                dist_to_king = abs(row - white_king // 8) + abs(col - white_king % 8)
-            dist_to_king_bonus = (16 - dist_to_king) / 32 # Pieces gain +0.05 score if they are close to the enemy king
 
             match piece.piece_type:
                 case chess.KING:
                     score += mult * (900 + (KING if piece.color else R_KING)[row][col]) * (1 - endgame) # King Middlegame
                     score += mult * (900 + (KING_END if piece.color else R_KING_END)[row][col]) * endgame # King Endgame
                 case chess.QUEEN:
-                    score += mult * (88 + (QUEEN if piece.color else R_QUEEN)[row][col] + dist_to_king_bonus)
+                    score += mult * (88 + (QUEEN if piece.color else R_QUEEN)[row][col])
                 case chess.ROOK:
-                    score += mult * (51 + (ROOK if piece.color else R_ROOK)[row][col] + dist_to_king_bonus)
+                    score += mult * (51 + (ROOK if piece.color else R_ROOK)[row][col])
                 case chess.BISHOP:
-                    score += mult * (32 + (BISHOP if piece.color else R_BISHOP)[row][col] + dist_to_king_bonus)
+                    score += mult * (32 + (BISHOP if piece.color else R_BISHOP)[row][col])
                 case chess.KNIGHT:
-                    score += mult * (30 + (KNIGHT if piece.color else R_KNIGHT)[row][col] + dist_to_king_bonus)
+                    score += mult * (30 + (KNIGHT if piece.color else R_KNIGHT)[row][col])
                 case chess.PAWN:
                     score += mult * (10 + (PAWN if piece.color else R_PAWN)[row][col]) * (1 - endgame) # Pawn Middlegame
                     score += mult * (10 + (PAWN_END if piece.color else R_PAWN_END)[row][col]) * endgame # Pawn Endgame
                     if piece.color:
-                        wp.append(square)
-                        wpbb += 2**square
+                        wpbb += 2 ** square
                     else:
-                        bp.append(square)
-                        bpbb += 2**square
-    
-    # # Pawn Structure
-    # doubled, blocked, isolated = 0, 0, 0
-    # for square in wp: # white pawns
-    #     if (wpbb - 2**square) & chess.BB_FILES[square % 8] != 0: # doubled pawns
-    #         doubled += 1
-    #     if square % 8 == 0 and wpbb & chess.BB_FILES[(square % 8) + 1] == 0: # A file isolated pawn
-    #         isolated += 1
-    #     elif square % 8 == 7 and wpbb & chess.BB_FILES[(square % 8) - 1] == 0: # H file isolated pawn
-    #         isolated += 1
-    #     elif 1 <= square % 8 <= 6 and wpbb & chess.BB_FILES[(square % 8) + 1] == 0 and wpbb & chess.BB_FILES[(square % 8) - 1] == 0: # Remaining files
-    #         isolated += 1
-    #     if board.piece_at(square + 8) is not None and board.piece_at(square + 8).color == chess.BLACK:
-    #         blocked += 1
-    # for square in bp: # white pawns
-    #     if (bpbb - 2**square) & chess.BB_FILES[square % 8] != 0: # doubled pawns
-    #         doubled -= 1
-    #     if square % 8 == 0 and bpbb & chess.BB_FILES[(square % 8) + 1] == 0: # A file isolated pawn
-    #         isolated -= 1
-    #     elif square % 8 == 7 and bpbb & chess.BB_FILES[(square % 8) - 1] == 0: # H file isolated pawn
-    #         isolated -= 1
-    #     elif 1 <= square % 8 <= 6 and bpbb & chess.BB_FILES[(square % 8) + 1] == 0 and bpbb & chess.BB_FILES[(square % 8) - 1] == 0: # Remaining files
-    #         isolated -= 1
-    #     if board.piece_at(square - 8) is not None and board.piece_at(square - 8).color == chess.WHITE:
-    #         blocked -= 1
-    # score -= 2 * (1 + endgame) * (doubled + blocked + isolated) # -0.2 per static weakness, increasing in the endgame
+                        bpbb += 2 ** square
 
-    # # King Safety (pawns in front of king)
-    # king_safety = 0
-    # if white_king != chess.E1: # Castled
-    #     if white_king == chess.A1:
-    #         critical_squares = (white_king + 8, white_king + 8 + 1)
-    #     elif white_king == chess.H1:
-    #         critical_squares = (white_king + 8, white_king + 8 - 1)
-    #     else:
-    #         critical_squares = (white_king + 8 - 1, white_king + 8, white_king + 8 + 1)
-    #     for pawn_sq in critical_squares: # Critical pawns in front of king
-    #         pawn_file =  pawn_sq % 8
-    #         for curr_rank in range(1, 8):
-    #             sq = curr_rank * 8 + pawn_file
-    #             if board.piece_at(sq) is not None and board.piece_at(sq).piece_type == chess.PAWN and board.piece_at(sq).color == chess.WHITE: # Pawn found
-    #                 king_safety += curr_rank - 1 if curr_rank > 2 else 0
-    #                 break
-    #         else: # No pawn on that file
-    #             king_safety += 3
-    # if black_king != chess.E8: # Castled
-    #     if black_king == chess.A8:
-    #         critical_squares = (black_king - 8, black_king - 8 + 1)
-    #     elif black_king == chess.H8:
-    #         critical_squares = (black_king - 8, black_king - 8 - 1)
-    #     else:
-    #         critical_squares = (black_king - 8 - 1, black_king - 8, black_king - 8 + 1)
-    #     for pawn_sq in critical_squares: # Critical pawns in front of king
-    #         pawn_file =  pawn_sq % 8
-    #         for curr_rank in range(6, 0, -1):
-    #             sq = curr_rank * 8 + pawn_file
-    #             if board.piece_at(sq) is not None and board.piece_at(sq).piece_type == chess.PAWN and board.piece_at(sq).color == chess.BLACK: # Pawn found
-    #                 king_safety -= 5 - curr_rank if curr_rank < 5 else 0
-    #                 break
-    #         else: # No pawn on that file
-    #             king_safety -= 3
-    # score -= 6 * (1 - endgame) * king_safety # -0.6 per point of king safety evaluation, decreasing in the endgame
+    # print(evaluate_king_pawn(0, chess.WHITE, wpbb, bpbb))
+    # print(evaluate_king_pawn(1, chess.WHITE, wpbb, bpbb))
+    # print(evaluate_king_pawn(2, chess.WHITE, wpbb, bpbb))
+    # print(evaluate_king_pawn(5, chess.BLACK, wpbb, bpbb))
+    # print(evaluate_king_pawn(6, chess.BLACK, wpbb, bpbb))
+    # print(evaluate_king_pawn(7, chess.BLACK, wpbb, bpbb))
+
+    # King safety
+    # attack_score = 0
+    wking, bking = board.king(chess.WHITE), board.king(chess.BLACK)
+    for king, colour, mult in ((wking, chess.WHITE, 3), (bking, chess.BLACK, -3)):
+        # Pawn shield
+        if chess.square_file(king) < 3: # Queenside
+            score += evaluate_king_pawn(0, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(0, colour, wpbb, bpbb) * mult)
+            score += evaluate_king_pawn(1, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(1, colour, wpbb, bpbb) * mult)
+            score += evaluate_king_pawn(2, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(2, colour, wpbb, bpbb) * mult)
+        elif chess.square_file(king) > 5: # Kingside
+            score += evaluate_king_pawn(5, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(5, colour, wpbb, bpbb) * mult)
+            score += evaluate_king_pawn(6, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(6, colour, wpbb, bpbb) * mult)
+            score += evaluate_king_pawn(7, colour, wpbb, bpbb) * mult
+            #print(evaluate_king_pawn(7, colour, wpbb, bpbb)* mult)
+        # Critical squares
+        # for file in (king % 8 - 1, king % 8, king % 8 + 1):
+        #     if 0 <= file <= 7:
+        #         attack_score -= len(board.attackers(not colour, king // 8 + file)) * mult
+    # input()
+    # score += attack_score
+
+    # input()
 
     return round(score * (1 if board.turn else -1), 2)
 
 
 def sort_moves(board, ply): # Sort normal moves
-    global debug, tt, kt
+    global debug, tt, kt, ht
     moves = {}
     killer_moves = kt.get_moves(ply)
     for move in board.legal_moves: # Evaluate all the moves using evaluation function
         if board.is_capture(move): # Captures
-            board.push(move)
-            moves[move] = evaluate(board) - 10000
-            board.pop()
+            victim = piece.piece_type if (piece := board.piece_at(move.to_square)) is not None else None
+            attacker = piece.piece_type if (piece := board.piece_at(move.from_square)) is not None else None
+            moves[move] = -MVV_LVA[PIECE_INDEXES[victim]][PIECE_INDEXES[attacker]] - 10000
         elif killer_moves is not None and move in killer_moves: # Killer move ordering
             debug["killer move orders"] += 1
             moves[move] = -5000
         else: # Non-captures
-            board.push(move)
-            moves[move] = evaluate(board)
-            board.pop()
+            if (score := ht.get_move_score(board.turn, move)) is not None: # History move found
+                debug["history move orders"] += 1
+                moves[move] = -score # History move ordering
+            else: # Otherwise
+                board.push(move)
+                moves[move] = evaluate(board) # Normal evaluation
+                board.pop()
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
     sorted_moves = [i[0] for i in sorted_dict] # Sort moves
     if (best_move := tt.get_best_move(chess.polyglot.zobrist_hash(board))) is not None: # If current position found
@@ -329,18 +351,31 @@ def sort_moves(board, ply): # Sort normal moves
 
 
 def sort_captures(board): # Sort captures
+    global qt
     moves = {}
     for move in list(board.generate_legal_captures()):
-        board.push(move)
-        moves[move] = evaluate(board)
-        board.pop()
+        victim = piece.piece_type if (piece := board.piece_at(move.to_square)) is not None else None
+        attacker = piece.piece_type if (piece := board.piece_at(move.from_square)) is not None else None
+        moves[move] = -MVV_LVA[PIECE_INDEXES[victim]][PIECE_INDEXES[attacker]]
     sorted_dict = sorted(moves.items(), key=lambda x: x[1])
-    return [i[0] for i in sorted_dict]
+    sorted_moves = [i[0] for i in sorted_dict]
+    if (best_move := qt.get_best_move(chess.polyglot.zobrist_hash(board))) is not None: # If current position found
+        if best_move in sorted_moves: # If best move found
+            debug["qt move orders"] += 1
+            sorted_moves.remove(best_move)
+            sorted_moves.insert(0, best_move) # Move best move to the start of the list
+    return sorted_moves
 
 
 def quiescence(board, alpha, beta): # Quiescence search
-    global debug
+    global debug, qt
 
+    if (val := qt.probe_hash(0, alpha, beta, chess.polyglot.zobrist_hash(board))) is not None: # Q-search transposition table lookup
+        debug["qt hits"] += 1
+        return val
+    
+    flag = TranspositionTable.ALPHA_FLAG
+    best_move_found = chess.Move.null()
     stand_pat = evaluate(board)
 
     if stand_pat >= beta:
@@ -356,16 +391,22 @@ def quiescence(board, alpha, beta): # Quiescence search
         board.pop()
 
         if score >= beta:
+            qt.record_hash(0, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             return beta
 
         if score > alpha:
+            flag = TranspositionTable.EXACT_FLAG
             alpha = score
+            best_move_found = move
+    
+    if best_move_found != chess.Move.null():
+        qt.record_hash(0, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
 
     return alpha
 
 
 def negamax(board, alpha, beta, depth, ply): # Main negamax search function
-    global debug, tt, kt
+    global debug, tt, kt, ht
 
     # call quiescence search at leaf node
     if depth == 0 or board.is_game_over() or board.can_claim_draw():
@@ -402,11 +443,14 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
                 kt.add_move(move, ply)  # Store killer move
+                ht.add_move(board.turn, move, depth) # Store history move
             return beta
         if score > alpha: # New best move found
             flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move = move
+            # if not board.is_capture(move):
+            #     ht.add_move(board.turn, move, depth) # Store history move
     
     debug["beta cutoff move num"][0] += len(moves)
     debug["beta cutoff move num"][1] += 1
@@ -416,6 +460,7 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
     return alpha
 
 def root_search(board, depth, alpha, beta): # Root negamax search function
+    global tt, kt, ht
 
     best_move_found = chess.Move.null()
     flag = TranspositionTable.ALPHA_FLAG
@@ -449,11 +494,14 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
             tt.record_hash(depth, TranspositionTable.BETA_FLAG, beta, move, chess.polyglot.zobrist_hash(board))
             if not board.is_capture(move):
                 kt.add_move(move, ply)  # Store killer move
+                ht.add_move(board.turn, move, depth) # Store history move
             return move, beta
         if score > alpha: # New best move found
             flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move_found = move
+            # if not board.is_capture(move):
+            #     ht.add_move(board.turn, move, depth) # Store history move
     
     debug["beta cutoff move num"][0] += len(moves)
     debug["beta cutoff move num"][1] += 1
@@ -474,23 +522,23 @@ def get_pv_line(board, depth): # Function to get principal variation for printin
     return pv
 
 def get_best_move(board, max_depth): # Function to get best move after search
-    global debug, tt, kt
+    global debug, tt, kt, qt, ht
 
     tt = TranspositionTable() # Initialise transposition table
+    qt = TranspositionTable() # Initialise quiescence search transposition table
     kt = KillerMovesTable() # Initialise killer moves table
- 
+    ht = HistoryMovesTable() # Initialise history moves table
+    
     try:
         return chess.polyglot.MemoryMappedReader("../Titans.bin").weighted_choice(board).move # Opening book
 
     except IndexError:
 
-        max_depth += (dinc := int(4 * endgame_score(board)))
-        if dinc > 0:
-            print(f"Max depth incremented by +{dinc}")
-
         alpha = -INF
         beta = INF
-        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, "killer move stores": 0, "beta cutoff move num": [0, 0]} # Debug dictionary
+        debug = {"positions": 0, "tt move orders": 0, "tt hits": 0, "killer move orders": 0, 
+                 "killer move stores": 0, "beta cutoff move num": [0, 0], "qt hits": 0, "qt move orders": 0,
+                 "history move orders": 0} # Debug dictionary
         stime = time.perf_counter()
         print(f"Current Evaluation: {evaluate(board)}")
 

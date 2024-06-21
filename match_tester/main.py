@@ -1,5 +1,5 @@
 import chess
-import chess_022, chess_029, chess_034, chess_035, chess_036, chess_037, chess_038, chess_039, chess_040, chess_041, chess_042, chess_043, chess_044, chess_045, chess_046, chess_047, chess_048
+import chess_022, chess_029, chess_034, chess_035, chess_036, chess_037, chess_038, chess_039, chess_040, chess_041, chess_042, chess_043, chess_044, chess_045, chess_046, chess_047, chess_048, chess_049, chess_050, chess_051, chess_052, chess_053, chess_054, chess_055, chess_056, chess_057, chess_058, chess_059, chess_060, chess_061
 
 
 class Player:
@@ -27,7 +27,7 @@ class Chess035:
     tag = (chess_035.get_best_move, depth)
 
 class Chess036:
-    depth = 6
+    depth = 8
     name = f"Chess v0.36 (depth {depth})"
     tag = (chess_036.get_best_move, depth)
 
@@ -47,7 +47,7 @@ class Chess039:
     tag = (chess_039.get_best_move, depth)
 
 class Chess040:
-    depth = 7
+    depth = 6
     name = f"Chess v0.40 (depth {depth})"
     tag = (chess_040.get_best_move, depth)
 
@@ -91,12 +91,79 @@ class Chess048:
     name = f"Chess v0.48 (depth {depth})"
     tag = (chess_048.get_best_move, depth)
 
+class Chess049:
+    depth = 6
+    name = f"Chess v0.49 (depth {depth})"
+    tag = (chess_049.get_best_move, depth)
+
+class Chess050:
+    depth = 6
+    name = f"Chess v0.50 (depth {depth})"
+    tag = (chess_050.get_best_move, depth)
+
+class Chess051:
+    depth = 6
+    name = f"Chess v0.51 (depth {depth})"
+    tag = (chess_051.get_best_move, depth)
+
+class Chess052:
+    depth = 6
+    name = f"Chess v0.52 (depth {depth})"
+    tag = (chess_052.get_best_move, depth)
+
+class Chess053:
+    depth = 6
+    name = f"Chess v0.53 (depth {depth})"
+    tag = (chess_053.get_best_move, depth)
+
+class Chess054:
+    depth = 6
+    name = f"Chess v0.54 (depth {depth})"
+    tag = (chess_054.get_best_move, depth)
+
+class Chess055:
+    depth = 6
+    name = f"Chess v0.55 (depth {depth})"
+    tag = (chess_055.get_best_move, depth)
+
+class Chess056:
+    depth = 7
+    name = f"Chess v0.56 (depth {depth})"
+    tag = (chess_056.get_best_move, depth)
+
+class Chess057:
+    depth = 7
+    name = f"Chess v0.57 (depth {depth})"
+    tag = (chess_057.get_best_move, depth)
+
+class Chess058:
+    depth = 6
+    name = f"Chess v0.58 (depth {depth})"
+    tag = (chess_058.get_best_move, depth)
+
+class Chess059:
+    depth = 8
+    name = f"Chess v0.59 (depth {depth})"
+    tag = (chess_059.get_best_move, depth)
+
+class Chess060:
+    depth = 8
+    name = f"Chess v0.60 (depth {depth})"
+    tag = (chess_060.get_best_move, depth)
+
+class Chess061:
+    depth = 8
+    name = f"Chess v0.61 (depth {depth})"
+    tag = (chess_061.get_best_move, depth)
+
 class ChessGame:
-    def __init__(self, player1, player2, fen=None, turn=chess.WHITE):
+    def __init__(self, player1, player2, fen=None, castling_fen=None, turn=chess.WHITE):
 
         self.__board = chess.Board()
         if fen is not None:
             self.__board.set_board_fen(fen)
+        if castling_fen is not None:
+            self.__board.set_castling_fen(castling_fen)
         self.__board.turn = turn
 
         self.__player1 = player1.tag
@@ -167,35 +234,11 @@ class ChessGame:
 if __name__ in "__main__":  # Run the game
     bot = (input("COLOUR: ") == "white")
     bot_perspective = True
-    version = Chess048
+    version = Chess060
     game = ChessGame(player1=version() if bot else Player(),
-                     player2=Player() if bot else version())
+                     player2=Player() if bot else version(),
+                     fen="2R5/p2r2pk/1b3p2/2N2P1p/1p4nB/1P6/1P6/R2r1NK1")
     game.play()
-
-'''
-Tournament between v0.40 and v0.34 [0.5-3.5]
-
-Game 1: v0.40 (WHITE) vs 0.34 (BLACK) : 1/2-1/2
-['e4', 'c5', 'Nf3', 'e6', 'd4', 'cxd4', 'Nxd4', 'Nc6', 'Nc3', 'd6', 'Be3', 'Nf6', 'f4', 'e5', 'Nf3', 'Ng4', 'Qd2', 'Nxe3', 'Qxe3', 'exf4', 'Qxf4', 'Be7', 'O-O-O', 'O-O', 'Nb5', 'Be6', 'Nxd6', 'Qb8', 'a3', 'Rd8', 'e5', 'Nxe5', 'Nxe5', 'Bxd6', 'Re1', 'Ba2', 'Qf5', 'Re8', 'Bc4', 'Bxc4', 'Nxc4', 'Rxe1+', 'Rxe1', 'Bxh2', 'Kb1', 'Qc7', 'Qb5', 'h6', 'Re8+', 'Rxe8', 'Qxe8+', 'Kh7', 'Qe4+', 'Kg8', 'Qe8+', 'Kh7', 'Qe4+', 'Kh8', 'Qe8+']
-v0.40 Average Time: 2.668333333333334, Total Time: 48.03000000000001
-v0.34 Average Time: 6.722941176470589, Total Time: 114.29
-
-Game 2: v0.34 (WHITE) vs v0.40 (BLACK) : 1-0
-['d4', 'd5', 'c4', 'c6', 'Nc3', 'Nf6', 'e3', 'e6', 'Nf3', 'Nbd7', 'Bd3', 'dxc4', 'Bxc4', 'b5', 'Bd3', 'a6', 'e4', 'c5', 'e5', 'cxd4', 'Nxb5', 'axb5', 'exf6', 'Qb6', 'fxg7', 'Bxg7', 'O-O', 'Bb7', 'Qe2', 'b4', 'Be4', 'b3', 'Bxb7', 'Rxa2', 'Bf4', 'Qxb7', 'Rad1', 'O-O', 'Nxd4', 'e5', 'Nf5', 'Bf6', 'Bh6', 'Ra4', 'Qd3', 'Rg4', 'f3', 'Rb4', 'Qxd7', 'Qxd7', 'Rxd7', 'Rd8', 'Ne7+', 'Bxe7', 'Rxe7', 'Rb6', 'Bg5', 'Rd5', 'f4', 'h6', 'Bh4', 'Rb4', 'Bg3', 'e4', 'Be1', 'Rc4', 'Rb7', 'e3', 'Rb8+', 'Kh7', 'Rxb3', 'e2', 'Rf2', 'Re4', 'Rff3', 'Rd1', 'Kf2', 'Re7', 'Rfe3', 'Rxe3', 'Rxe3', 'Rd4', 'g3', 'Rd6', 'Rxe2', 'Rd8', 'Bc3', 'Rd7', 'Re8', 'Rd6', 'Re7', 'Kg8', 'Re8+', 'Kh7', 'Rf8', 'Kg6', 'Rg8+', 'Kf5', 'Rg7', 'Ke6', 'Rh7', 'Rd1', 'Rxh6+', 'Ke7', 'Kg2', 'Rc1', 'Rh7', 'Rc2+', 'Kg1', 'Rc1+', 'Kf2', 'Rc2+', 'Kf1', 'Rc1+', 'Ke2', 'Kf8', 'Rh8+', 'Ke7', 'Kf2', 'Rc2+', 'Kg1', 'Rc1+', 'Kg2', 'Rc2+', 'Kh1', 'Rc1+', 'Be1', 'Rxe1+', 'Kg2', 'Re2+', 'Kg1', 'Rxb2', 'f5', 'Rb1+', 'Kg2', 'Rb2+', 'Kh1', 'Rf2', 'g4', 'Rf4', 'Rg8', 'Re4', 'g5', 'Re1+', 'Kg2', 'Re2+', 'Kg1', 'Re1+', 'Kf2', 'Re5', 'f6+', 'Kd7', 'Rg7', 'Ke8', 'Kg1', 'Kf8', 'Kf1', 'Re6', 'Rh7', 'Kg8', 'Rg7+', 'Kf8', 'Kf2', 'Rd6', 'Kg1', 'Rd1+', 'Kg2', 'Rd2+', 'Kg1', 'Rd1+', 'Kf2', 'Rh1', 'Rh7', 'Kg8', 'Rg7+', 'Kf8', 'Kg2', 'Rd1', 'h3', 'Rd3', 'Kh2', 'Rd2+', 'Kh1', 'Rf2', 'Kg1', 'Rd2', 'h4', 'Rd4', 'h5', 'Rg4+', 'Kf1', 'Rf4+', 'Kg2', 'Rg4+', 'Kh3', 'Re4', 'h6', 'Re6', 'h7', 'Re3+', 'Kg2', 'Ke8', 'h8=Q+', 'Kd7', 'Rxf7+', 'Kc6', 'Qc8+', 'Kd5', 'Rd7+', 'Ke5', 'f7', 'Rb3', 'Qc5+', 'Ke4', 'Rd4+', 'Ke3', 'Qe5#']
-v0.34 Average Time: 2.4867368421052634, Total Time: 236.24
-v0.40 Average Time: 0.9980851063829779, Total Time: 93.8199999999999
-
-Game 3: v0.40 (WHITE) vs v0.34 (BLACK) : 0-1
-['e4', 'e6', 'd4', 'd5', 'Nd2', 'c5', 'exd5', 'Qxd5', 'Ngf3', 'cxd4', 'Bc4', 'Qd8', 'O-O', 'a6', 'Nb3', 'Qc7', 'Bd3', 'Ne7', 'Nfxd4', 'e5', 'Ne2', 'Nbc6', 'Nc3', 'Nb4', 'Be3', 'Nf5', 'Be4', 'Nxe3', 'fxe3', 'Be6', 'a3', 'Nc6', 'Qd3', 'Bd6', 'Bxc6+', 'Qxc6', 'Na5', 'Qb6', 'Nxb7', 'Bc7', 'Qe4', 'Rb8', 'Qa4+', 'Ke7', 'Qh4+', 'Ke8', 'Qa4+', 'Ke7', 'Qe4', 'Qxb7', 'b4', 'Kf8', 'Qxb7', 'Rxb7', 'Ne4', 'Bb6', 'Rae1', 'Rc7', 'Rf2', 'Kg8', 'Rd2', 'Rc4', 'Rd6', 'Bc7', 'Rxa6', 'h6', 'Nc5', 'Rxc2', 'Nxe6', 'fxe6', 'Rxe6', 'Kf7', 'Ra6', 'Rb8', 'e4', 'Bb6+', 'Kh1', 'Kg8', 'b5', 'Bf2', 'Rf1', 'Re2', 'b6', 'Bxb6', 'g3', 'Bd4', 'h4', 'Rbb2', 'Ra8+', 'Kh7', 'Rf2', 'Rxf2', 'Rh8+', 'Kxh8', 'Kg1', 'Rb1#']
-v0.34 Average Time: 8.04625, Total Time: 321.85
-v0.40 Average Time: 3.7476923076923083, Total Time: 146.16000000000003
-
-Game 4: v0.34 (WHITE) vs v0.40 (BLACK): 1-0
-['Nf3', 'c5', 'g3', 'g6', 'Bg2', 'Bg7', 'O-O', 'Nc6', 'd3', 'e6', 'e4', 'Nge7', 'Nbd2', 'O-O', 'c3', 'd6', 'Qb3', 'b6', 'Nc4', 'd5', 'Ne3', 'Bb7', 'Bd2', 'Qd6', 'Rfe1', 'Ne5', 'Nxe5', 'Bxe5', 'exd5', 'exd5', 'c4', 'Rfd8', 'cxd5', 'Qb8', 'Bc3', 'Bxc3', 'bxc3', 'Qd6', 'c4', 'Nf5', 'Nxf5', 'gxf5', 'Rad1', 'Re8', 'Rxe8+', 'Rxe8', 'Qa4', 'Ra8', 'Re1', 'Qd8', 'Rd1', 'Qd6', 'h3', 'a6', 'Qb3', 'h6', 'a4', 'a5', 'Rb1', 'Ra6', 'Re1', 'Ra8', 'Rd1', 'Ra7', 'Rb1', 'Ra6', 'Rb2', 'Qf6', 'Qc2', 'Ra8', 'Qb3', 'Ra6', 'Qb5', 'Qd6', 'Re2', 'Ra8', 'Rb2', 'Ra6', 'Qe8+', 'Kg7', 'Re2', 'Ra8', 'Qe7', 'Qxe7', 'Rxe7', 'Rb8', 'Rd7', 'Bc8', 'Rd8', 'Kf6', 'd6', 'Rb7', 'Rxc8', 'Rd7', 'Rc6', 'Rb7', 'Rxc5', 'bxc5', 'Bxb7', 'Ke6', 'Bd5+', 'Kxd6', 'Bxf7', 'Ke5', 'Bg6', 'Kf6', 'Be8', 'Ke7', 'Bc6', 'Kf7', 'Bd5+', 'Kg7', 'Be6', 'Kf6', 'Bd5', 'Kg7', 'Bc6', 'Kf7', 'Bd7', 'Kf6', 'h4', 'Kg6', 'h5+', 'Kg5', 'Be8', 'Kf6', 'Bc6', 'Ke6', 'Bg2', 'Kf7', 'Bh3', 'Ke6', 'Kh2', 'Ke5', 'Bg2', 'Ke6', 'Kh1', 'Kf6', 'Kg1', 'Kg5', 'Bf3', 'Kf6', 'Bb7', 'Kg5', 'Bc8', 'Kg4', 'Be6', 'Kg5', 'Bf7', 'Kf6', 'Bd5', 'Kg7', 'Be6', 'Kf6', 'Bd7', 'Kg5', 'Be6', 'Kf6', 'Bc8', 'Kg5', 'Bd7', 'Kg4', 'Be8', 'Kf3', 'Bg6', 'Kg4', 'Bf7', 'Kg5', 'Kh2', 'Kf6', 'Bg6', 'Ke6', 'Kg2', 'Kf6', 'Kh1', 'Ke6', 'Kh2', 'Kf6', 'Kg2', 'Ke6', 'Kh1', 'Kf6', 'Kg1', 'Ke6', 'Bh7', 'Kf6', 'Kh2', 'Ke6', 'Kg2', 'Ke5', 'Bg6', 'Kf6', 'Kf3', 'Kg5', 'Ke2', 'Kf6', 'Kf1', 'Ke6', 'Kg1', 'Kf6', 'Be8', 'Kg5', 'f4+', 'Kg4', 'Kh2', 'Kf3', 'Bg6', 'Kg4', 'Bf7', 'Kf3', 'Be6', 'Kg4', 'Bd7', 'Kxh5', 'd4', 'Kg6', 'dxc5', 'Kh5', 'c6', 'Kg6', 'c7', 'Kh5', 'c8=Q', 'Kg4', 'Bc6', 'h5', 'Qg8#']
-v0.34 Average Time: 2.6707476635514023, Total Time: 285.77000000000004
-v0.40 Average Time: 0.9517142857142866, Total Time: 99.93000000000009
-
-'''
 
 '''original fen test: r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R
    second fen test: 1q1r1rk1/pb2bppp/1pn1pn2/8/3P4/P1N1BN2/1P2QPPP/1B1R1RK1
@@ -214,7 +257,7 @@ v0.40 Average Time: 0.9517142857142866, Total Time: 99.93000000000009
    blunder position fen: 2bq2k1/6bp/r2p2p1/1pQP4/p3P3/3P4/PP3KBP/1R2R3
    blunder 2 position fen: r3k2r/1p3ppp/pq1bb3/N3p3/8/P1NQP3/1PP3PP/R4RK1
    london system fen: r1q1k2r/pp2bppp/2n1pn2/2pp1b2/3P1B2/1QP1PN2/PP1NBPPP/R3K2R
-   blunder 3 position fen (black to play): r2r2k1/pb2np1p/1p1q2p1/2pPb3/8/1Q1PN1P1/PP1B1PBP/R3R1K1
+   Qb8 blunder fen (black to play): r2r2k1/pb2np1p/1p1q2p1/2pPb3/8/1Q1PN1P1/PP1B1PBP/R3R1K1
    blunder 4 position fen (white to play): r1bqr1k1/1pp3b1/3p2pp/2nP1p2/2P1P3/p1N1BP2/PP2BQPP/R3R1K1
    john vs bluebot blunder fen 1 (black to play): r3kb1r/pp3ppp/1qn1pn2/3p4/3P1B1N/2PpP3/PP1N1PPP/R1Q1K2R
    positional fen 1: r3kb1r/pp3ppp/1qn1pn2/3p1b2/2pP1B1N/2P1P3/PP3PPP/RNQ1KB1R 
@@ -225,4 +268,25 @@ v0.40 Average Time: 0.9517142857142866, Total Time: 99.93000000000009
    king safety 3: r1bq1rk1/1p1nppbp/2p3p1/2p5/p3P3/2NPBN1P/PPPQ1PP1/2KR3R
    knight sacrifice blunder: rn1q1b1r/1bp2kpp/pp2p3/8/3P4/2B5/PP2PPPP/R2QKB1R
    knight sacrifice blunder 2: rn1qkb1r/1bp2ppp/pp2p3/4N3/3P4/2B5/PP2PPPP/R2QKB1R
-   endgame fen 2: 8/8/8/2P1k3/1P4P1/P2Bp1KP/2R2r2/5n2'''
+   endgame fen 2: 8/8/8/2P1k3/1P4P1/P2Bp1KP/2R2r2/5n2
+   Mistake fen: r1k2b1r/pp1n1ppp/2p2n2/1Nqp4/8/P4PB1/1P2QPPP/1K2RB1R
+   Bf8 fen: r1k4r/pp1n1ppp/2p2n2/2bp4/3q4/P1N2PB1/1PQ2PPP/1K2RB1R
+   Bc5 fen: r1k2b1r/ppBn1ppp/2p2n2/3p4/3q4/P1N2P2/1PQ2PPP/1K2RB1R
+   Qc3 fen: r1b1kb1r/3n1ppp/pqn1p3/2ppP3/3P1P2/4BN2/1PPQN1PP/R3KB1R w Kkq - 2 14
+   Kh7 fen: r2r2k1/pp2np2/3pb2p/1P2q3/1QPRp1pN/P3P1P1/4BPP1/2R3K1
+   Qxg6 blunder fen: 1k1r3r/pp4b1/2np2p1/2q5/4Q3/7P/PPPN2B1/R1B1K2R
+   f6 mistake fen: r1b1kbnr/pp1n1ppp/1q2p3/3pP3/3P4/2PB1N2/5PPP/RNBQK2R
+   f4 blunder fen: rr4k1/5pp1/3pqn1p/2p1p3/p1P1P3/2QPBP1P/PP3P2/1R2R1K1
+   Qd2 mistake fen: r3k2r/pb1n4/2pPpq2/1p1n1p2/2pP2p1/P1N3B1/1PQ1BPP1/R4RK1 w kq - 0 20
+   a4 fen: 2rqkb1r/3n1ppp/bp2pn2/1Npp4/3P1B2/4PNP1/PPP2PBP/R2Q1RK1 w k - 1 12
+   hxg5 blunder fen: r2q1rk1/1p2bpp1/p2pbn1p/4p1P1/4P2P/1PN1BP2/PP1QB3/2KR3R b - - 0 15
+   Rdf8 blunder fen: r4rk1/p1p1qp1p/2p5/3p4/8/2P2P2/PP1Q1P1R/2KR4 b - - 0 19
+   Qd6 blunder fen: r2q1rk1/bbp2pp1/p1n2n1p/1p2p3/4P1PB/1BP2N1P/PP2QP2/R3KN1R b KQ - 1 14
+   Bc6 best move fen: 1r1qkbr1/1B3p2/p3p2p/1p6/2pB4/P7/1PP2PPP/R2QR1K1 w - - 1 19
+   Qb5 best move fen: 1r3rk1/pp2nppp/2n1p3/q2pPb2/2P5/1Q2BN2/PP2BPPP/R4RK1 w - - 1 15
+   Rg5 blunder fen: RN6/4kp2/4p1p1/2b1P2p/2r2n2/3b1NRP/5PP1/6K1 w - - 9 54
+   Re1 mistake fen: 2r1kb2/5p2/4p1p1/4P2p/3N3R/2nb1N2/5PPP/R5K1 w - - 6 45
+   gxh3 blunder fen: 8/4kp2/N3p1p1/R1b1P1Rp/2r5/5b1n/5PP1/6K1 w - - 0 57
+   N2f3 mistake fen: 2r1k3/5p2/4p1p1/4P2p/1b1N3R/2nb4/3N1PPP/2R3K1 w - - 2 43
+   Be6 blunder fen: 8/8/P4k2/3B1Ppp/2Pb1p2/5P2/P3R1KP/2r5 w - - 1 58
+   Rxd1 blunder fen: 2R5/p2r2pk/1b3p2/2N2P1p/1p4nB/1P6/1P6/R2r1NK1'''

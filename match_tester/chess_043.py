@@ -318,6 +318,8 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
             flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move = move
+            if not board.is_capture(move):
+                ht.add_move(board.turn, move, depth)
     
     if best_move != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
@@ -363,6 +365,8 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
             flag = TranspositionTable.EXACT_FLAG
             alpha = score
             best_move_found = move
+            if not board.is_capture(move):
+                ht.add_move(board.turn, move, depth)
     
     if best_move_found != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store

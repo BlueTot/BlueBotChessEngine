@@ -170,7 +170,7 @@ class Move:
 
 @jitclass({"__WP_BB": numba.types.int64, "__BP_BB": numba.types.int64, "__WN_BB": numba.types.int64, "__BN_BB": numba.types.int64, "__WB_BB": numba.types.int64, "__BB_BB": numba.types.int64,
            "__WR_BB": numba.types.int64, "__BR_BB": numba.types.int64, "__WQ_BB": numba.types.int64, "__BQ_BB": numba.types.int64, "__WK_BB": numba.types.int64, "__BK_BB": numba.types.int64,
-           "__turn": numba.types.boolean,
+           "__turn": numba.types.boolean, "__move_stack": numba.types.List(numba.)
            "__WShortCastle_bb": numba.types.int64, "__WLongCastle_bb": numba.types.int64, "__BShortCastle_bb": numba.types.int64, "__BLongCastle_bb": numba.types.int64})
 class Board:
     def __init__(self, base_bb):
