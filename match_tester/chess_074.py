@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.59" # Version
+VERSION = "v0.74" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -12,7 +12,6 @@ WINDOW = 1/4 * PAWN_VAL # Aspiration window value = 1/4 of a pawn
 ENDGAME_UPPER, ENDGAME_LOWER = 100, 270
 
 times = []
-
 
 def reverse(lst): # Function to reverse piece square tables for black side
     lst2 = copy.deepcopy(lst)
@@ -253,7 +252,20 @@ def evaluate(board : chess.Board): # Evaluation function
 
     return round(score * (1 if board.turn else -1), 2)
 
+def capture_value(board : chess.Board, move : chess.Move): # Depth 1 Static Exchange Evaluation
+    victim = piece.piece_type if (piece := board.piece_at(move.to_square)) is not None else chess.PAWN
+    attacker = piece.piece_type if (piece := board.piece_at(move.from_square)) is not None else None
+    if board.attackers(not board.turn, move.to_square): # is defended
+        return MATERIAL[victim] - MATERIAL[attacker]
+    return MATERIAL[victim] # hanging piece
 
+'''Move Ordering:
+    1. PV Move
+    2. Good or Equal Captures
+    3. Killer Moves (2)
+    4. Bad Captures
+    5. Quiet Moves sorted by History Heuristic
+'''
 def sort_moves(board, ply): # Sort normal moves
     global debug, tt, kt, ht
     legal_moves = list(board.legal_moves)
@@ -266,9 +278,8 @@ def sort_moves(board, ply): # Sort normal moves
     killer_moves = kt.get_moves(ply)
     for move in legal_moves: # Evaluate all the moves using evaluation function
         if board.is_capture(move): # Captures
-            victim = piece.piece_type if (piece := board.piece_at(move.to_square)) is not None else None
-            attacker = piece.piece_type if (piece := board.piece_at(move.from_square)) is not None else None
-            moves[move] = -MVV_LVA[PIECE_INDEXES[victim]][PIECE_INDEXES[attacker]] - 10000
+            value = capture_value(board, move)
+            moves[move ] = -value - (10000 if value >= 0 else 2500)
         elif killer_moves is not None and move in killer_moves: # Killer move ordering
             debug["killer move orders"] += 1
             moves[move] = -5000
@@ -293,7 +304,7 @@ def sort_captures(board): # Sort captures
             legal_captures.remove(best_move)
             yield best_move
     moves = {}
-    for move in legal_captures:
+    for move in legal_captures: # Sort moves using MVV/LVA
         victim = piece.piece_type if (piece := board.piece_at(move.to_square)) is not None else None
         attacker = piece.piece_type if (piece := board.piece_at(move.from_square)) is not None else None
         moves[move] = -MVV_LVA[PIECE_INDEXES[victim]][PIECE_INDEXES[attacker]]
@@ -405,6 +416,7 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
 
     if best_move != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
+        ht.add_move(board.turn, best_move, depth) # Store history move
 
     return alpha
 
@@ -470,6 +482,7 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
 
     if best_move_found != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
+        ht.add_move(board.turn, best_move_found, depth) # Store history move
 
     return best_move_found, alpha # Return the score as well for aspiration window
 
@@ -520,13 +533,19 @@ def get_best_move(board, max_depth): # Function to get best move after search
                 beta = score + WINDOW # Otherwise make the alpha-beta window narrower
 
         debug["time"] = round(time.perf_counter() - stime, 2)
+
         try:
             debug["positions per second"] = round(debug["positions"] / debug["time"], 2)
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
+
         debug["tt length"] = tt.length
-        debug["av. bcmn"] = sum([k*v for k, v in debug["beta cutoff move num"].items()]) / sum(list(debug["beta cutoff move num"].values()))
-        debug["ebf"] = (debug["msnodes"] + debug["lnodes"]) / debug["msnodes"]
+        
+        try:
+            debug["beta cutoff move num"] = sum([k*v for k, v in debug["beta cutoff move num"].items()]) / sum(list(debug["beta cutoff move num"].values()))
+            debug["ebf"] = (debug["msnodes"] + debug["lnodes"]) / debug["msnodes"]
+        except ZeroDivisionError:
+            pass
 
         print(f"{VERSION} DEBUG: {debug}")
         times.append(debug["time"])

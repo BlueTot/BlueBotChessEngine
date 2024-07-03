@@ -1,148 +1,18 @@
 import chess
-import chess_022, chess_029, chess_034, chess_035, chess_036, chess_037, chess_038, chess_039, chess_040, chess_041, chess_042, chess_043, chess_044, chess_045, chess_046, chess_047, chess_048, chess_049, chess_050, chess_051, chess_052, chess_053, chess_054, chess_055, chess_056, chess_057, chess_058, chess_059, chess_060, chess_061
-
+import chess_036, chess_059, chess_060, chess_061, chess_062, chess_063, chess_064, chess_065, chess_066, chess_067, chess_068, chess_069, chess_070, chess_071, chess_072, chess_073, chess_074, chess_075, chess_076, chess_077, chess_078
+from time import perf_counter
 
 class Player:
     name = "player"
     tag = 1
 
-class Chess022:
-    depth = 6
-    name = f"Chess v0.22 (depth {depth})"
-    tag = (chess_022.get_best_move, depth)
-
-class Chess029:
-    depth = 6
-    name = f"Chess v0.29 (depth {depth})"
-    tag = (chess_029.get_best_move, depth)
-
-class Chess034:
-    depth = 6
-    name = f"Chess v0.34 (depth {depth})"
-    tag = (chess_034.get_best_move, depth)
-
-class Chess035:
-    depth = 6
-    name = f"Chess v0.35 (depth {depth})"
-    tag = (chess_035.get_best_move, depth)
-
 class Chess036:
-    depth = 8
+    depth = 6
     name = f"Chess v0.36 (depth {depth})"
     tag = (chess_036.get_best_move, depth)
 
-class Chess037:
-    depth = 6
-    name = f"Chess v0.37 (depth {depth})"
-    tag = (chess_037.get_best_move, depth)
-
-class Chess038:
-    depth = 6
-    name = f"Chess v0.38 (depth {depth})"
-    tag = (chess_038.get_best_move, depth)
-
-class Chess039:
-    depth = 6
-    name = f"Chess v0.39 (depth {depth})"
-    tag = (chess_039.get_best_move, depth)
-
-class Chess040:
-    depth = 6
-    name = f"Chess v0.40 (depth {depth})"
-    tag = (chess_040.get_best_move, depth)
-
-class Chess041:
-    depth = 6
-    name = f"Chess v0.41 (depth {depth})"
-    tag = (chess_041.get_best_move, depth)
-
-class Chess042:
-    depth = 6
-    name = f"Chess v0.42 (depth {depth})"
-    tag = (chess_042.get_best_move, depth)
-
-class Chess043:
-    depth = 6
-    name = f"Chess v0.43 (depth {depth})"
-    tag = (chess_043.get_best_move, depth)
-
-class Chess044:
-    depth = 6
-    name = f"Chess v0.44 (depth {depth})"
-    tag = (chess_044.get_best_move, depth)
-
-class Chess045:
-    depth = 6
-    name = f"Chess v0.45 (depth {depth})"
-    tag = (chess_045.get_best_move, depth)
-
-class Chess046:
-    depth = 6
-    name = f"Chess v0.46 (depth {depth})"
-    tag = (chess_046.get_best_move, depth)
-
-class Chess047:
-    depth = 6
-    name = f"Chess v0.47 (depth {depth})"
-    tag = (chess_047.get_best_move, depth)
-
-class Chess048:
-    depth = 6
-    name = f"Chess v0.48 (depth {depth})"
-    tag = (chess_048.get_best_move, depth)
-
-class Chess049:
-    depth = 6
-    name = f"Chess v0.49 (depth {depth})"
-    tag = (chess_049.get_best_move, depth)
-
-class Chess050:
-    depth = 6
-    name = f"Chess v0.50 (depth {depth})"
-    tag = (chess_050.get_best_move, depth)
-
-class Chess051:
-    depth = 6
-    name = f"Chess v0.51 (depth {depth})"
-    tag = (chess_051.get_best_move, depth)
-
-class Chess052:
-    depth = 6
-    name = f"Chess v0.52 (depth {depth})"
-    tag = (chess_052.get_best_move, depth)
-
-class Chess053:
-    depth = 6
-    name = f"Chess v0.53 (depth {depth})"
-    tag = (chess_053.get_best_move, depth)
-
-class Chess054:
-    depth = 6
-    name = f"Chess v0.54 (depth {depth})"
-    tag = (chess_054.get_best_move, depth)
-
-class Chess055:
-    depth = 6
-    name = f"Chess v0.55 (depth {depth})"
-    tag = (chess_055.get_best_move, depth)
-
-class Chess056:
-    depth = 7
-    name = f"Chess v0.56 (depth {depth})"
-    tag = (chess_056.get_best_move, depth)
-
-class Chess057:
-    depth = 7
-    name = f"Chess v0.57 (depth {depth})"
-    tag = (chess_057.get_best_move, depth)
-
-class Chess058:
-    depth = 6
-    name = f"Chess v0.58 (depth {depth})"
-    tag = (chess_058.get_best_move, depth)
-
 class Chess059:
-    depth = 8
+    depth = 6
     name = f"Chess v0.59 (depth {depth})"
     tag = (chess_059.get_best_move, depth)
 
@@ -155,6 +25,107 @@ class Chess061:
     depth = 8
     name = f"Chess v0.61 (depth {depth})"
     tag = (chess_061.get_best_move, depth)
+
+class Chess062:
+    depth = 7
+    name = f"Chess v0.62 (depth {depth})"
+    tag = (chess_062.get_best_move, depth)
+
+class Chess063:
+    time = 15
+    name = f"Chess v0.63 (time per move: {time})"
+    tag = (chess_063.get_best_move, time)
+
+class Chess064:
+    time = 15
+    name = f"Chess v0.64 (time per move: {time})"
+    tag = (chess_064.get_best_move, time)
+
+class Chess065:
+    time = 15
+    name = f"Chess v0.65 (time per move: {time})"
+    tag = (chess_065.get_best_move, time)
+
+class Chess066:
+    time = 15
+    name = f"Chess v0.66 (time per move: {time})"
+    tag = (chess_066.get_best_move, time)
+
+class Chess067:
+    time = 30
+    name = f"Chess v0.67 (time per move: {time})"
+    tag = (chess_067.get_best_move, time)
+
+class Chess068:
+    time = 15
+    time_control = 600
+    name = f"Chess v0.68 (time per move: {time}, time control: {time_control})"
+    tag = (chess_068.get_best_move, time, time_control)
+
+class Chess069:
+    time = 15
+    name = f"Chess v0.69 (time per move: {time})"
+    tag = (chess_069.get_best_move, time)
+
+class Chess070:
+    depth = 8
+    name = f"Chess v0.70 (depth {depth})"
+    tag = (chess_070.get_best_move, depth)
+
+class Chess071:
+    time = 15
+    name = f"Chess v0.71 (time per move: {time})"
+    tag = (chess_071.get_best_move, time)
+
+class Chess072:
+    depth = 8
+    name = f"Chess v0.72 (depth {depth})"
+    tag = (chess_072.get_best_move, depth)
+
+class Chess073:
+    depth = 8
+    name = f"Chess v0.73 (depth {depth})"
+    tag = (chess_073.get_best_move, depth)
+
+class Chess074:
+    depth = 7
+    name = f"Chess v0.74 (depth {depth})"
+    tag = (chess_074.get_best_move, depth)
+
+class Chess075:
+    depth = 8
+    name = f"Chess v0.75 (depth {depth})"
+    tag = (chess_075.get_best_move, depth)
+
+class Chess076:
+    depth = 8
+    name = f"Chess v0.76 (depth {depth})"
+    tag = (chess_076.get_best_move, depth)
+
+class Chess077:
+    depth = 7
+    name = f"Chess v0.77 (depth {depth})"
+    tag = (chess_077.ChessEngine, depth, None, "new")
+
+class Chess078:
+    depth = 6
+    name = f"Chess v0.78 (depth {depth})"
+    tag = (chess_078.ChessEngine, depth, None, "new")
+
+class Timer:
+    def __init__(self, time_control):
+        self.__clock = time_control
+        self.__time_start = 0
+    
+    def start_clock(self):
+        self.__time_start = perf_counter()
+    
+    def stop_clock(self):
+        self.__clock -= (perf_counter() - self.__time_start)
+    
+    @property
+    def clock(self):
+        return self.__clock
 
 class ChessGame:
     def __init__(self, player1, player2, fen=None, castling_fen=None, turn=chess.WHITE):
@@ -171,7 +142,17 @@ class ChessGame:
         self.__gameOver = False
         self.__moves = []
 
+        if type(self.__player1) == tuple and len(self.__player1) == 4:
+            self.__player1_engine = self.__player1[0]()
+        if type(self.__player2) == tuple and len(self.__player2) == 4:
+            self.__player2_engine = self.__player2[0]()
+
         print(f"\033[32;1;1mChess: {player1.name} vs {player2.name}\033[0m")
+        open('log.txt', 'w').close()
+        with open("log.txt", "a") as f:
+            f.write(f"{player1.name} vs {player2.name}\n")
+
+        self.__timer = Timer(10000) # hardcoded 10 min game
     
     def insert_move(self, san):
         self.__moves.append(san)
@@ -186,8 +167,19 @@ class ChessGame:
             print("Illegal move")
 
     def __computer_make_move(self):
+        self.__timer.start_clock() # start the timer
         turn = self.__player1 if self.__board.turn else self.__player2
-        move = turn[0](self.__board, turn[1])
+        if len(turn) == 2:
+            data = turn[0](self.__board, turn[1])
+        elif len(turn) == 3:
+            data = turn[0](self.__board, turn[1], turn[2], self.__timer.clock)
+        else:
+            engine = self.__player1_engine if self.__board.turn else self.__player2_engine
+            data = engine.get_best_move(self.__board, turn[1])
+        if isinstance(data, chess.Move):
+            move, max_depth = data, 0
+        else:
+            move, max_depth = data      
         if move == chess.Move.null():
             move = list(self.__board.legal_moves)[-1]
         try:
@@ -198,6 +190,10 @@ class ChessGame:
             pass
         self.__board.push(move)
         print(f"FEN: {self.__board.fen()}")
+        with open("log.txt", "a") as f:
+            f.write(f"{'w' if not self.__board.turn else 'b'}{(len(self.__board.move_stack) + 1)//2}. {san}, {max_depth}\n")
+        self.__timer.stop_clock() # stop the timer
+        print(f"Timer: {self.__timer.clock // 60}m {self.__timer.clock % 60}s")
 
     def play(self):
 
@@ -230,14 +226,18 @@ class ChessGame:
                 print("Draw by insufficient material")
                 self.__gameOver = True
                 print(self.__moves)
+            
+            if self.__timer.clock <= 0:
+                print("Timeout")
+                self.__gameOver = True
 
 if __name__ in "__main__":  # Run the game
     bot = (input("COLOUR: ") == "white")
     bot_perspective = True
-    version = Chess060
+    version = Chess078
     game = ChessGame(player1=version() if bot else Player(),
-                     player2=Player() if bot else version(),
-                     fen="2R5/p2r2pk/1b3p2/2N2P1p/1p4nB/1P6/1P6/R2r1NK1")
+                     player2=Player() if bot else version())
+    # game = ChessGame(player1=Chess071(), player2=Chess065())
     game.play()
 
 '''original fen test: r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R
@@ -289,4 +289,17 @@ if __name__ in "__main__":  # Run the game
    gxh3 blunder fen: 8/4kp2/N3p1p1/R1b1P1Rp/2r5/5b1n/5PP1/6K1 w - - 0 57
    N2f3 mistake fen: 2r1k3/5p2/4p1p1/4P2p/1b1N3R/2nb4/3N1PPP/2R3K1 w - - 2 43
    Be6 blunder fen: 8/8/P4k2/3B1Ppp/2Pb1p2/5P2/P3R1KP/2r5 w - - 1 58
-   Rxd1 blunder fen: 2R5/p2r2pk/1b3p2/2N2P1p/1p4nB/1P6/1P6/R2r1NK1'''
+   Rxd1 blunder fen: 2R5/p2r2pk/1b3p2/2N2P1p/1p4nB/1P6/1P6/R2r1NK1
+   f4 blunder fen: 6k1/1p1rrpp1/p2p1q2/P2Bp1pP/1pPnP3/3PR1R1/5P2/3Q2K1 w - - 0 92
+   b4 blunder fen: 6k1/1p1rrpp1/p2p1q2/P1pBp1pP/2PnP3/3PR1R1/1P3P2/3Q2K1 w - - 0 91
+   Re1 blunder fen: 8/8/1p2k3/1P6/1r6/7K/8/3R4 w - - 1 70
+   Rf1 blunder fen: r5k1/1p5p/1P2r3/5q2/2N1pnp1/P2p4/1Q3PPP/3RR1K1 w - - 4 33
+   e5 blunder fen: 2r2rk1/pb1n1pp1/1p2pq1p/2pP4/2P5/3B1N2/PPQ2PPP/3R1RK1 b - - 0 16
+   Qg8+ blunder fen: 2r4k/5Q2/6Bp/4P1p1/1p2K3/7P/8/8 w - - 8 54
+   f4 blunder (black) fen: 1r2r1k1/6pp/8/1ppP1p2/2n1P3/2R2P1P/6B1/4R1K1 b - - 0 27
+   h6 blunder fen: 1rr3k1/6pp/8/1ppP4/2n1Pp2/2R2P1P/6B1/2R3K1 b - - 3 29
+   g5 blunder fen: 1r4k1/6p1/7p/3PP3/1pR2p2/1n5P/5K2/5B2 b - - 0 36
+   Ne4+ blunder fen: 6k1/2R5/3P3p/4PBp1/1p3p2/r6P/3n1K2/8 b - - 2 40
+   Rg5 blunder fen: 6rk/pp3p1p/1b2p3/nP1pP2R/3P2P1/P1r1BN2/5P2/3R2K1 w - - 3 33
+   Rg5+ blunder fen: 4r1k1/pp3p1p/1bn1p3/3pP2R/2rP2P1/P3BN2/1P3P2/1R4K1 w - - 3 26
+   Nf3+ fork fen: r4rk1/pppn1pbp/3p2p1/8/2BnP1b1/P2PN3/1PPQ1Bq1/R3KR2 b Q - 1 18'''

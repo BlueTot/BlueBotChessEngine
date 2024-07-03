@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.59" # Version
+VERSION = "v0.72" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -340,7 +340,7 @@ def quiescence(board, alpha, beta): # Quiescence search
     return alpha
 
 
-def negamax(board, alpha, beta, depth, ply): # Main negamax search function
+def negamax(board : chess.Board, alpha, beta, depth, ply): # Main negamax search function
     global debug, tt, kt, ht
 
     # call quiescence search at leaf node
@@ -369,13 +369,28 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
     move_num = 0
 
     # search child nodes
-    for move in sort_moves(board, ply): # Sort moves
+    for move_count, move in enumerate(sort_moves(board, ply)): # Sort moves
 
         debug["positions"] += 1
         debug["msnodes"] += 1
         board.push(move)
 
-        score = -negamax(board, -beta, -alpha, depth - 1, ply + 1) # Score move
+        # Late Move Reduction + PVS
+        if move_count == 0: # PV mode
+            score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
+        else:
+            if move_count >= 4 and \
+                depth >= 3 and \
+                not board.is_capture(move) and \
+                not board.is_check() and \
+                not board.gives_check(move):
+                score = -negamax(board, -(alpha+1), -alpha, depth - 2, ply + 2) # LMR
+            else:
+                score = alpha + 1
+            if score > alpha:
+                score = -negamax(board, -(alpha+1), -alpha, depth - 1, ply + 1)
+                if score > alpha and score < beta:
+                    score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
 
         board.pop()
 
@@ -418,7 +433,7 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
     move_num = 0
 
     # search child nodes
-    for move in sort_moves(board, ply):
+    for move_count, move in enumerate(sort_moves(board, ply)):
 
         debug["positions"] += 1
         debug["msnodes"] += 1
@@ -432,7 +447,22 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
         if board.can_claim_draw(): # Checks for draws
             score = 0
         else:
-            score = -negamax(board, -beta, -alpha, depth - 1, ply + 1) # score move
+            # Late Move Reduction + PVS
+            if move_count == 0: # PV mode
+                score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
+            else:
+                if move_count >= 4 and \
+                    depth >= 3 and \
+                    not board.is_capture(move) and \
+                    not board.is_check() and \
+                    not board.gives_check(move):
+                    score = -negamax(board, -(alpha+1), -alpha, depth - 2, ply + 2) # LMR
+                else:
+                    score = alpha + 1
+                if score > alpha:
+                    score = -negamax(board, -(alpha+1), -alpha, depth - 1, ply + 1)
+                    if score > alpha and score < beta:
+                        score = -negamax(board, -beta, -alpha, depth - 1, ply + 1)
 
         is_repetition = board.is_repetition(2) # check for repetition
         board.pop()

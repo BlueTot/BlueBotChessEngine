@@ -1,6 +1,7 @@
 import json
 import os
 import time
+from functools import reduce
 
 PAWN = 2
 KNIGHT = 3
@@ -154,34 +155,14 @@ class Board:
         with open("../movement_sqrs/base_board.json") as f:
             base_bb = json.load(f)
 
-        self.__WP_BB = base_bb["white pawn"]
-        self.__BP_BB = base_bb["black pawn"]
-
-        self.__WN_BB = base_bb["white knight"]
-        self.__BN_BB = base_bb["black knight"]
-
-        self.__WB_BB = base_bb["white bishop"]
-        self.__BB_BB = base_bb["black bishop"]
-
-        self.__WR_BB = base_bb["white rook"]
-        self.__BR_BB = base_bb["black rook"]
-
-        self.__WQ_BB = base_bb["white queen"]
-        self.__BQ_BB = base_bb["black queen"]
-
-        self.__WK_BB = base_bb["white king"]
-        self.__BK_BB = base_bb["black king"]
-
+        self.__board_bb = [base_bb["white pawn"], base_bb["black pawn"], base_bb["white knight"], base_bb["black knight"], base_bb["white bishop"], base_bb["black bishop"],
+                           base_bb["white rook"], base_bb["black rook"], base_bb["white queen"], base_bb["black queen"], base_bb["white king"], base_bb["black king"]]
         self.__turn = WHITE
+        self.__castling_rights = [True, True, True, True]
+        self.__en_passant_square = None
 
-        self.__move_stack = {}
-
-        self.__WRookA_moved = False
-        self.__WRookH_moved = False
-        self.__BRookA_moved = False
-        self.__BRookH_moved = False
-        self.__WKing_moved = False
-        self.__BKing_moved = False
+        self.__move_stack = []
+        self.__state_stack = [[self.__board_bb[:], self.__castling_rights, self.__en_passant_square]]
 
         self.__WShortCastle_bb = bb_from_sqrs([sq_num("f1"), sq_num("g1")])
         self.__WLongCastle_bb = bb_from_sqrs([sq_num("b1"), sq_num("c1"), sq_num("d1")])
@@ -192,20 +173,21 @@ class Board:
 
     def __empty_squares(self):
         return bwn(self.__blockers())
+    
+    def __enemy_king_squares(self):
+        return self.__board_bb[10 if not self.__turn else 11]
+
+    def __white_pieces(self):
+        return reduce(lambda x, y : x | y, [self.__board_bb[i] for i in range(0, 12, 2)])
+
+    def __black_pieces(self):
+        return reduce(lambda x, y : x | y, [self.__board_bb[i] for i in range(1, 12, 2)])
 
     def __blockers(self):
-        whites = self.__WP_BB | self.__WN_BB | self.__WB_BB | self.__WR_BB | self.__WQ_BB | self.__WK_BB
-        blacks = self.__BP_BB | self.__BN_BB | self.__BB_BB | self.__BR_BB | self.__BQ_BB | self.__BK_BB
-        return whites | blacks
+        return self.__white_pieces() | self.__black_pieces()
 
     def __masked_blockers(self, mask):
         return self.__blockers() & mask
-
-    def __white_pieces(self):
-        return self.__WP_BB | self.__WN_BB | self.__WB_BB | self.__WR_BB | self.__WQ_BB | self.__WK_BB
-
-    def __black_pieces(self):
-        return self.__BP_BB | self.__BN_BB | self.__BB_BB | self.__BR_BB | self.__BQ_BB | self.__BK_BB
 
     def __enemy_squares(self):
         return self.__black_pieces() if self.__turn else self.__white_pieces()
@@ -215,9 +197,9 @@ class Board:
 
     def __enemy_squares_no_king(self):
         if self.__turn:
-            return self.__BP_BB | self.__BN_BB | self.__BB_BB | self.__BR_BB | self.__BQ_BB
+            return reduce(lambda x, y : x | y, [self.__board_bb[i] for i in range(1, 10, 2)]) # black
         else:
-            return self.__WP_BB | self.__WN_BB | self.__WB_BB | self.__WR_BB | self.__WQ_BB
+            return reduce(lambda x, y : x | y, [self.__board_bb[i] for i in range(0, 10, 2)]) # white
 
     def __intersection_sqrs(self, no_king, empty, protected, isPawn=False):
         if protected:
@@ -225,12 +207,12 @@ class Board:
         if empty:
             return self.__empty_squares()
         if no_king:
-            return self.__empty_squares() | self.__enemy_squares_no_king()
+            return self.__empty_squares() | self.__enemy_squares_no_king() | self.__enemy_king_squares()
         else:
             return (self.__empty_squares() | self.__enemy_squares()) if not isPawn else self.__enemy_squares()
 
     def __pawn_squares(self, ranks):
-        bb = self.__WP_BB if self.__turn else self.__BP_BB
+        bb = self.__board_bb[0 if self.__turn else 1]
         bb = bb >> 8 * ranks if self.__turn else bb << 8 * ranks
         return bb & self.__empty_squares()
 
@@ -408,8 +390,10 @@ class Board:
                     moves.append(Move(orig_sq, sq))
 
         # Captures
-        for Psq in self.__squares_from(self.__WP_BB if self.__turn else self.__BP_BB):
+        pattack_sqrs = set()
+        for Psq in self.__squares_from(self.__board_bb[0 if self.__turn else 1]):
             for sq in self.__squares_from(self.__pawn_atk_squares(Psq)):
+                pattack_sqrs.add(sq)
                 if (self.__turn and rank(sq) == "8") or (not self.__turn and rank(sq) == "1"):  # promotion
                     for piece in (KNIGHT, BISHOP, ROOK, QUEEN):
                         moves.append(Move(Psq, sq, promotion=piece))
@@ -417,27 +401,28 @@ class Board:
                     moves.append(Move(Psq, sq))
 
         # En Passant
-        if len(self.__move_stack) > 0:
+        if self.__move_stack:
 
-            last_move = list(self.__move_stack.keys())[-1]
-            sq = last_move.to_square
-            left, right = self.piece_at(sq - 1), self.piece_at(sq + 1)
-            centre = self.piece_at(sq)
+            last_move = self.__move_stack[-1]
+            sq = self.__en_passant_square
+            if sq is not None and sq in pattack_sqrs: # Valid en passant move
+                left, right = self.piece_at(sq - 1), self.piece_at(sq + 1)
+                centre = self.piece_at(sq)
 
-            if self.__is_double_push(last_move):
+                if self.__is_double_push(last_move):
 
-                if left is not None and left.piece_type == PAWN and left.colour != centre.colour and rank(sq - 1) == rank(sq):
-                    moves.append(Move(sq - 1, sq + 8 if self.__turn else sq - 8, en_passant=True))
+                    if left is not None and left.piece_type == PAWN and left.colour != centre.colour and rank(sq - 1) == rank(sq):
+                        moves.append(Move(sq - 1, sq + 8 if self.__turn else sq - 8, en_passant=True))
 
-                if right is not None and right.piece_type == PAWN and right.colour != centre.colour and rank(sq + 1) == rank(sq):
-                    moves.append(Move(sq + 1, sq + 8 if self.__turn else sq - 8, en_passant=True))
+                    if right is not None and right.piece_type == PAWN and right.colour != centre.colour and rank(sq + 1) == rank(sq):
+                        moves.append(Move(sq + 1, sq + 8 if self.__turn else sq - 8, en_passant=True))
 
         return moves
 
     def generate_knight_moves(self):
         moves = []
 
-        for Nsq in self.__squares_from(self.__WN_BB if self.__turn else self.__BN_BB):
+        for Nsq in self.__squares_from(self.__board_bb[2 if self.__turn else 3]):
             for sq in self.__squares_from(self.__knight_squares(Nsq)):
                 moves.append(Move(Nsq, sq))
 
@@ -453,16 +438,22 @@ class Board:
 
         self.__turn = not self.__turn
 
-        for Ksq in self.__squares_from(self.__WK_BB if self.__turn else self.__BK_BB):
+        for Ksq in self.__squares_from(self.__board_bb[10 if self.__turn else 11]):
             for sq in self.__squares_from(self.__king_squares(Ksq) & (legal_sqrs & non_protected_sqrs)):
                 moves.append(Move(Ksq, sq))
 
         return moves
+    
+    def enemy_attacked_squares(self):
+        self.__turn = not self.__turn
+        sqrs = self.generate_attacks_bb(no_king=True)
+        self.__turn = not self.__turn
+        return sqrs
 
     def generate_bishop_moves(self):
         moves = []
 
-        for Bsq in self.__squares_from(self.__WB_BB if self.__turn else self.__BB_BB):
+        for Bsq in self.__squares_from(self.__board_bb[4 if self.__turn else 5]):
             for sq in self.__squares_from(self.__bishop_squares(Bsq)):
                 moves.append(Move(Bsq, sq))
 
@@ -471,7 +462,7 @@ class Board:
     def generate_rook_moves(self):
         moves = []
 
-        for Rsq in self.__squares_from(self.__WR_BB if self.__turn else self.__BR_BB):
+        for Rsq in self.__squares_from(self.__board_bb[6 if self.__turn else 7]):
             for sq in self.__squares_from(self.__rook_squares(Rsq)):
                 moves.append(Move(Rsq, sq))
 
@@ -480,69 +471,65 @@ class Board:
     def generate_queen_moves(self):
         moves = []
 
-        for Qsq in self.__squares_from(self.__WQ_BB if self.__turn else self.__BQ_BB):
+        for Qsq in self.__squares_from(self.__board_bb[8 if self.__turn else 9]):
             for sq in self.__squares_from(self.__queen_squares(Qsq)):
                 moves.append(Move(Qsq, sq))
 
         return moves
+    
+    # CASTLING ONLY IF: Empty squares, has castling rights and can't castle through check
+    def __generate_castling_rights(self):
+        rights = [False, False] # Short, Long
+        if self.__turn: # white
+            if self.__WShortCastle_bb & self.__empty_squares() == self.__WShortCastle_bb and \
+            self.__castling_rights[0] and \
+            self.enemy_attacked_squares() & bb_from_sqrs([sq_num("f1"), sq_num("g1")]) == 0:
+                rights[0] = True
+            if self.__WLongCastle_bb & self.__empty_squares() == self.__WLongCastle_bb and \
+            self.__castling_rights[1] and \
+            self.enemy_attacked_squares() & bb_from_sqrs([sq_num("d1"), sq_num("c1")]) == 0:
+                rights[1] = True
+        else: # black
+            if self.__BShortCastle_bb & self.__empty_squares() == self.__BShortCastle_bb and \
+            self.__castling_rights[2] and \
+            self.enemy_attacked_squares() & bb_from_sqrs([sq_num("f8"), sq_num("g8")]) == 0:
+                rights[0] = True
+            if self.__BLongCastle_bb & self.__empty_squares() == self.__BLongCastle_bb and \
+            self.__castling_rights[3] and \
+            self.enemy_attacked_squares() & bb_from_sqrs([sq_num("d8"), sq_num("c8")]) == 0:
+                rights[1] = True
+        return rights
 
-    def __can_short_castle(self):
-        if self.__turn:
-            if self.__WShortCastle_bb & self.__empty_squares() == self.__WShortCastle_bb and not self.__WRookH_moved and not self.__WKing_moved:
-                return True
-        else:
-            if self.__BShortCastle_bb & self.__empty_squares() == self.__BShortCastle_bb and not self.__WRookH_moved and not self.__BKing_moved:
-                return True
-        return False
-
-    def __can_long_castle(self):
-        if self.__turn:
-            if self.__WLongCastle_bb & self.__empty_squares() == self.__WLongCastle_bb and not self.__WRookA_moved and not self.__WKing_moved:
-                return True
-        else:
-            if self.__BLongCastle_bb & self.__empty_squares() == self.__BLongCastle_bb and not self.__BRookA_moved and not self.__BKing_moved:
-                return True
-        return False
-
+    # Generate castling moves
     def generate_castling_moves(self):
+        if self.in_check():
+            return []
         moves = []
-        if self.__can_short_castle():
+        castling_rights = self.__generate_castling_rights()
+        if castling_rights[0]:
             moves.append(Move(sq_num("e1") if self.__turn else sq_num("e8"), sq_num("g1") if self.__turn else sq_num("g8"), castling=True))
-        if self.__can_long_castle():
+        if castling_rights[1]:
             moves.append(Move(sq_num("e1") if self.__turn else sq_num("e8"), sq_num("c1") if self.__turn else sq_num("c8"), castling=True))
-
         return moves
 
     def generate_capture_bb(self):
+        funcs = [self.__pawn_atk_squares, self.__knight_atk_squares, self.__bishop_atk_squares, 
+                 self.__rook_atk_squares, self.__queen_atk_squares, self.__king_atk_squares]
         bb = 0
-        for sq in self.__squares_from(self.__WP_BB if self.__turn else self.__BP_BB):
-            bb |= self.__pawn_atk_squares(sq)
-        for sq in self.__squares_from(self.__WN_BB if self.__turn else self.__BN_BB):
-            bb |= self.__knight_atk_squares(sq)
-        for sq in self.__squares_from(self.__WB_BB if self.__turn else self.__BB_BB):
-            bb |= self.__bishop_atk_squares(sq)
-        for sq in self.__squares_from(self.__WR_BB if self.__turn else self.__BR_BB):
-            bb |= self.__rook_atk_squares(sq)
-        for sq in self.__squares_from(self.__WQ_BB if self.__turn else self.__BQ_BB):
-            bb |= self.__queen_atk_squares(sq)
-        for sq in self.__squares_from(self.__WK_BB if self.__turn else self.__BK_BB):
-            bb |= self.__king_atk_squares(sq)
+        for i, idx in enumerate(range(0 if self.__turn else 1, 12, 2)):
+            for sq in self.__squares_from(self.__board_bb[idx]):
+                bb |= funcs[i](sq)
         return bb
 
     def generate_attacks_bb(self, no_king=False, empty=False, protected=False):
+        funcs = [self.__pawn_atk_squares, self.__knight_squares, self.__bishop_squares, 
+            self.__rook_squares, self.__queen_squares, self.__king_squares]
         bb = 0
-        for sq in self.__squares_from(self.__WP_BB if self.__turn else self.__BP_BB):
-            bb |= self.__pawn_atk_squares(sq, no_king, empty, protected)
-        for sq in self.__squares_from(self.__WN_BB if self.__turn else self.__BN_BB):
-            bb |= self.__knight_squares(sq, no_king, empty, protected)
-        for sq in self.__squares_from(self.__WB_BB if self.__turn else self.__BB_BB):
-            bb |= self.__bishop_squares(sq, no_king, empty, protected)
-        for sq in self.__squares_from(self.__WR_BB if self.__turn else self.__BR_BB):
-            bb |= self.__rook_squares(sq, no_king, empty, protected)
-        for sq in self.__squares_from(self.__WQ_BB if self.__turn else self.__BQ_BB):
-            bb |= self.__queen_squares(sq, no_king, empty, protected)
-        for sq in self.__squares_from(self.__WK_BB if self.__turn else self.__BK_BB):
-            bb |= self.__king_squares(sq, no_king, empty, protected)
+        for i, idx in enumerate(range(0 if self.__turn else 1, 12, 2)):
+            for sq in self.__squares_from(self.__board_bb[idx]):
+                bb |= (j := funcs[i](sq, no_king, empty, protected))
+                # print(i)
+                # print_bb(j)
         return bb
 
     @property
@@ -555,25 +542,28 @@ class Board:
         pseudo_legal_moves = self.pseudo_legal_moves
         legal_moves = []
         for move in pseudo_legal_moves:
+            # print(move)
             self.push(move)
-            if self.generate_capture_bb() & (self.__WK_BB if not self.__turn else self.__BK_BB) == 0:
+            # print(self.__board_bb)
+            if self.generate_capture_bb() & (self.__board_bb[10 if not self.__turn else 11]) == 0:
                 legal_moves.append(move)
             self.pop()
+            # print(self.__board_bb)
         return legal_moves + self.generate_king_moves()
 
     def piece_at(self, sq):
-        pieces = {bin64_to_str(self.__WP_BB): Piece(PAWN, WHITE),
-                  bin64_to_str(self.__BP_BB): Piece(PAWN, BLACK),
-                  bin64_to_str(self.__WN_BB): Piece(KNIGHT, WHITE),
-                  bin64_to_str(self.__BN_BB): Piece(KNIGHT, BLACK),
-                  bin64_to_str(self.__WB_BB): Piece(BISHOP, WHITE),
-                  bin64_to_str(self.__BB_BB): Piece(BISHOP, BLACK),
-                  bin64_to_str(self.__WR_BB): Piece(ROOK, WHITE),
-                  bin64_to_str(self.__BR_BB): Piece(ROOK, BLACK),
-                  bin64_to_str(self.__WQ_BB): Piece(QUEEN, WHITE),
-                  bin64_to_str(self.__BQ_BB): Piece(QUEEN, BLACK),
-                  bin64_to_str(self.__WK_BB): Piece(KING, WHITE),
-                  bin64_to_str(self.__BK_BB): Piece(KING, BLACK)}
+        pieces = {bin64_to_str(self.__board_bb[0]): Piece(PAWN, WHITE),
+                  bin64_to_str(self.__board_bb[1]): Piece(PAWN, BLACK),
+                  bin64_to_str(self.__board_bb[2]): Piece(KNIGHT, WHITE),
+                  bin64_to_str(self.__board_bb[3]): Piece(KNIGHT, BLACK),
+                  bin64_to_str(self.__board_bb[4]): Piece(BISHOP, WHITE),
+                  bin64_to_str(self.__board_bb[5]): Piece(BISHOP, BLACK),
+                  bin64_to_str(self.__board_bb[6]): Piece(ROOK, WHITE),
+                  bin64_to_str(self.__board_bb[7]): Piece(ROOK, BLACK),
+                  bin64_to_str(self.__board_bb[8]): Piece(QUEEN, WHITE),
+                  bin64_to_str(self.__board_bb[9]): Piece(QUEEN, BLACK),
+                  bin64_to_str(self.__board_bb[10]): Piece(KING, WHITE),
+                  bin64_to_str(self.__board_bb[11]): Piece(KING, BLACK)}
 
         for bb, piece in pieces.items():
             if bb[sq] == "1":
@@ -623,36 +613,27 @@ class Board:
     def __update_bb(self, piece, func, params):
         global PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, WHITE, BLACK
         pt, c = piece.piece_type, piece.colour
-        if pt == PAWN and c == WHITE:
-            self.__WP_BB = func(self.__WP_BB, params)
-        elif pt == PAWN and c == BLACK:
-            self.__BP_BB = func(self.__BP_BB, params)
-        elif pt == KNIGHT and c == WHITE:
-            self.__WN_BB = func(self.__WN_BB, params)
-        elif pt == KNIGHT and c == BLACK:
-            self.__BN_BB = func(self.__BN_BB, params)
-        elif pt == BISHOP and c == WHITE:
-            self.__WB_BB = func(self.__WB_BB, params)
-        elif pt == BISHOP and c == BLACK:
-            self.__BB_BB = func(self.__BB_BB, params)
-        elif pt == ROOK and c == WHITE:
-            self.__WR_BB = func(self.__WR_BB, params)
-        elif pt == ROOK and c == BLACK:
-            self.__BR_BB = func(self.__BR_BB, params)
-        elif pt == QUEEN and c == WHITE:
-            self.__WQ_BB = func(self.__WQ_BB, params)
-        elif pt == QUEEN and c == BLACK:
-            self.__BQ_BB = func(self.__BQ_BB, params)
-        elif pt == KING and c == WHITE:
-            self.__WK_BB = func(self.__WK_BB, params)
-        elif pt == KING and c == BLACK:
-            self.__BK_BB = func(self.__BK_BB, params)
+        mapping = {(PAWN, WHITE): 0,
+                   (PAWN, BLACK): 1,
+                   (KNIGHT, WHITE): 2,
+                   (KNIGHT, BLACK): 3,
+                   (BISHOP, WHITE): 4,
+                   (BISHOP, BLACK): 5,
+                   (ROOK, WHITE): 6,
+                   (ROOK, BLACK): 7,
+                   (QUEEN, WHITE): 8,
+                   (QUEEN, BLACK): 9,
+                   (KING, WHITE): 10,
+                   (KING, BLACK): 11}
+        bbi = mapping[(pt, c)]
+        self.__board_bb[bbi] = func(self.__board_bb[bbi], params)
 
     def push(self, move):
 
         s1, s2 = move.from_square, move.to_square
         p1, p2 = self.piece_at(s1), self.piece_at(s2)
 
+        # Make the move
         if move.castling:
             if file(s2) == "g":  # short castle
                 self.__update_bb(Piece(ROOK, self.__turn), self.__move_piece, (s1 + 3, s2 - 1))
@@ -669,45 +650,47 @@ class Board:
         if move.en_passant:  # en passant move only
             self.__update_bb(Piece(PAWN, not self.__turn), self.__remove_piece, s2 - 8 if self.__turn else s2 + 8)
 
-        # Updating whether king or rook have moved
+        # Log castling rights
         if p1.piece_type == KING:
             if p1.colour:
-                if not self.__WKing_moved:
-                    self.__WKing_moved = True
+                self.__castling_rights[0] = False
+                self.__castling_rights[1] = False
             else:
-                if not self.__BKing_moved:
-                    self.__BKing_moved = True
+                self.__castling_rights[2] = False
+                self.__castling_rights[3] = False
                     
         elif p1.piece_type == ROOK:
             if p1.colour:
-                if file(s1) == "a" and not self.__WRookA_moved:
-                    self.__WRookA_moved = True
-                elif file(s1) == "h" and not self.__WRookH_moved:
-                    self.__WRookH_moved = True
+                if file(s1) == "a":
+                    self.__castling_rights[1] = False
+                elif file(s1) == "h":
+                    self.__castling_rights[0] = False
             else:
-                if file(s1) == "a" and not self.__BRookA_moved:
-                    self.__BRookA_moved = True
-                elif file(s1) == "h" and not self.__BRookH_moved:
-                    self.__BRookH_moved = True
+                if file(s1) == "a":
+                    self.__castling_rights[3] = False
+                elif file(s1) == "h":
+                    self.__castling_rights[2] = False
+        
+        # Log en passant square
+        if p1 is not None and p1.piece_type == PAWN and self.__is_double_push(move):
+            self.__en_passant_square = s1 + (8 if self.__turn else -8)
 
-        self.__move_stack[move] = [[self.__WP_BB, self.__BP_BB, self.__WN_BB, self.__BN_BB, self.__WB_BB, self.__BB_BB,
-                                   self.__WR_BB, self.__BR_BB, self.__WQ_BB, self.__BQ_BB, self.__WK_BB, self.__BK_BB],
-                                   [self.__WRookA_moved, self.__WRookH_moved, self.__WKing_moved, self.__BRookA_moved, self.__BRookH_moved, self.__BKing_moved]]
-        self.__turn = not self.__turn
+        self.__move_stack.append(move)
+        self.__state_stack.append([tuple(self.__board_bb), tuple(self.__castling_rights), self.__en_passant_square]) 
+        self.__turn = not self.__turn # Update board turn
 
+    # Remove move from move stack
     def pop(self):
         if self.__move_stack:  # move list is not empty
-            self.__move_stack.pop(list(self.__move_stack.keys())[-1])
-            try:  # has 2 or more moves on the move stack
-                last = list(self.__move_stack.keys())[-1]
-                self.__WP_BB, self.__BP_BB, self.__WN_BB, self.__BN_BB, self.__WB_BB, self.__BB_BB, \
-                self.__WR_BB, self.__BR_BB, self.__WQ_BB, self.__BQ_BB, self.__WK_BB, self.__BK_BB = self.__move_stack[last][0]
-                self.__WRookA_moved, self.__WRookH_moved, self.__WKing_moved, self.__BRookA_moved, self.__BRookH_moved, self.__BKing_moved = self.__move_stack[last][1]
-                self.__turn = not self.__turn
-            except IndexError:  # has only 1 move on the move stack
-                self.__init__()  # reset to default position
+            self.__move_stack.pop()
+            self.__state_stack.pop()
+            last_state = self.__state_stack[-1]
+            self.__board_bb = list(last_state[0][:])
+            self.__castling_rights = list(last_state[1])
+            self.__en_passant_square = last_state[2]
+            self.__turn = not self.__turn
 
-    def is_capture(self, move):
+    def is_capture(self, move): # Is capture
         p1, p2 = self.piece_at(move.from_square), self.piece_at(move.to_square)
         if move.en_passant:
             return True
@@ -715,25 +698,58 @@ class Board:
             return True
         return False
 
-    def is_check(self, move):
+    def is_check(self, move): # Is Check
         self.push(move)
-        self.__turn = not self.__turn
-        bb = self.generate_capture_bb()
-        self.__turn = not self.__turn
+        is_in_check = self.in_check()
         self.pop()
-        if bb & (self.__WK_BB if not self.__turn else self.__BK_BB) != 0:
-            return True
-        return False
+        return is_in_check
+    
+    def in_check(self): # In Check
+        return self.enemy_attacked_squares() & (self.__board_bb[10 if self.__turn else 11]) != 0
 
+    def set_fen(self, fen): # Set Fen
+
+        self.__board_bb = [0 for _ in range(12)]
+        pp, turn, castling, epts, hmc, moves = fen.split(" ")
+        mapping = {"P": 0, "p": 1, "N": 2, "n": 3, "B": 4, "b": 5, "R" : 6, "r" : 7, "Q" : 8, "q" : 9, "K" : 10, "k" : 11}
+
+        # Setting up the Pieces
+        for rn, rank in enumerate(pp.split("/")[::-1]): # iterate through each rank
+            fn = 0
+            for char in rank: # iterate through each character
+                if char in "PNBRQKpnbrqk":
+                    i = mapping[char]
+                    self.__board_bb[i] = self.__add_piece(self.__board_bb[i], rn * 8 + fn)
+                    fn += 1
+                else:
+                    fn += int(char)
+        
+        # Player's Turn
+        self.__turn = turn == "w"
+
+        # Castling Rights
+        self.__castling_rights = ["K" in castling, "Q" in castling, "k" in castling, "q" in castling]
+
+        # En Passant Square
+        if epts != "-":
+            self.__en_passant_square = sq_num(epts)
+
+        # Set Base Fen
+        self.__state_stack = [[self.__board_bb[:], self.__castling_rights, self.__en_passant_square]]
+        
+        print("FEN SET")
+        
     def perft(self, depth):
-        global nodes, captures, checks, en_passant, checkmates
+        global nodes, captures, checks, en_passant, checkmates, log
         nodes = 0
         captures = 0
         checks = 0
         en_passant = 0
         checkmates = 0
         stime = time.perf_counter()
+        log = set()
         self.__perft(depth)
+        # return log
         return {"nodes": nodes, "captures": captures, "checks": checks, "en passant": en_passant, 
                 "checkmates": checkmates, "time": time.perf_counter() - stime}
 
@@ -752,11 +768,12 @@ class Board:
                 if self.is_en_passant(move):
                     en_passant += 1
                 nodes += 1
+                
             self.push(move)
-            print(self.__WP_BB)
+            if depth == 1:
+                log.add(tuple([i.uci() for i in list(self.__move_stack)]))
             self.__perft(depth - 1)
             self.pop()
-            print(self.__WP_BB)
         
         if len(moves) == 0:
             checkmates += 1
@@ -765,16 +782,24 @@ class Board:
 if __name__ in "__main__":
 
     board = Board()
+    board.set_fen("rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8")
+    board.print_board()
+
+    print(board.perft(1))
+    print(board.perft(2))
+    print(board.perft(3))
 
     # while True:
-    #
+    
     #     stime = time.perf_counter_ns()
-    #
+    
     #     board.print_board()
     #     print(board.legal_moves)
-    #
+    #     # print(board.in_check())
+    #     # print(board.enemy_attacked_squares())
+    
     #     print(f"time taken: {(time.perf_counter_ns() - stime) / 1e9}s")
-    #
+    
     #     next_move = input("next move [(q)uit the game, (p)op last move]: ")
     #     if next_move == "q":
     #         break
@@ -794,7 +819,7 @@ if __name__ in "__main__":
     #     except Exception as err:
     #         print(err)
 
-    print(board.perft(1))
+    # print(board.perft(1))
     # print(board.perft(2))
     # print(board.perft(3))
     # print(board.perft(4))
@@ -804,7 +829,9 @@ if __name__ in "__main__":
 
 '''
 
-prev:
+STARTING POSITION
+
+v9
 
 {'nodes': 20, 'captures': 0, 'checks': 0, 'en passant': 0, 'time': 0.014631700003519654}
 {'nodes': 400, 'captures': 0, 'checks': 0, 'en passant': 0, 'time': 0.2107947999611497}
@@ -812,13 +839,27 @@ prev:
 {'nodes': 197281, 'captures': 1576, 'checks': 469, 'en passant': 0, 'time': 62.353513499954715}
 {'nodes': 4865621, 'captures': 82719, 'checks': 27351, 'en passant': 258, 'time': 1796.025495500071}
 
-most updated:
+v11
 
 {'nodes': 20, 'captures': 0, 'checks': 0, 'en passant': 0, 'checkmates': 0, 'time': 0.0344046}
 {'nodes': 400, 'captures': 0, 'checks': 0, 'en passant': 0, 'checkmates': 0, 'time': 0.23974059999999997}
 {'nodes': 8902, 'captures': 34, 'checks': 12, 'en passant': 0, 'checkmates': 0, 'time': 1.9510216999999999}
 {'nodes': 197281, 'captures': 1576, 'checks': 469, 'en passant': 0, 'checkmates': 0, 'time': 23.550980300000003}
 {'nodes': 4865621, 'captures': 82719, 'checks': 27351, 'en passant': 258, 'checkmates': 8, 'time': 556.6171326}
+done
+
+POSITION 5
+
+v12
+{'nodes': 44, 'captures': 6, 'checks': 0, 'en passant': 0, 'checkmates': 0, 'time': 0.0822332}
+{'nodes': 1486, 'captures': 222, 'checks': 117, 'en passant': 0, 'checkmates': 0, 'time': 0.7191848000000001}
+{'nodes': 62423, 'captures': 8517, 'checks': 1201, 'en passant': 0, 'checkmates': 0, 'time': 12.3879496}
+done
+
+v11
+{'nodes': 44, 'captures': 6, 'checks': 0, 'en passant': 0, 'checkmates': 0, 'time': 0.08779200000000001}
+{'nodes': 1486, 'captures': 222, 'checks': 117, 'en passant': 0, 'checkmates': 0, 'time': 0.6186138}
+{'nodes': 62522, 'captures': 8517, 'checks': 1201, 'en passant': 0, 'checkmates': 0, 'time': 10.2163622}
 done
 
 '''

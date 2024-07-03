@@ -4,7 +4,7 @@ import chess.svg
 import time
 import copy
 
-VERSION = "v0.59" # Version
+VERSION = "v0.73" # Version
 INF = 99999 # Infinity value
 R = 2 # Null move pruning reduction R
 PAWN_VAL = 10
@@ -405,6 +405,7 @@ def negamax(board, alpha, beta, depth, ply): # Main negamax search function
 
     if best_move != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move, chess.polyglot.zobrist_hash(board)) # Transposition table store
+        ht.add_move(board.turn, best_move, depth) # Store history move
 
     return alpha
 
@@ -470,6 +471,7 @@ def root_search(board, depth, alpha, beta): # Root negamax search function
 
     if best_move_found != chess.Move.null():
         tt.record_hash(depth, flag, alpha, best_move_found, chess.polyglot.zobrist_hash(board)) # Transposition table store
+        ht.add_move(board.turn, best_move_found, depth) # Store history move
 
     return best_move_found, alpha # Return the score as well for aspiration window
 
@@ -525,7 +527,7 @@ def get_best_move(board, max_depth): # Function to get best move after search
         except ZeroDivisionError:
             debug["positions per second"] = "inf"
         debug["tt length"] = tt.length
-        debug["av. bcmn"] = sum([k*v for k, v in debug["beta cutoff move num"].items()]) / sum(list(debug["beta cutoff move num"].values()))
+        debug["beta cutoff move num"] = sum([k*v for k, v in debug["beta cutoff move num"].items()]) / sum(list(debug["beta cutoff move num"].values()))
         debug["ebf"] = (debug["msnodes"] + debug["lnodes"]) / debug["msnodes"]
 
         print(f"{VERSION} DEBUG: {debug}")
