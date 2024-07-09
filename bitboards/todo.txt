@@ -1,0 +1,3 @@
+- Check for pinned pieces, disabling their movement
+- Only allow piece moves that block a check when in check
+- Check for double check, and only move the king when it is the case

@@ -1,5 +1,5 @@
 import chess
-import bitboard_017
+import bitboard_019
 
 board = chess.Board()
 board.set_board_fen("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8")
@@ -25,12 +25,12 @@ def __perft(brd, depth):
         brd.pop()
 
 
-correct_log = perft(board, 4)
+correct_log = perft(board, 2)
 print(len(correct_log))
 
-b = bitboard_017.Board()
+b = bitboard_019.Board()
 b.set_fen("8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - -")
-incorrect_log = b.perft(4)
+incorrect_log = b.perft(2)
 print(len(incorrect_log))
 
 with open("correct.txt", "w") as f:
