@@ -1,0 +1,2 @@
+player vs Chess v0.36 (depth 6)
+b1. Nxc4, 0
