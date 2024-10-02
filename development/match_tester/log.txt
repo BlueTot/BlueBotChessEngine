@@ -1,1 +1,0 @@
-player vs Chess v0.85 (depth 6)
