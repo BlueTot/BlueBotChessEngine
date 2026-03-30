@@ -1,3 +1,9 @@
+# DEPRECATED
+
+This repository is no longer maintained.
+Please use [BlueTot/bluebot2](https://github.com/BlueTot/bluebot2) instead.
+This repo is kept for historical/reference purposes only.
+
 # Bluebot Chess Engine
 
 A ~2000 rated classical minimax chess engine written in python that started out of a tutorial. It used to play on chess.com as `BlueBotChessTest4` with a peak rating of 2096 in 10+0 rapid, and it won against Komodo 17 (2100) on chess.com and Fairy Stockfish 6 (~2100) on lichess in 10+0 rapid.
